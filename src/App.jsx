@@ -329,28 +329,25 @@ export default function SouthernHorizonSite() {
       });
     } catch (err) { console.error("Firebase error:", err); }
 
-    // 2. Send email notification (independent — doesn't block submission)
+    // 2. Send guest confirmation email via EmailJS
     try {
-      await fetch("https://api.web3forms.com/submit", {
+      await fetch("https://api.emailjs.com/api/v1.0/email/send", {
         method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: "97ccfeb1-d44e-4773-bcbe-d2ad854bf675",
-          subject: `SHCo Enquiry — ${formData.name || "New Guest"}`,
-          from_name: "Southern Horizon Co. Website",
-          replyto: formData.email,
-          "Booking ID": id,
-          Name: formData.name, Email: formData.email, Phone: formData.phone,
-          Guests: formData.guests, Dates: formData.dates, Package: formData.package,
-          "Dietary Requirements": formData.dietary,
-          "Special Requirements": formData.specialNeeds,
-          "Child Seats": formData.childSeats ? "Yes" : "No",
-          "Child Cutlery Sets": formData.childCutlery ? "Yes" : "No",
-          "Bottle Steriliser & Brush Kit": formData.bottleKit ? "Yes" : "No",
-          Message: formData.message,
+          service_id: "service_boynyl6",
+          template_id: "template_kuncasw",
+          user_id: "xioaylu5g4dwl6Xo6",
+          template_params: {
+            guest_name: formData.name,
+            guest_email: formData.email,
+            booking_id: id,
+            package: formData.package,
+            dates: formData.dates,
+          },
         }),
       });
-    } catch (err) { console.error("Email error:", err); }
+    } catch (err) { console.error("EmailJS error:", err); }
 
     setFormSubmitted(true);
     setFormSubmitting(false);
