@@ -288,23 +288,40 @@ export default function SouthernHorizonSite() {
   const handleSubmit = async () => {
     setFormSubmitting(true);
     try {
-      // Create booking in Firebase with status "enquiry"
       const id = "SH-" + Date.now().toString(36).toUpperCase();
       const pkgMap = {"K'gari Experience":"kgari","Tropical North":"tropical-north","Coastal Explorer":"coastal-explorer",
         "Red Centre & Outback":"outback","Whitsundays":"whitsundays","Outback Taster":"outback-taster",
         "Capricorn Coast":"capricorn-coast","Carnarvon Gorge":"carnarvon-gorge","Byron Bay":"byron-bay",
         "Stockton Beach":"stockton-beach","Custom Journey":"custom","Not sure yet":"custom"};
       const pkgId = pkgMap[formData.package] || "custom";
-      const pkgData = {kgari:{days:5},["tropical-north"]:{days:7},["coastal-explorer"]:{days:21},outback:{days:21},
-        whitsundays:{days:7},["outback-taster"]:{days:7},["capricorn-coast"]:{days:7},["carnarvon-gorge"]:{days:7},
-        ["byron-bay"]:{days:5},["stockton-beach"]:{days:7},custom:{days:7}};
+
+      // Package stops + default nights
+      const pkgStops = {
+        kgari: [{n:"Rainbow Beach & Inskip",ni:1},{n:"Southern K'gari",ni:2},{n:"75 Mile Beach",ni:1},{n:"Northern K'gari",ni:1},{n:"Hervey Bay (optional)",ni:1}],
+        "tropical-north": [{n:"Cairns",ni:1},{n:"Port Douglas & Mossman Gorge",ni:2},{n:"Daintree Rainforest",ni:2},{n:"Cape Tribulation",ni:2},{n:"Atherton Tablelands",ni:2},{n:"Cairns (return)",ni:2}],
+        "coastal-explorer": [{n:"Rainbow Beach & Inskip",ni:1},{n:"Southern K'gari",ni:3},{n:"Bundaberg & 1770",ni:2},{n:"Yeppoon & Capricorn Coast",ni:2},{n:"Cape Hillsborough",ni:2},{n:"Airlie Beach & Whitsundays",ni:3},{n:"Townsville & Magnetic Island",ni:2},{n:"Mission Beach",ni:2},{n:"Cairns",ni:4}],
+        outback: [{n:"Toowoomba",ni:1},{n:"Roma",ni:1},{n:"Mitchell & Charleville",ni:2},{n:"Blackall",ni:2},{n:"Longreach",ni:3},{n:"Winton",ni:3},{n:"Carnarvon Gorge",ni:3},{n:"Emerald & Gemfields",ni:2},{n:"Rockhampton",ni:1},{n:"Agnes Water & Bundaberg",ni:2}],
+        whitsundays: [{n:"Airlie Beach",ni:3},{n:"Cape Hillsborough",ni:2},{n:"Mackay",ni:1}],
+        "outback-taster": [{n:"Longreach",ni:3},{n:"Winton",ni:2},{n:"Longreach (return)",ni:1}],
+        "capricorn-coast": [{n:"Yeppoon",ni:3},{n:"1770 & Agnes Water",ni:3},{n:"Rockhampton",ni:1}],
+        "carnarvon-gorge": [{n:"Rubyvale & Gemfields",ni:1},{n:"Carnarvon Gorge",ni:4},{n:"Blackall",ni:1}],
+        "byron-bay": [{n:"Byron Bay",ni:2},{n:"Ballina & Air Force Beach",ni:1},{n:"Yamba",ni:2}],
+        "stockton-beach": [{n:"Newcastle",ni:1},{n:"Stockton Beach & Port Stephens",ni:3},{n:"Hunter Valley",ni:2}],
+        custom: [],
+      };
+
+      const stops = (pkgStops[pkgId] || []).map(s => ({
+        name: s.n, mode: "camping", nights: s.ni, accomOptions: [], selectedAccom: null,
+      }));
+
+      const totalDays = stops.reduce((a, s) => a + s.nights, 0) || 7;
 
       await setDoc(doc(db, "bookings", id), {
         status: "enquiry", createdAt: new Date().toISOString(),
         guestName: formData.name, guestEmail: formData.email, guestPhone: formData.phone,
         guestCount: formData.guests || "2 adults (couple)",
-        packageId: pkgId, startDate: "", totalDays: pkgData[pkgId]?.days || 7,
-        stops: [], supplements: 0, notes: "",
+        packageId: pkgId, startDate: "", totalDays,
+        stops, supplements: 0, notes: "",
         dietary: formData.dietary, specialNeeds: formData.specialNeeds,
         message: formData.message, dates: formData.dates,
         childSeats: formData.childSeats || false,
