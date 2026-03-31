@@ -287,35 +287,34 @@ export default function SouthernHorizonSite() {
   const toggleFaq = k => setOpenFaqs(p => ({ ...p, [k]: !p[k] }));
   const handleSubmit = async () => {
     setFormSubmitting(true);
+    const id = "SH-" + Date.now().toString(36).toUpperCase();
+    const pkgMap = {"K'gari Experience":"kgari","Tropical North":"tropical-north","Coastal Explorer":"coastal-explorer",
+      "Red Centre & Outback":"outback","Whitsundays":"whitsundays","Outback Taster":"outback-taster",
+      "Capricorn Coast":"capricorn-coast","Carnarvon Gorge":"carnarvon-gorge","Byron Bay":"byron-bay",
+      "Stockton Beach":"stockton-beach","Custom Journey":"custom","Not sure yet":"custom"};
+    const pkgId = pkgMap[formData.package] || "custom";
+
+    const pkgStops = {
+      kgari: [{n:"Rainbow Beach & Inskip",ni:1},{n:"Southern K'gari",ni:2},{n:"75 Mile Beach",ni:1},{n:"Northern K'gari",ni:1},{n:"Hervey Bay (optional)",ni:1}],
+      "tropical-north": [{n:"Cairns",ni:1},{n:"Port Douglas & Mossman Gorge",ni:2},{n:"Daintree Rainforest",ni:2},{n:"Cape Tribulation",ni:2},{n:"Atherton Tablelands",ni:2},{n:"Cairns (return)",ni:2}],
+      "coastal-explorer": [{n:"Rainbow Beach & Inskip",ni:1},{n:"Southern K'gari",ni:3},{n:"Bundaberg & 1770",ni:2},{n:"Yeppoon & Capricorn Coast",ni:2},{n:"Cape Hillsborough",ni:2},{n:"Airlie Beach & Whitsundays",ni:3},{n:"Townsville & Magnetic Island",ni:2},{n:"Mission Beach",ni:2},{n:"Cairns",ni:4}],
+      outback: [{n:"Toowoomba",ni:1},{n:"Roma",ni:1},{n:"Mitchell & Charleville",ni:2},{n:"Blackall",ni:2},{n:"Longreach",ni:3},{n:"Winton",ni:3},{n:"Carnarvon Gorge",ni:3},{n:"Emerald & Gemfields",ni:2},{n:"Rockhampton",ni:1},{n:"Agnes Water & Bundaberg",ni:2}],
+      whitsundays: [{n:"Airlie Beach",ni:3},{n:"Cape Hillsborough",ni:2},{n:"Mackay",ni:1}],
+      "outback-taster": [{n:"Longreach",ni:3},{n:"Winton",ni:2},{n:"Longreach (return)",ni:1}],
+      "capricorn-coast": [{n:"Yeppoon",ni:3},{n:"1770 & Agnes Water",ni:3},{n:"Rockhampton",ni:1}],
+      "carnarvon-gorge": [{n:"Rubyvale & Gemfields",ni:1},{n:"Carnarvon Gorge",ni:4},{n:"Blackall",ni:1}],
+      "byron-bay": [{n:"Byron Bay",ni:2},{n:"Ballina & Air Force Beach",ni:1},{n:"Yamba",ni:2}],
+      "stockton-beach": [{n:"Newcastle",ni:1},{n:"Stockton Beach & Port Stephens",ni:3},{n:"Hunter Valley",ni:2}],
+      custom: [],
+    };
+
+    const stops = (pkgStops[pkgId] || []).map(s => ({
+      name: s.n, mode: "camping", nights: s.ni, accomOptions: [], selectedAccom: null,
+    }));
+    const totalDays = stops.reduce((a, s) => a + s.nights, 0) || 7;
+
+    // 1. Write to Firebase (booking app)
     try {
-      const id = "SH-" + Date.now().toString(36).toUpperCase();
-      const pkgMap = {"K'gari Experience":"kgari","Tropical North":"tropical-north","Coastal Explorer":"coastal-explorer",
-        "Red Centre & Outback":"outback","Whitsundays":"whitsundays","Outback Taster":"outback-taster",
-        "Capricorn Coast":"capricorn-coast","Carnarvon Gorge":"carnarvon-gorge","Byron Bay":"byron-bay",
-        "Stockton Beach":"stockton-beach","Custom Journey":"custom","Not sure yet":"custom"};
-      const pkgId = pkgMap[formData.package] || "custom";
-
-      // Package stops + default nights
-      const pkgStops = {
-        kgari: [{n:"Rainbow Beach & Inskip",ni:1},{n:"Southern K'gari",ni:2},{n:"75 Mile Beach",ni:1},{n:"Northern K'gari",ni:1},{n:"Hervey Bay (optional)",ni:1}],
-        "tropical-north": [{n:"Cairns",ni:1},{n:"Port Douglas & Mossman Gorge",ni:2},{n:"Daintree Rainforest",ni:2},{n:"Cape Tribulation",ni:2},{n:"Atherton Tablelands",ni:2},{n:"Cairns (return)",ni:2}],
-        "coastal-explorer": [{n:"Rainbow Beach & Inskip",ni:1},{n:"Southern K'gari",ni:3},{n:"Bundaberg & 1770",ni:2},{n:"Yeppoon & Capricorn Coast",ni:2},{n:"Cape Hillsborough",ni:2},{n:"Airlie Beach & Whitsundays",ni:3},{n:"Townsville & Magnetic Island",ni:2},{n:"Mission Beach",ni:2},{n:"Cairns",ni:4}],
-        outback: [{n:"Toowoomba",ni:1},{n:"Roma",ni:1},{n:"Mitchell & Charleville",ni:2},{n:"Blackall",ni:2},{n:"Longreach",ni:3},{n:"Winton",ni:3},{n:"Carnarvon Gorge",ni:3},{n:"Emerald & Gemfields",ni:2},{n:"Rockhampton",ni:1},{n:"Agnes Water & Bundaberg",ni:2}],
-        whitsundays: [{n:"Airlie Beach",ni:3},{n:"Cape Hillsborough",ni:2},{n:"Mackay",ni:1}],
-        "outback-taster": [{n:"Longreach",ni:3},{n:"Winton",ni:2},{n:"Longreach (return)",ni:1}],
-        "capricorn-coast": [{n:"Yeppoon",ni:3},{n:"1770 & Agnes Water",ni:3},{n:"Rockhampton",ni:1}],
-        "carnarvon-gorge": [{n:"Rubyvale & Gemfields",ni:1},{n:"Carnarvon Gorge",ni:4},{n:"Blackall",ni:1}],
-        "byron-bay": [{n:"Byron Bay",ni:2},{n:"Ballina & Air Force Beach",ni:1},{n:"Yamba",ni:2}],
-        "stockton-beach": [{n:"Newcastle",ni:1},{n:"Stockton Beach & Port Stephens",ni:3},{n:"Hunter Valley",ni:2}],
-        custom: [],
-      };
-
-      const stops = (pkgStops[pkgId] || []).map(s => ({
-        name: s.n, mode: "camping", nights: s.ni, accomOptions: [], selectedAccom: null,
-      }));
-
-      const totalDays = stops.reduce((a, s) => a + s.nights, 0) || 7;
-
       await setDoc(doc(db, "bookings", id), {
         status: "enquiry", createdAt: new Date().toISOString(),
         guestName: formData.name, guestEmail: formData.email, guestPhone: formData.phone,
@@ -328,8 +327,10 @@ export default function SouthernHorizonSite() {
         childCutlery: formData.childCutlery || false,
         bottleKit: formData.bottleKit || false,
       });
+    } catch (err) { console.error("Firebase error:", err); }
 
-      // Also send email via Web3Forms
+    // 2. Send email notification (independent — doesn't block submission)
+    try {
       await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
@@ -337,6 +338,7 @@ export default function SouthernHorizonSite() {
           access_key: "97ccfeb1-d44e-4773-bcbe-d2ad854bf675",
           subject: `SHCo Enquiry — ${formData.name || "New Guest"}`,
           from_name: "Southern Horizon Co. Website",
+          replyto: formData.email,
           "Booking ID": id,
           Name: formData.name, Email: formData.email, Phone: formData.phone,
           Guests: formData.guests, Dates: formData.dates, Package: formData.package,
@@ -348,11 +350,9 @@ export default function SouthernHorizonSite() {
           Message: formData.message,
         }),
       });
-      setFormSubmitted(true);
-    } catch (err) {
-      console.error(err);
-      alert("Something went wrong — please email us directly at troy.anderson@southernhorizonco.com.au");
-    }
+    } catch (err) { console.error("Email error:", err); }
+
+    setFormSubmitted(true);
     setFormSubmitting(false);
   };
 
