@@ -276,7 +276,7 @@ export default function SouthernHorizonSite() {
   const [activeSection, setActiveSection] = useState("home");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openFaqs, setOpenFaqs] = useState({});
-  const [formData, setFormData] = useState({ name:"",email:"",phone:"",guests:"",dates:"",package:"",dietary:"",specialNeeds:"",message:"",childSeats:false,childCutlery:false,bottleKit:false });
+  const [formData, setFormData] = useState({ name:"",email:"",phone:"",guests:"",dates:"",package:"",duration:"",dietary:"",specialNeeds:"",message:"",childSeats:false,childCutlery:false,bottleKit:false });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formSubmitting, setFormSubmitting] = useState(false);
   const [routeGuide, setRouteGuide] = useState(null);
@@ -311,7 +311,7 @@ export default function SouthernHorizonSite() {
     const stops = (pkgStops[pkgId] || []).map(s => ({
       name: s.n, mode: "camping", nights: s.ni, accomOptions: [], selectedAccom: null,
     }));
-    const totalDays = stops.reduce((a, s) => a + s.nights, 0) || 7;
+    const totalDays = parseInt(formData.duration) || stops.reduce((a, s) => a + s.nights, 0) || 7;
 
     // 1. Write to Firebase (booking app)
     try {
@@ -322,7 +322,7 @@ export default function SouthernHorizonSite() {
         packageId: pkgId, startDate: "", totalDays,
         stops, supplements: 0, notes: "",
         dietary: formData.dietary, specialNeeds: formData.specialNeeds,
-        message: formData.message, dates: formData.dates,
+        message: formData.message, dates: formData.dates, duration: formData.duration,
         childSeats: formData.childSeats || false,
         childCutlery: formData.childCutlery || false,
         bottleKit: formData.bottleKit || false,
@@ -342,7 +342,7 @@ export default function SouthernHorizonSite() {
             guest_name: formData.name,
             guest_email: formData.email,
             booking_id: id,
-            package: formData.package,
+            package: formData.package + (formData.duration ? " (" + formData.duration + ")" : ""),
             dates: formData.dates,
           },
         }),
@@ -1426,28 +1426,56 @@ export default function SouthernHorizonSite() {
               </div>
             ):(
               <div style={{display:"grid",gap:12,background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.08)",padding:"30px 26px",borderRadius:16}}>
-                {[
-                  [{l:"Name *",k:"name",p:"Full name"},{l:"Email *",k:"email",p:"your@email.com",t:"email"}],
-                  [{l:"Phone",k:"phone",p:"+61 ..."},{l:"Guests",k:"guests",sel:["","1 adult","2 adults","3 adults","4 adults","1 adult + 1 child","1 adult + 2 children","1 adult + 3 children","2 adults + 1 child","2 adults + 2 children","2 adults + 3 children"]}],
-                  [{l:"Dates",k:"dates",sel:["","June 2027","July 2027","August 2027","September 2027","October 2027","November 2027","December 2027","January 2028","February 2028","March 2028","April 2028","May 2028","Later in 2028","Flexible / not sure yet"]},{l:"Package",k:"package",sel:["","K'gari Experience","Tropical North","Coastal Explorer","Red Centre & Outback","Whitsundays","Outback Taster","Capricorn Coast","Carnarvon Gorge","Byron Bay","Stockton Beach","Custom Journey","Not sure yet"]}],
-                ].map((row,ri)=>(
-                  <div key={ri} className="g2" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
-                    {row.map((f,fi)=>(
-                      <div key={fi}>
-                        <label style={{fontFamily:sans,fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",color:"rgba(255,255,255,0.35)",marginBottom:5,display:"block"}}>{f.l}</label>
-                        {f.sel?(
-                          <select value={formData[f.k]} onChange={e=>setFormData(p=>({...p,[f.k]:e.target.value}))}
-                            style={{background:"rgba(255,255,255,0.07)",borderColor:"rgba(255,255,255,0.12)",color:formData[f.k]?"#fff":"rgba(255,255,255,0.3)",borderRadius:8}}>
-                            {f.sel.map((o,oi)=><option key={oi} value={o} style={{background:"#1C1917",color:o?"#fff":"#A8A29E"}}>{o||"Select..."}</option>)}
-                          </select>
-                        ):(
-                          <input type={f.t||"text"} value={formData[f.k]} onChange={e=>setFormData(p=>({...p,[f.k]:e.target.value}))}
-                            style={{background:"rgba(255,255,255,0.07)",borderColor:"rgba(255,255,255,0.12)",color:"#fff",borderRadius:8}} placeholder={f.p}/>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                ))}
+                <div className="g2" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
+                  <div><label style={{fontFamily:sans,fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",color:"rgba(255,255,255,0.35)",marginBottom:5,display:"block"}}>Name *</label>
+                    <input value={formData.name} onChange={e=>setFormData(p=>({...p,name:e.target.value}))} style={{background:"rgba(255,255,255,0.07)",borderColor:"rgba(255,255,255,0.12)",color:"#fff",borderRadius:8}} placeholder="Full name"/></div>
+                  <div><label style={{fontFamily:sans,fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",color:"rgba(255,255,255,0.35)",marginBottom:5,display:"block"}}>Email *</label>
+                    <input type="email" value={formData.email} onChange={e=>setFormData(p=>({...p,email:e.target.value}))} style={{background:"rgba(255,255,255,0.07)",borderColor:"rgba(255,255,255,0.12)",color:"#fff",borderRadius:8}} placeholder="your@email.com"/></div>
+                </div>
+                <div className="g2" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
+                  <div><label style={{fontFamily:sans,fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",color:"rgba(255,255,255,0.35)",marginBottom:5,display:"block"}}>Phone</label>
+                    <input value={formData.phone} onChange={e=>setFormData(p=>({...p,phone:e.target.value}))} style={{background:"rgba(255,255,255,0.07)",borderColor:"rgba(255,255,255,0.12)",color:"#fff",borderRadius:8}} placeholder="+61 ..."/></div>
+                  <div><label style={{fontFamily:sans,fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",color:"rgba(255,255,255,0.35)",marginBottom:5,display:"block"}}>Guests</label>
+                    <select value={formData.guests} onChange={e=>setFormData(p=>({...p,guests:e.target.value}))}
+                      style={{background:"rgba(255,255,255,0.07)",borderColor:"rgba(255,255,255,0.12)",color:formData.guests?"#fff":"rgba(255,255,255,0.3)",borderRadius:8}}>
+                      {["","1 adult","2 adults","3 adults","4 adults","1 adult + 1 child","1 adult + 2 children","1 adult + 3 children","2 adults + 1 child","2 adults + 2 children","2 adults + 3 children"].map(o=><option key={o} value={o} style={{background:"#1C1917",color:o?"#fff":"#A8A29E"}}>{o||"Select..."}</option>)}
+                    </select></div>
+                </div>
+                <div className="g2" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
+                  <div><label style={{fontFamily:sans,fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",color:"rgba(255,255,255,0.35)",marginBottom:5,display:"block"}}>Package</label>
+                    <select value={formData.package} onChange={e=>setFormData(p=>({...p,package:e.target.value,duration:""}))}
+                      style={{background:"rgba(255,255,255,0.07)",borderColor:"rgba(255,255,255,0.12)",color:formData.package?"#fff":"rgba(255,255,255,0.3)",borderRadius:8}}>
+                      {["","K'gari Experience","Tropical North","Coastal Explorer","Red Centre & Outback","Whitsundays","Outback Taster","Capricorn Coast","Carnarvon Gorge","Byron Bay","Stockton Beach","Custom Journey","Not sure yet"].map(o=><option key={o} value={o} style={{background:"#1C1917",color:o?"#fff":"#A8A29E"}}>{o||"Select..."}</option>)}
+                    </select></div>
+                  <div><label style={{fontFamily:sans,fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",color:"rgba(255,255,255,0.35)",marginBottom:5,display:"block"}}>Duration</label>
+                    {(()=>{
+                      const durOpts = {"K'gari Experience":["","5 days","6 days","7 days"],
+                        "Tropical North":["","7 days","8 days","9 days","10 days"],
+                        "Byron Bay":["","5 days","6 days","7 days"],
+                        "Coastal Explorer":["","21 days"],
+                        "Red Centre & Outback":["","21 days"],
+                        "Whitsundays":["","7 days"],
+                        "Outback Taster":["","7 days"],
+                        "Capricorn Coast":["","7 days"],
+                        "Carnarvon Gorge":["","7 days"],
+                        "Stockton Beach":["","7 days"],
+                        "Custom Journey":["","3 days","5 days","7 days","10 days","14 days","21 days","Other"],
+                        "Not sure yet":["","Not sure yet"]};
+                      const opts = durOpts[formData.package] || [""];
+                      return <select value={formData.duration} onChange={e=>setFormData(p=>({...p,duration:e.target.value}))}
+                        style={{background:"rgba(255,255,255,0.07)",borderColor:"rgba(255,255,255,0.12)",color:formData.duration?"#fff":"rgba(255,255,255,0.3)",borderRadius:8}}>
+                        {opts.map(o=><option key={o} value={o} style={{background:"#1C1917",color:o?"#fff":"#A8A29E"}}>{o||"Select..."}</option>)}
+                      </select>;
+                    })()}</div>
+                </div>
+                <div className="g2" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
+                  <div><label style={{fontFamily:sans,fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",color:"rgba(255,255,255,0.35)",marginBottom:5,display:"block"}}>Preferred Dates</label>
+                    <select value={formData.dates} onChange={e=>setFormData(p=>({...p,dates:e.target.value}))}
+                      style={{background:"rgba(255,255,255,0.07)",borderColor:"rgba(255,255,255,0.12)",color:formData.dates?"#fff":"rgba(255,255,255,0.3)",borderRadius:8}}>
+                      {["","June 2027","July 2027","August 2027","September 2027","October 2027","November 2027","December 2027","January 2028","February 2028","March 2028","April 2028","May 2028","Later in 2028","Flexible / not sure yet"].map(o=><option key={o} value={o} style={{background:"#1C1917",color:o?"#fff":"#A8A29E"}}>{o||"Select..."}</option>)}
+                    </select></div>
+                  <div/>
+                </div>
                 <div>
                   <label style={{fontFamily:sans,fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",color:"rgba(255,255,255,0.35)",marginBottom:5,display:"block"}}>Dietary Requirements or Allergies</label>
                   <input value={formData.dietary} onChange={e=>setFormData(p=>({...p,dietary:e.target.value}))}
