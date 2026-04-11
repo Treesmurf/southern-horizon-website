@@ -762,7 +762,7 @@ export default function SouthernHorizonSite() {
       </div>
 
       </>)}
-      {activeSection === "choose-mode" && (<>
+      {activeSection === "vehicle" && (<>
       {/* ═══ VEHICLE ═══ */}
       <div id="vehicle" style={{paddingTop:60}}>
         <div style={{padding:"110px 28px",maxWidth:1100,margin:"0 auto"}}>
@@ -819,7 +819,7 @@ export default function SouthernHorizonSite() {
       </div>
 
       </>)}
-      {false && (<>
+      {activeSection === "itinerary" && (<>
       {/* ═══ PLAN YOUR TRIP ═══ */}
       <div id="itinerary" style={{paddingTop:60}}>
         <div style={{background:neutral.sand,padding:"110px 28px"}}>
