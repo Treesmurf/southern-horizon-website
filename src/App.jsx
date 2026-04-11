@@ -21,7 +21,6 @@ const FAQ_DATA = [
     items: [
       { q: "How much luggage can I bring?", a: "The full boot is free — each passenger gets one soft bag, plus day packs at your feet. Plenty of room for everything you need." },
       { q: "What size bags?", a: "Soft duffel bags only — no hard-shell suitcases. Max 65cm × 40cm × 25cm (roughly 60–65L), one per passenger. A 65L duffel handles two weeks easily — swimwear and sunscreen on Monday, boots and layers by Friday." },
-      { q: "Can I use the roof rack?", a: "The vehicle has a genuine Toyota roof platform with side rails. Roof storage is available on most routes, however it is strictly prohibited on sand island sections including K'gari (Fraser Island) due to soft sand driving. We'll advise based on your itinerary." },
       { q: "What should I pack?", a: "Pack for variety — that's the beauty of Australia. Swimwear, reef-safe sunscreen, a light rain jacket for the tropics, plus layers and closed shoes for cooler outback evenings. Hat, sunnies, insect repellent, and a camera are essentials everywhere. Leave formal wear and heavy luggage at home." },
     ],
   },
@@ -781,8 +780,8 @@ export default function SouthernHorizonSite() {
             {[
               {l:"Engine",v:"3.4L Twin-Turbo V6 Diesel"},{l:"Drive",v:"Full-Time 4WD"},
               {l:"Accommodation",v:"Luxury Curated at Every Stop"},{l:"Dining",v:"Breakfast & Dinner Included"},
-              {l:"Fridge",v:"ARB Zero 60L (snacks & drinks)"},{l:"Water",v:"60L Under-Car Tank"},
-              {l:"Roof",v:"Toyota Roof Platform & Side Rails"},{l:"Internet",v:"Starlink Satellite"},
+              {l:"Audio",v:"Mark Levinson Premium"},{l:"Connectivity",v:"Starlink + Telstra SIM"},
+              {l:"Safety",v:"Full Recovery Kit + UHF"},{l:"Internet",v:"Starlink Satellite"},
               {l:"Mobile",v:"Telstra SIM Card"},{l:"Fuel & Dining",v:"Pre-loaded Visa Card"},
             ].map((f,i)=>(
               <div key={i} style={{padding:"18px 16px",background:i%2===0?coast.soft:outback.soft,borderRadius:10}}>
@@ -809,12 +808,7 @@ export default function SouthernHorizonSite() {
               <strong style={{color:neutral.dark}}>Guest limit:</strong> For comfort and safety, we carry a maximum of <strong style={{color:neutral.dark}}>4 adults</strong> or <strong style={{color:neutral.dark}}>2 adults and 3 children</strong> per trip. Fewer passengers means more space, more comfort, and a better experience on remote roads.
             </p>
           </div>
-          <div style={{marginTop:18,padding:"18px 22px",background:"#FFFBEB",borderRadius:10,border:"1px solid #FDE68A",display:"flex",gap:12,alignItems:"flex-start"}}>
-            <div style={{width:3,background:"#D97706",borderRadius:2,flexShrink:0,alignSelf:"stretch"}}/>
-            <p style={{fontFamily:sans,fontSize:12.5,color:"#92400E",lineHeight:1.7}}>
-              <strong>Roof rack:</strong> Toyota roof platform with side rails available on most routes. Roof loading is <strong>strictly prohibited on sand island sections</strong> including K'gari.
-            </p>
-          </div>
+
         </div>
       </div>
 
@@ -877,7 +871,7 @@ export default function SouthernHorizonSite() {
               <h3 style={{fontFamily:serif,fontSize:19,fontWeight:700,color:neutral.dark}}>How Dining Works</h3>
             </div>
             <p style={{fontFamily:sans,fontSize:13.5,color:neutral.mid,lineHeight:1.75,fontWeight:300}}>
-              Your vehicle is stocked with premium road snacks and cold drinks in the ARB Zero 60L fridge. Breakfast and dinner are at curated restaurants 
+              Your vehicle is stocked with premium road snacks and cold drinks in the onboard fridge. Breakfast and dinner are at curated restaurants 
               along your route — coastal seafood, tropical restaurants, outback pubs, fine dining — all covered by your pre-loaded Visa card. 
               We discuss the dining budget during your consultation so there are no surprises. 
               Your accommodation is included — we present handpicked options, you choose, we book. Designed for minimal out-of-pocket expenses.
