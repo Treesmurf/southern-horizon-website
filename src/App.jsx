@@ -8,7 +8,6 @@ const SECTIONS = [
   { id: "packages", label: "Packages" },
   { id: "vehicle", label: "The Vehicle" },
   { id: "itinerary", label: "Plan Your Trip" },
-  { id: "food-drink", label: "Food & Drink" },
   { id: "special-needs", label: "Requirements" },
   { id: "faq", label: "FAQs" },
   { id: "about", label: "Meet Us" },
@@ -35,11 +34,10 @@ const FAQ_DATA = [
   {
     category: "What's Included",
     items: [
-      { q: "What's included in the daily rate?", a: "Everything. The $1,500 daily rate covers the Lexus LX, insurance, curated luxury accommodation at every stop, a pre-loaded Visa card for fuel and dining (breakfast and dinner at curated restaurants), road snacks and drinks in the vehicle, Telstra SIM, Starlink satellite internet, your curated route guide, vehicle briefing, and 24/7 support. One rate, everything included." },
+      { q: "What's included in the daily rate?", a: "Everything. The $1,500 daily rate covers the Lexus LX, insurance, curated luxury accommodation at every stop, breakfast and dinner at curated restaurants via a pre-loaded Visa card, fuel via a pre-loaded Visa card, Telstra SIM, Starlink satellite internet, your curated route guide, vehicle briefing, and 24/7 support. One rate, everything included." },
       { q: "How does accommodation work?", a: "Luxury accommodation is included in your $1,500 daily rate. We curate handpicked options at every stop — outback stations, boutique lodges, coastal retreats, eco-lodges. You pick what appeals, we book everything. No research, no chasing availability, no extra charges." },
       { q: "Can I upgrade to ultra-luxury accommodation?", a: "Absolutely. Your $1,500 daily rate covers quality curated accommodation at every stop. If you'd like to upgrade to ultra-luxury properties — places like Silky Oaks Lodge in the Daintree, Elements of Byron, or Spicers Peak Lodge — we can arrange that as a supplement. Just mention it during your consultation and we'll present upgrade options alongside the standard inclusions at the relevant stops. You only pay the difference for the nights you choose to upgrade." },
-      { q: "How does food work?", a: "Your vehicle is stocked with premium road snacks and cold drinks. Breakfast and dinner are at curated restaurants along your route — covered by your pre-loaded Visa card. We discuss the dining budget during your consultation, and any unspent balance is recovered at the end." },
-      { q: "How does fuel and dining work?", a: "Your Lexus LX comes with a pre-loaded Visa card that covers fuel and dining at curated restaurants along your route. It covers fuel plus your breakfast and dinner budget at restaurants in your route guide. We discuss the Visa limit during your consultation so there are no surprises. Unspent balance is recovered after your trip. For remote outback routes, we recommend also carrying some cash — a few roadhouses may not have EFTPOS." },
+      { q: "How does fuel and dining work?", a: "Your Lexus LX comes with a pre-loaded Visa card that covers fuel and dining. Breakfast and dinner at curated restaurants along your route are included. We discuss the Visa budget during your consultation so there are no surprises. Unspent balance is recovered after your trip." },
       { q: "Is there a security bond?", a: "Yes — a tiered bond system varies by package and configuration. Full details come with your booking enquiry. The bond is fully refundable subject to standard return conditions." },
     ],
   },
@@ -48,7 +46,7 @@ const FAQ_DATA = [
     items: [
       { q: "How long can I hire for?", a: "Our signature touring packages are curated at 21 days — long enough to genuinely experience every stop, not just drive through. K'gari and Tropical North run 5–10 days for a more focused experience. We also offer 7-day regional packages — Whitsundays, Outback Taster, Capricorn Coast, Carnarvon Gorge, Byron Bay, and Stockton Beach. Want something shorter, longer, or completely custom? That's what the Custom Journey is for — minimum 3 days, no maximum." },
       { q: "Why is there a passenger limit?", a: "For comfort and safety. We cap at 4 adults or 2 adults and 3 children per trip. Outback and remote coastal touring involves long distances, variable road conditions, and limited access to services. Fewer passengers means more space in the cabin, better weight distribution for the vehicle, and a safer, more comfortable experience for everyone — especially on sand, corrugations, and unsealed roads." },
-      { q: "Where do I pick up?", a: "You don't — we deliver to you. Your fully-stocked Lexus LX is brought directly to your arrival airport, hotel, or accommodation — Brisbane, Gold Coast, Sunshine Coast (Maroochydore), Cairns, or Sydney depending on your package. Flying into Maroochydore? You could be at Rainbow Beach by lunchtime. Landing at Gold Coast? Head straight for Byron Bay or north to K'gari. Flying into Cairns for the Tropical North? Your Lexus LX is waiting when you land. Already in Brisbane? We can deliver to your hotel, or you're welcome to collect from our yard in Banyo." },
+      { q: "Where do I pick up?", a: "You don't — we deliver to you. Your Lexus LX is brought directly to your arrival airport, hotel, or accommodation — Brisbane, Gold Coast, Sunshine Coast (Maroochydore), Cairns, or Sydney depending on your package. Flying into Maroochydore? You could be at Rainbow Beach by lunchtime. Landing at Gold Coast? Head straight for Byron Bay or north to K'gari. Flying into Cairns for the Tropical North? Your Lexus LX is waiting when you land. Already in Brisbane? We can deliver to your hotel, or you're welcome to collect from our yard in Banyo." },
       { q: "Can I drive on the beach?", a: "Absolutely — beach driving is part of the experience on K'gari and other coastal routes. Sand driving, tyre pressures, tide awareness, and recovery are all covered in your briefing. Required permits are arranged as part of your package." },
       { q: "How much driving is involved?", a: "We design every day with a maximum of four hours behind the wheel. Stops are chosen because they're worth seeing — not just places to sleep. Our 21-day signature packages give you genuine dwell time at every stop so you can explore, relax, and actually experience each destination. No rushed itineraries, no bus-tour pace." },
       { q: "What if something goes wrong?", a: "24/7 phone support, Telstra SIM for mobile coverage, Starlink for beyond-range areas, UHF radio. Emergency procedures and contacts are provided in your pre-departure briefing." },
@@ -66,13 +64,13 @@ const PACKAGES = [
     route: "Brisbane → K'gari (Fraser Island)",
     tagline: "The world's largest sand island by Lexus LX",
     description: "Focused adventure on an iconic destination. Drive 75 Mile Beach, swim crystal-clear perched lakes, explore rainforest growing in sand. Stay at island resorts and coastal retreats. Add Hervey Bay for whale watching or extend to a full week at island pace.",
-    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Food & drinks fully stocked", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "K'gari permits + barge", "Beach driving briefing", "Luxury accommodation included (touring)", "24/7 support"],
+    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "K'gari permits + barge", "Beach driving briefing", "Luxury accommodation included (touring)", "24/7 support"],
     vibe: "coast",
     stops: [
       { name: "Rainbow Beach & Inskip Point", day: "Day 1", type: "transit", desc: "Drive north from Brisbane (3–4hrs). Air down tyres at Inskip Point and catch the barge across to K'gari's southern tip.", stay: "Rainbow Beach accommodation", eat: "Rainbow Beach Surf Club before crossing", source: "QPWS — book via qld.gov.au/camping" },
       { name: "Southern K'gari", day: "Days 2–3", type: "highlight", desc: "Lake McKenzie — arguably Australia's most beautiful freshwater lake. Crystal clear water, white silica sand. Central Station rainforest walk among towering satinay trees. Two nights to soak it in.", stay: "Kingfisher Bay Resort or Eurong Beach Resort", eat: "Resort dining", source: "QPWS — book via qld.gov.au/camping" },
       { name: "75 Mile Beach & East Coast", day: "Day 4", type: "highlight", desc: "Drive the sand highway up the east coast. Eli Creek (float down the crystal creek), the Maheno Shipwreck, and the Pinnacles coloured sand cliffs.", stay: "Eurong Beach Resort or Sailfish on Fraser", eat: "Resort dining", source: "QPWS — book via qld.gov.au/camping" },
-      { name: "Northern K'gari", day: "Day 5", type: "highlight", desc: "Indian Head — climb the headland for whale and dolphin spotting (seasonal). Champagne Pools — natural rock pools with waves crashing over. Lake Wabby — a perched lake slowly swallowed by a sand blow.", stay: "Orchid Beach retreats", eat: "Road snacks in the vehicle", source: "QPWS — book via qld.gov.au/camping" },
+      { name: "Northern K'gari", day: "Day 5", type: "highlight", desc: "Indian Head — climb the headland for whale and dolphin spotting (seasonal). Champagne Pools — natural rock pools with waves crashing over. Lake Wabby — a perched lake slowly swallowed by a sand blow.", stay: "Orchid Beach retreats", eat: "Local options or resort dining", source: "QPWS — book via qld.gov.au/camping" },
       { name: "Hervey Bay (optional extension)", day: "Days 6–7", type: "stop", desc: "Barge back to the mainland via River Heads. Hervey Bay — whale watching capital of Australia (Jul–Nov), Urangan Pier, relaxed waterfront town. A slower finish before heading south.", stay: "Hervey Bay waterfront accommodation", eat: "The Black Dog Café, Coast Restaurant", source: "visitherveybaay.com.au" },
     ],
   },
@@ -85,10 +83,10 @@ const PACKAGES = [
     route: "Cairns · Daintree · Cape Tribulation",
     tagline: "Where the rainforest meets the reef",
     description: "Start right in the tropics — we deliver your Lexus LX to Cairns Airport so you skip the drive north entirely. Explore Mossman Gorge, the Daintree, Cape Tribulation, Atherton Tablelands, and the reef. Select from our curated eco-lodges and retreats at each stop.",
-    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Food & drinks fully stocked", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "Cairns airport delivery included", "Luxury accommodation included (touring)", "All recovery & safety gear", "Tropical route guide", "24/7 support"],
+    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "Cairns airport delivery included", "Luxury accommodation included (touring)", "All recovery & safety gear", "Tropical route guide", "24/7 support"],
     vibe: "coast",
     stops: [
-      { name: "Cairns", day: "Day 1", type: "transit", desc: "Your starting point. We deliver your Lexus LX to Cairns Airport and fly in to do your handover personally — full vehicle briefing, keys in your hand, fridge stocked.", stay: "Cairns or Palm Cove accommodation", eat: "Prawn Star, Salt House, Cairns Night Markets", source: "ellisbeach.com.au" },
+      { name: "Cairns", day: "Day 1", type: "transit", desc: "Your starting point. We deliver your Lexus LX to Cairns Airport and fly in to do your handover personally — full vehicle briefing, keys in your hand.", stay: "Cairns or Palm Cove accommodation", eat: "Prawn Star, Salt House, Cairns Night Markets", source: "ellisbeach.com.au" },
       { name: "Port Douglas & Mossman Gorge", day: "Days 2–3", type: "highlight", desc: "Four Mile Beach, the Sunday markets, gateway to the Low Isles and outer reef. Mossman Gorge — Indigenous-guided Dreamtime walks, crystal-clear swimming hole among granite boulders.", stay: "Port Douglas boutique accommodation", eat: "Zinc, Salsa Bar & Grill, Sunday markets for tropical fruit", source: "QPWS — book via qld.gov.au/camping" },
       { name: "Daintree River & Rainforest", day: "Days 4–5", type: "highlight", desc: "Cable ferry across the Daintree River into the world's oldest rainforest. Croc-spotting river cruises, Daintree Discovery Centre canopy walk, hidden swimming holes.", stay: "Daintree Eco Lodge or Silky Oaks Lodge", eat: "Daintree Ice Cream Company, Daintree Tea Company", source: "daintreeriverview.com.au" },
       { name: "Cape Tribulation", day: "Days 5–6", type: "highlight", desc: "Where the rainforest meets the reef — literally. Swim off the beach with the canopy at your back. Night walks for wildlife. Dubuji Boardwalk through the mangroves.", stay: "Cape Trib Beach House or Ferntree Rainforest Lodge", eat: "Whet Café Cape Tribulation, local dining", source: "QPWS — book via qld.gov.au/camping (closed wet season Dec–Apr)" },
@@ -106,7 +104,7 @@ const PACKAGES = [
     route: "Proserpine / Mackay · Airlie Beach · Cape Hillsborough",
     tagline: "Islands, reef, and kangaroos on the beach",
     description: "Fly into Proserpine or Mackay and head straight for the Whitsundays. Three nights based at Airlie Beach — day trip to Whitehaven Beach, sailing, snorkelling the reef. Then south to Cape Hillsborough for sunrise kangaroos on the beach, and finish in Mackay. Short, focused, and unforgettable.",
-    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Food & drinks fully stocked", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "Luxury accommodation included (touring)", "All recovery & safety gear", "24/7 support"],
+    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "Luxury accommodation included (touring)", "All recovery & safety gear", "24/7 support"],
     vibe: "coast",
     stops: [
       { name: "Airlie Beach", day: "Days 1–3", type: "highlight", desc: "Gateway to the Whitsunday Islands. Day trip to Whitehaven Beach — consistently rated one of the world's best beaches. Sailing, kayaking, snorkelling the outer reef. Whitsunday Great Walk. Three nights to do it justice.", stay: "Airlie Beach accommodation", eat: "Fish D'vine, Mr Bones, Northerlies Beach Bar", source: "big4.com.au" },
@@ -123,7 +121,7 @@ const PACKAGES = [
     route: "Rockhampton · Yeppoon · 1770 & Agnes Water",
     tagline: "Reef islands, headland walks, and Queensland's most northerly surf",
     description: "Fly into Rockhampton and head for the coast. Yeppoon Lagoon, Great Keppel Island day trip, Capricorn Caves. Then south to the Town of 1770 and Agnes Water — Queensland's most northerly surf beach, Lady Musgrave Island on the southern Great Barrier Reef. A week of coast without the crowds.",
-    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Food & drinks fully stocked", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "Luxury accommodation included (touring)", "All recovery & safety gear", "24/7 support"],
+    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "Luxury accommodation included (touring)", "All recovery & safety gear", "24/7 support"],
     vibe: "coast",
     stops: [
       { name: "Yeppoon & Capricorn Coast", day: "Days 1–3", type: "highlight", desc: "Yeppoon Lagoon, Bluff Point walk. Day trip to Great Keppel Island by ferry — pristine beaches, snorkelling, bushwalks. Capricorn Caves — natural limestone cathedral.", stay: "Yeppoon waterfront accommodation", eat: "Waterline Restaurant Yeppoon, The Strand Hotel", source: "farnboroughbeach.com.au" },
@@ -140,7 +138,7 @@ const PACKAGES = [
     route: "Gold Coast / Ballina · Byron Bay · Yamba",
     tagline: "Lighthouse walks, beach driving, and Australia's most laid-back coast",
     description: "Pick up from Gold Coast or Ballina airport and head straight for Byron Bay. Cape Byron lighthouse, The Pass, The Farm. South to Air Force Beach for a taste of sand driving — no permit needed. Then Yamba, consistently rated one of Australia's best small towns. Short, coastal, and completely relaxed.",
-    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Food & drinks fully stocked", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "Luxury accommodation included (touring)", "Beach driving briefing", "24/7 support"],
+    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "Luxury accommodation included (touring)", "Beach driving briefing", "24/7 support"],
     vibe: "coast",
     stops: [
       { name: "Byron Bay", day: "Days 1–2", type: "highlight", desc: "Cape Byron lighthouse — most easterly point of mainland Australia. Sunrise walk, The Pass for surfing, Main Beach for swimming. The Farm for produce-driven dining. Two nights to soak it in.", stay: "Byron Bay accommodation", eat: "The Balcony Bar & Oyster Co, Three Blue Ducks at The Farm", source: "firstsunbyronbay.com.au" },
@@ -158,7 +156,7 @@ const PACKAGES = [
     route: "Sydney / Newcastle · Port Stephens · Hunter Valley",
     tagline: "Australia's largest coastal dunes, dolphins, and wine country",
     description: "The NSW 4WD highlight. Fly into Sydney or Newcastle and head for Worimi Conservation Lands — 19km of beach driving through massive sand dunes, Tin City, and WWII relics. Nelson Bay for dolphins. Then inland to the Hunter Valley for cellar doors and vineyard stays. Beach, sand, and wine in one week.",
-    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Food & drinks fully stocked", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "Stockton Beach 4WD permit", "Luxury accommodation included (touring)", "Beach driving briefing", "24/7 support"],
+    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "Stockton Beach 4WD permit", "Luxury accommodation included (touring)", "Beach driving briefing", "24/7 support"],
     vibe: "coast",
     stops: [
       { name: "Newcastle", day: "Day 1", type: "transit", desc: "Fly into Sydney or Newcastle. Bathers Way walk — Nobbys Beach, Bogey Hole (convict-cut ocean bath), Merewether Ocean Baths. Street art, craft beer scene.", stay: "Newcastle accommodation (Merewether or inner city)", eat: "Merewether Surfhouse, The Edwards", source: "visitnewcastle.com.au" },
@@ -176,7 +174,7 @@ const PACKAGES = [
     route: "Brisbane → K'gari → Cairns",
     tagline: "The full Queensland coastline — beaches, rainforest, and reef",
     description: "Our signature coastal journey. Head north from Brisbane, cross to K'gari for world-class beach driving, then wind up through the Whitsundays and into Tropical North Queensland. Stay in coastal resorts and boutique lodges — every stop gets genuine dwell time. Finish in Cairns and fly home.",
-    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Food & drinks fully stocked", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "K'gari permits + barge", "All recovery & safety gear", "Luxury accommodation included (touring)", "Coastal route guide", "24/7 support"],
+    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "K'gari permits + barge", "All recovery & safety gear", "Luxury accommodation included (touring)", "Coastal route guide", "24/7 support"],
     vibe: "coast",
     stops: [
       { name: "Rainbow Beach & Inskip", day: "Day 1", type: "transit", desc: "Barge departure point for K'gari. Air down tyres at Inskip Point and get your first taste of coastal sand driving.", stay: "Rainbow Beach accommodation", eat: "Rainbow Beach Surf Club, Waterview Bistro", source: "QPWS — book via qld.gov.au/camping" },
@@ -199,7 +197,7 @@ const PACKAGES = [
     route: "Longreach · Winton",
     tagline: "Dinosaurs, stargazing, and the Qantas story — without the 21-day commitment",
     description: "Fly into Longreach and dive straight into outback Queensland's highlights. Qantas Founders Museum, Australian Age of Dinosaurs on the mesa at Winton, Thomson River sunset cruise. All the best of the Red Centre route in one focused week. All sealed roads, every leg under four hours.",
-    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Food & drinks fully stocked", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "Luxury accommodation included (touring)", "All recovery & safety gear", "Remote route mapping", "24/7 satellite support"],
+    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "Luxury accommodation included (touring)", "All recovery & safety gear", "Remote route mapping", "24/7 satellite support"],
     vibe: "outback",
     stops: [
       { name: "Longreach", day: "Days 1–3", type: "highlight", desc: "Heart of outback Queensland. Qantas Founders Museum — walk through a 747 and 707 on the tarmac. Australian Stockman's Hall of Fame. Thomson River sunset cruise with camp oven dinner. Three nights to soak it in.", stay: "Longreach accommodation or station stays", eat: "Harry's at the Australian Hotel, Merino Bakery", source: "longreachtouristpark.com.au" },
@@ -216,7 +214,7 @@ const PACKAGES = [
     route: "Emerald · Carnarvon Gorge · Blackall",
     tagline: "Ancient rock art, sandstone cathedrals, and outback silence",
     description: "Fly into Emerald and head for the gorge. Four nights at Carnarvon Gorge — 30km sandstone gorge with Aboriginal rock art, moss gardens, the Amphitheatre, Ward's Canyon. Multiple day-walks. Bookended by sapphire fossicking at Rubyvale and outback hospitality at Blackall. A short, deep outback immersion.",
-    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Food & drinks fully stocked", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "Luxury accommodation included (touring)", "All recovery & safety gear", "Remote route mapping", "24/7 satellite support"],
+    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "Luxury accommodation included (touring)", "All recovery & safety gear", "Remote route mapping", "24/7 satellite support"],
     vibe: "outback",
     stops: [
       { name: "Rubyvale & Gemfields", day: "Day 1", type: "stop", desc: "Fly into Emerald, drive to Rubyvale. Sapphire fossicking — try your luck hands-on. A different kind of treasure hunt before the gorge.", stay: "Rubyvale or Emerald accommodation", eat: "Rubyvale Gem Gallery café", source: "rubyvalegem.com.au" },
@@ -233,7 +231,7 @@ const PACKAGES = [
     route: "Brisbane → Longreach · Winton · Carnarvon Gorge",
     tagline: "Stargazing, dinosaurs, and silence you can't find on the coast",
     description: "Head west into outback Queensland's heartland. Artesian spas under the stars, the Qantas birthplace, dinosaur fossils on a mesa, and a 30km sandstone gorge with ancient rock art. Stay in outback pubs, stations, and lodges. All on sealed roads with every leg under four hours. All on sealed and unsealed roads with every leg under four hours.",
-    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Food & drinks fully stocked", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "All recovery & safety gear", "Luxury accommodation included (touring)", "Remote route & water mapping", "24/7 satellite support"],
+    includes: ["Lexus LX500d Overtrail", "Luxury touring — $1,500/day", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "All recovery & safety gear", "Luxury accommodation included (touring)", "Remote route & water mapping", "24/7 satellite support"],
     vibe: "outback",
     stops: [
       { name: "Toowoomba", day: "Day 1", type: "transit", desc: "Up and over the Great Dividing Range. Picnic Point lookout over the Lockyer Valley. Queensland's Garden City — a deliberately gentle start before the landscape strips back.", stay: "Toowoomba accommodation", eat: "The Spotted Cow, Picnic Point café", source: "toowoombaregion.com.au" },
@@ -258,7 +256,7 @@ const PACKAGES = [
     route: "You decide",
     tagline: "Your trip, your way — we build it together",
     description: "Combine coast and outback. Explore one region in depth. Design something completely unique. We present curated accommodation options at each stop and handle all the bookings. Want a shorter version of any signature tour, or something we haven't thought of? Minimum 3 days, no maximum.",
-    includes: ["Luxury touring — $1,500/day", "Food & drinks fully stocked", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "Personalised route consultation", "Luxury accommodation included (touring)", "All standard inclusions", "Flexible duration", "24/7 support"],
+    includes: ["Luxury touring — $1,500/day", "Pre-loaded Visa card (fuel & dining)", "Telstra SIM + Starlink", "Personalised route consultation", "Luxury accommodation included (touring)", "All standard inclusions", "Flexible duration", "24/7 support"],
     vibe: "both",
     stops: null,
   },
@@ -271,7 +269,7 @@ export default function SouthernHorizonSite() {
   const [activeSection, setActiveSection] = useState("home");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openFaqs, setOpenFaqs] = useState({});
-  const [formData, setFormData] = useState({ name:"",email:"",phone:"",guests:"",dates:"",package:"",duration:"",dietary:"",specialNeeds:"",message:"",childSeats:false,childCutlery:false,bottleKit:false });
+  const [formData, setFormData] = useState({ name:"",email:"",phone:"",guests:"",dates:"",package:"",duration:"",specialNeeds:"",message:"",childSeats:false,childCutlery:false,bottleKit:false });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formSubmitting, setFormSubmitting] = useState(false);
   const [routeGuide, setRouteGuide] = useState(null);
@@ -316,7 +314,7 @@ export default function SouthernHorizonSite() {
         guestCount: formData.guests || "2 adults (couple)",
         packageId: pkgId, startDate: "", totalDays,
         stops, supplements: 0, notes: "",
-        dietary: formData.dietary, specialNeeds: formData.specialNeeds,
+        specialNeeds: formData.specialNeeds,
         message: formData.message, dates: formData.dates, duration: formData.duration,
         childSeats: formData.childSeats || false,
         childCutlery: formData.childCutlery || false,
@@ -593,7 +591,7 @@ export default function SouthernHorizonSite() {
               A fully-equipped Lexus LX500d Overtrail — delivered to your airport, 
               your hotel, or wherever you need it. 
               Drive K'gari's white sand, the Daintree's ancient rainforest, Queensland's red outback — 
-              or all of them in one trip. Vehicle, food, fuel, and equipment included.
+              or all of them in one trip. Vehicle, accommodation, dining, fuel, and support included.
               Everything included — $1,500/day.
             </p>
             <div style={{display:"flex",gap:16,justifyContent:"center",flexWrap:"wrap"}}>
@@ -638,7 +636,7 @@ export default function SouthernHorizonSite() {
           </div>
           <div className="g3" style={{display:"grid",gridTemplateColumns:"repeat(3, 1fr)",gap:20}}>
             {[
-              {icon:"01",title:"Delivered to You",text:"Your Lexus LX comes to you — airport terminal, hotel lobby, or wherever your trip begins. Brisbane, Gold Coast, Sunshine Coast, or Cairns. Fridge stocked, Starlink powered up, Mark Levinson ready. You don't come to us — we come to you.",bg:coast.soft,border:"#CCFBF1"},
+              {icon:"01",title:"Delivered to You",text:"Your Lexus LX comes to you — airport terminal, hotel lobby, or wherever your trip begins. Brisbane, Gold Coast, Sunshine Coast, or Cairns. Starlink powered up, Mark Levinson ready. You don't come to us — we come to you.",bg:coast.soft,border:"#CCFBF1"},
               {icon:"02",title:"Self-Drive Freedom",text:"No guide, no tour bus, no schedule. Follow the coast, detour through rainforest, chase sunset in the desert. Stop where you want, stay as long as you like.",bg:neutral.sand,border:"#E7E5E4"},
               {icon:"03",title:"Connected Everywhere",text:"Telstra SIM for regional coverage, Starlink satellite internet for everywhere else. Navigate, stream, and share from the Daintree to the Simpson.",bg:outback.soft,border:"#FDE68A"},
               {icon:"04",title:"Luxury Accommodation",text:"Handpicked boutique lodges, eco-retreats, coastal resorts, and outback stations at every stop. You pick what appeals from our curated options, we book everything. Included in your daily rate.",bg:outback.soft,border:"#FDE68A"},
@@ -664,7 +662,7 @@ export default function SouthernHorizonSite() {
                 Your vehicle, fully loaded
               </div>
               <p style={{fontFamily:sans,fontSize:13,color:"rgba(255,255,255,0.55)",fontWeight:300,marginTop:4}}>
-                Vehicle, food, pre-loaded Visa card, Starlink, Telstra SIM, all equipment, 24/7 support — $1,500/day, everything included in both modes.
+                Vehicle, luxury accommodation, dining, fuel card, Starlink, Telstra SIM, 24/7 support — everything included.
               </p>
             </div>
             <button className="btn-dual" onClick={()=>goTo("enquiry")}
@@ -779,7 +777,7 @@ export default function SouthernHorizonSite() {
           <div className="g4" style={{display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:10,marginBottom:44}}>
             {[
               {l:"Engine",v:"3.4L Twin-Turbo V6 Diesel"},{l:"Drive",v:"Full-Time 4WD"},
-              {l:"Accommodation",v:"Luxury Curated at Every Stop"},{l:"Dining",v:"Breakfast & Dinner Included"},
+              {l:"Accommodation",v:"Luxury Curated at Every Stop"},{l:"Dining",v:"Visa Card for Restaurants"},
               {l:"Audio",v:"Mark Levinson Premium"},{l:"Connectivity",v:"Starlink + Telstra SIM"},
               {l:"Safety",v:"Full Recovery Kit + UHF"},{l:"Internet",v:"Starlink Satellite"},
               {l:"Mobile",v:"Telstra SIM Card"},{l:"Fuel & Dining",v:"Pre-loaded Visa Card"},
@@ -796,7 +794,7 @@ export default function SouthernHorizonSite() {
               <h3 style={{fontFamily:serif,fontSize:20,fontWeight:700,color:neutral.dark,marginBottom:8}}>Luxury Touring — $1,500/day</h3>
               <p style={{fontFamily:sans,fontSize:13.5,color:neutral.mid,lineHeight:1.75,fontWeight:300,marginBottom:12}}>
                 Luxury curated accommodation at every stop — boutique lodges, eco-retreats, coastal resorts, outback stations. 
-                Pre-loaded Visa card covers fuel and dining at curated restaurants (breakfast and dinner). Premium road snacks and cold drinks in the vehicle.
+                Pre-loaded Visa card covers fuel and dining at curated restaurants (breakfast and dinner).
                 You pick your accommodation from our curated options at each stop, we book everything. One bag per passenger, full open boot.
               </p>
               <div style={{fontFamily:sans,fontSize:12.5,color:outback.primary,fontWeight:600}}>Up to 4 guests · 1 bag per passenger · Day packs at feet</div>
@@ -829,7 +827,7 @@ export default function SouthernHorizonSite() {
             <div className="g4" style={{display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:14}}>
               {[
                 {n:"01",t:"Register",d:"Tell us your dates, group, and what you're after — coast, tropics, outback, or the full mix. We're taking registrations now ahead of our June 2027 launch.",accent:coast.primary},
-                {n:"02",t:"We Design",d:"We build your itinerary — daily waypoints, curated accommodation, dining recommendations, tide charts, hidden gems. We'll talk through driving conditions on your route and match the trip to your experience level.",accent:"#3A8A6C"},
+                {n:"02",t:"We Design",d:"We build your itinerary — daily waypoints, curated accommodation, tide charts, hidden gems. We'll talk through driving conditions on your route and match the trip to your experience level.",accent:"#3A8A6C"},
                 {n:"03",t:"Refine",d:"We send the route. Add days, swap stops, change pace. It's not finalised until you're happy.",accent:"#8B7A3E"},
                 {n:"04",t:"Drive",d:"We deliver your Lexus LX to your airport gate, hotel entrance, or wherever suits — Brisbane, Gold Coast, Sunshine Coast, Cairns, or Sydney. Quick briefing, keys in your hand, and you're on the road.",accent:outback.primary},
               ].map((s,i)=>(
@@ -839,52 +837,6 @@ export default function SouthernHorizonSite() {
                   <p style={{fontFamily:sans,fontSize:13,color:neutral.mid,lineHeight:1.75,fontWeight:300}}>{s.d}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      </>)}
-      {activeSection === "food-drink" && (<>
-      {/* ═══ FOOD & DRINK ═══ */}
-      <div id="food-drink" style={{paddingTop:60}}>
-        <div style={{padding:"110px 28px",maxWidth:1100,margin:"0 auto"}}>
-          <div style={{textAlign:"center",marginBottom:56}}>
-            <p style={{fontFamily:sans,fontSize:11,fontWeight:700,letterSpacing:5,textTransform:"uppercase",
-              color:gold,marginBottom:14,
-            }}>Food & Drink</p>
-            <h2 style={{fontFamily:serif,fontSize:"clamp(30px,4.5vw,48px)",fontWeight:300,color:neutral.dark,lineHeight:1.2,letterSpacing:-0.5}}>
-              Fully stocked, <em style={{fontStyle:"italic"}}>ready to eat</em>
-            </h2>
-          </div>
-          <div style={{
-            padding:"36px 34px",borderRadius:8,marginBottom:28,textAlign:"center",
-            background:`linear-gradient(135deg, ${coast.primary} 0%, #3A8A6C 50%, ${outback.primary} 100%)`,
-          }}>
-            <h3 style={{fontFamily:serif,fontSize:24,fontWeight:400,color:"#fff",marginBottom:10}}>Dining included in your daily rate</h3>
-            <p style={{fontFamily:sans,fontSize:14,color:"rgba(255,255,255,0.6)",fontWeight:300,maxWidth:520,margin:"0 auto",lineHeight:1.75}}>
-              Premium road snacks and cold drinks in the vehicle. Breakfast and dinner at curated restaurants — all on your pre-loaded Visa card.
-            </p>
-          </div>
-          <div style={{padding:"28px 24px",background:outback.soft,borderRadius:8,borderLeft:`4px solid ${outback.primary}`}}>
-            <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:12}}>
-              <h3 style={{fontFamily:serif,fontSize:19,fontWeight:700,color:neutral.dark}}>How Dining Works</h3>
-            </div>
-            <p style={{fontFamily:sans,fontSize:13.5,color:neutral.mid,lineHeight:1.75,fontWeight:300}}>
-              Your vehicle is stocked with premium road snacks and cold drinks in the onboard fridge. Breakfast and dinner are at curated restaurants 
-              along your route — coastal seafood, tropical restaurants, outback pubs, fine dining — all covered by your pre-loaded Visa card. 
-              We discuss the dining budget during your consultation so there are no surprises. 
-              Your accommodation is included — we present handpicked options, you choose, we book. Designed for minimal out-of-pocket expenses.
-            </p>
-          </div>
-          <div style={{marginTop:18,padding:"22px 24px",background:neutral.sand,borderRadius:8,display:"flex",gap:14,alignItems:"flex-start"}}>
-            <div style={{width:3,background:coast.primary,borderRadius:2,flexShrink:0,alignSelf:"stretch"}}/>
-            <div>
-              <h4 style={{fontFamily:serif,fontSize:17,fontWeight:700,color:neutral.dark,marginBottom:5}}>Dietary Requirements & Allergies</h4>
-              <p style={{fontFamily:sans,fontSize:13.5,color:neutral.mid,lineHeight:1.75,fontWeight:300}}>
-                Vegetarian, vegan, gluten-free, halal, kosher, nut-free, lactose-free — tell us and we provision accordingly. 
-                Severe allergies are factored into every meal. We note all dietary needs during your consultation and match restaurant recommendations accordingly.
-              </p>
             </div>
           </div>
         </div>
@@ -909,7 +861,7 @@ export default function SouthernHorizonSite() {
                 {t:"Mobility & Access",d:"The LX500d has a high step-up. Let us know about mobility needs — we'll discuss seating, routes, and accessibility.",bg:coast.soft},
                 {t:"Medical Conditions",d:"Remote touring means distance from hospitals. Disclose any conditions and we factor proximity to medical facilities into your route.",bg:outback.soft},
                 {t:"Children & Families",d:"Families welcome — we carry up to 2 adults and 3 children. Child seats and boosters arranged, just tell us ages. We tailor your itinerary with family-friendly stops and shorter driving days.",bg:"#F0FDF4"},
-                {t:"Dietary & Allergies",d:"We stock your vehicle — tell us your needs and every meal is provisioned accordingly. Severe allergies planned for from day one.",bg:outback.soft},
+                
                 {t:"Driving Confidence",d:"First time on sand or dirt? Our briefing covers everything. We can design routes that stick to well-maintained roads if you prefer.",bg:coast.soft},
                 {t:"Something Else?",d:"Anything that would make your trip better — however small — mention it. We'd rather know early so we can plan properly.",bg:neutral.sand},
               ].map((item,i)=>(
@@ -1037,7 +989,7 @@ export default function SouthernHorizonSite() {
                 from logistics and guest expectations to the small details that make people feel looked after.
               </p>
               <p style={{fontFamily:sans,fontSize:13.5,color:neutral.mid,lineHeight:1.8,fontWeight:300,marginBottom:18}}>
-                Jess is the reason your welcome pack feels personal, your provisions match your dietary needs, and your accommodation 
+                Jess is the reason your welcome pack feels personal, and your accommodation 
                 options are curated — not just listed. If Troy builds the route, Jess makes sure every stop feels right.
               </p>
               <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
@@ -1158,11 +1110,7 @@ export default function SouthernHorizonSite() {
                     </select></div>
                   <div/>
                 </div>
-                <div>
-                  <label style={{fontFamily:sans,fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",color:"rgba(255,255,255,0.35)",marginBottom:5,display:"block"}}>Dietary Requirements or Allergies</label>
-                  <input value={formData.dietary} onChange={e=>setFormData(p=>({...p,dietary:e.target.value}))}
-                    style={{background:"rgba(255,255,255,0.07)",borderColor:"rgba(255,255,255,0.12)",color:"#fff",borderRadius:8}} placeholder="e.g. vegetarian, gluten-free, nut allergy..."/>
-                </div>
+
                 <div>
                   <label style={{fontFamily:sans,fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",color:"rgba(255,255,255,0.35)",marginBottom:5,display:"block"}}>Special Requirements</label>
                   <input value={formData.specialNeeds} onChange={e=>setFormData(p=>({...p,specialNeeds:e.target.value}))}
