@@ -641,7 +641,7 @@ export default function SouthernHorizonSite() {
               {icon:"03",title:"Connected Everywhere",text:"Starlink satellite internet keeps you connected everywhere. Backup emergency phone with Telstra SIM in the glovebox. Navigate, stream, and share from the Daintree to the outback.",bg:outback.soft,border:"#FDE68A"},
               {icon:"04",title:"Luxury Accommodation",text:"Handpicked boutique lodges, eco-retreats, coastal resorts, and outback stations at every stop. You pick what appeals from our curated options, we book everything. Included in your daily rate.",bg:outback.soft,border:"#FDE68A"},
               {icon:"05",title:"Curated Routes",text:"We've driven every road. Handpicked accommodation, tide charts, swimming holes, sunset lookouts, and the local tips that make the difference.",bg:neutral.sand,border:"#E7E5E4"},
-              {icon:"06",title:"24/7 Support",text:"Day or night — flat tyre advice, route changes, or 'where's the best fish and chips near here.' We're a call or Starlink message away.",bg:coast.soft,border:"#CCFBF1"},
+              {icon:"06",title:"24/7 Support",text:"Day or night — roadside assistance, route adjustments, restaurant recommendations, or anything else you need. Personal concierge service, a call or Starlink message away.",bg:coast.soft,border:"#CCFBF1"},
             ].map((item,i)=>(
               <div key={i} style={{padding:"30px 26px",background:item.bg,border:`1px solid ${item.border}`,borderRadius:8}}>
                 <div style={{fontFamily:serif,fontSize:28,fontWeight:300,color:gold,marginBottom:14,letterSpacing:1}}>{item.icon}</div>
@@ -931,7 +931,7 @@ export default function SouthernHorizonSite() {
               Troy & Jess
             </h2>
             <p style={{fontFamily:sans,fontSize:14,color:neutral.light,fontWeight:300,letterSpacing:0.15,maxWidth:480,margin:"12px auto 0",lineHeight:1.7}}>
-              The people behind the wheel — and behind every route, every recommendation, and every detail.
+              The people behind every route, every recommendation, and every detail of your experience.
             </p>
           </div>
 
@@ -947,21 +947,20 @@ export default function SouthernHorizonSite() {
                 }}>T</div>
                 <div>
                   <h3 style={{fontFamily:serif,fontSize:24,fontWeight:500,color:neutral.dark}}>Troy</h3>
-                  <p style={{fontFamily:sans,fontSize:12,color:outback.primary,fontWeight:600,letterSpacing:0.5}}>Founder & Operations</p>
+                  <p style={{fontFamily:sans,fontSize:12,color:outback.primary,fontWeight:600,letterSpacing:0.5}}>Founder & Tour Director</p>
                 </div>
               </div>
               <p style={{fontFamily:sans,fontSize:13.5,color:neutral.mid,lineHeight:1.8,fontWeight:300,marginBottom:16}}>
-                Qualified mechanic, lifelong 4WD enthusiast, and the person who built every route in this business from the driver's seat. 
-                Troy has been running 4WDs through Queensland's coast, tropics, and outback since he could reach the pedals — and knows 
-                the difference between a track that delivers and one that just looks good on a map.
+                Qualified mechanic turned luxury touring operator. Troy has spent years exploring Queensland's coast, tropics, and outback 
+                by 4WD — and built Southern Horizon Co. to share those experiences at a level that doesn't exist in the self-drive market. 
+                Every route, every accommodation recommendation, and every restaurant in our dining guide comes from personal experience.
               </p>
               <p style={{fontFamily:sans,fontSize:13.5,color:neutral.mid,lineHeight:1.8,fontWeight:300,marginBottom:18}}>
-                His mechanical background means every vehicle specification, every accessory choice, and every piece of recovery 
-                gear has been selected by someone who actually uses it — not sourced from a catalogue. When you call with a flat tyre 
-                at 9pm, the person on the other end has changed one in worse conditions.
+                His mechanical background means the Lexus LX500d is specified to the highest standard — and when you call at 9pm with 
+                a question, the person on the other end knows the vehicle and the road you're on. That's the concierge difference.
               </p>
               <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
-                {["Qualified Mechanic","4WD & Off-Road","Vehicle Specification","Route Design","Travel Industry"].map((t,i)=>(
+                {["Qualified Mechanic","Luxury Touring","Route Curation","Concierge Support","Queensland Expert"].map((t,i)=>(
                   <span key={i} style={{fontFamily:sans,fontSize:10,fontWeight:600,letterSpacing:1,textTransform:"uppercase",
                     color:outback.primary,background:"#fff",padding:"5px 10px",borderRadius:6,border:`1px solid #FDE68A`,
                   }}>{t}</span>
@@ -984,16 +983,16 @@ export default function SouthernHorizonSite() {
                 </div>
               </div>
               <p style={{fontFamily:sans,fontSize:13.5,color:neutral.mid,lineHeight:1.8,fontWeight:300,marginBottom:16}}>
-                Fifteen years with Virgin Australia gave Jess a deep understanding of what travellers actually need — 
-                and what separates a good experience from an unforgettable one. She knows the travel industry from the inside, 
-                from logistics and guest expectations to the small details that make people feel looked after.
+                Fifteen years with Virgin Australia gave Jess an instinct for what separates good hospitality from exceptional. 
+                She understands guest expectations from the inside — the logistics, the timing, the details that make people feel genuinely looked after. 
+                That experience now shapes every aspect of the Southern Horizon guest journey.
               </p>
               <p style={{fontFamily:sans,fontSize:13.5,color:neutral.mid,lineHeight:1.8,fontWeight:300,marginBottom:18}}>
-                Jess is the reason your welcome pack feels personal, and your accommodation 
-                options are curated — not just listed. If Troy builds the route, Jess makes sure every stop feels right.
+                Jess curates the accommodation, builds the dining guides, and designs the welcome experience. 
+                If Troy maps the road, Jess makes sure every stop along it feels considered, personal, and worth remembering.
               </p>
               <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
-                {["15 Years Travel Industry","Guest Experience","Accommodation Curation","Route Planning","Concierge"].map((t,i)=>(
+                {["15 Years Travel Industry","Guest Experience","Accommodation Curation","Dining Guides","Concierge"].map((t,i)=>(
                   <span key={i} style={{fontFamily:sans,fontSize:10,fontWeight:600,letterSpacing:1,textTransform:"uppercase",
                     color:coast.primary,background:"#fff",padding:"5px 10px",borderRadius:6,border:`1px solid #CCFBF1`,
                   }}>{t}</span>
@@ -1010,13 +1009,13 @@ export default function SouthernHorizonSite() {
           }}>
             <div style={{position:"relative",zIndex:1,maxWidth:720}}>
               <h4 style={{fontFamily:serif,fontSize:21,fontWeight:400,color:"#fff",marginBottom:10,lineHeight:1.35}}>
-                We've driven every route, camped at every stop, and done every activity we recommend.
+                We've driven every route, stayed at every property, and visited every restaurant we recommend.
               </h4>
               <p style={{fontFamily:sans,fontSize:13.5,color:"rgba(255,255,255,0.6)",lineHeight:1.75,fontWeight:300}}>
-                Southern Horizon isn't a business we designed from a desk — it's built from years of loading up the Lexus LX and 
-                heading out. We're passionate about regional Queensland and we started this because we wanted to share it properly — 
-                not the rushed, bus-tour version, but the real thing. The hidden swimming hole, the pub with the best steak, the lookout 
-                where you wake up to wallabies. That's what we want to give you.
+                Southern Horizon isn't a business we designed from a desk — it's built from years of exploring Queensland's most 
+                remarkable places. We started this because we wanted to share them properly — 
+                not the rushed, bus-tour version, but the real thing. The boutique lodge with the sunrise view, the restaurant the locals 
+                don't tell tourists about, the stretch of coast where you won't see another car. That's what we want to give you.
               </p>
             </div>
           </div>
