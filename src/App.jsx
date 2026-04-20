@@ -2,6 +2,50 @@ import { useState, useEffect } from "react";
 import { db } from "./firebase.js";
 import { doc, setDoc } from "firebase/firestore";
 
+
+// ═══ LOGO (SVG — scales infinitely, premium feel) ═══
+const SHCoLogo = ({ size = 44, light = false }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style={{flexShrink:0}}>
+    <defs>
+      <linearGradient id="shco-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor={light ? "#CCFBF1" : "#0A6B7A"}/>
+        <stop offset="100%" stopColor={light ? "#FDE68A" : "#C2410C"}/>
+      </linearGradient>
+    </defs>
+    {/* Outer circle - thin gold ring */}
+    <circle cx="50" cy="50" r="47" fill="none" stroke={light ? "rgba(255,255,255,0.7)" : "#C4A265"} strokeWidth="1.5"/>
+    {/* Horizon line */}
+    <line x1="18" y1="50" x2="82" y2="50" stroke={light ? "rgba(255,255,255,0.9)" : "#C4A265"} strokeWidth="1"/>
+    {/* Sun/horizon arc (top half) */}
+    <path d="M 28 50 A 22 22 0 0 1 72 50" fill="url(#shco-sky)" opacity="0.85"/>
+    {/* Subtle mountain/landscape silhouette (bottom) */}
+    <path d="M 18 50 L 32 58 L 42 52 L 52 60 L 62 54 L 74 61 L 82 50" fill="none" stroke={light ? "rgba(255,255,255,0.5)" : "#78716C"} strokeWidth="0.8"/>
+    {/* Compass N point at top */}
+    <circle cx="50" cy="14" r="1.8" fill={light ? "#fff" : "#C4A265"}/>
+  </svg>
+);
+
+// ═══ DESTINATION IMAGES (Unsplash — royalty-free, source-cited on hover via alt) ═══
+const IMAGES = {
+  hero: "https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=1800&q=85&auto=format&fit=crop", // K'gari beach aerial
+  kgari: "https://images.unsplash.com/photo-1598890777032-bde835ba27c2?w=1200&q=80&auto=format&fit=crop", // sand dunes
+  "tropical-north": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=1200&q=80&auto=format&fit=crop", // rainforest waterfall
+  whitsundays: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=1200&q=80&auto=format&fit=crop", // whitehaven beach
+  "capricorn-coast": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&q=80&auto=format&fit=crop", // tropical coast
+  "byron-bay": "https://images.unsplash.com/photo-1493558103817-58b2924bce98?w=1200&q=80&auto=format&fit=crop", // byron lighthouse
+  "stockton-beach": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80&auto=format&fit=crop", // beach dunes
+  "coastal-explorer": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80&auto=format&fit=crop", // coastal cliffs
+  "outback-taster": "https://images.unsplash.com/photo-1566477735570-e3e9d26b74fe?w=1200&q=80&auto=format&fit=crop", // red outback
+  "carnarvon-gorge": "https://images.unsplash.com/photo-1604608672516-f1b9b1d1f1f8?w=1200&q=80&auto=format&fit=crop", // gorge rocks
+  outback: "https://images.unsplash.com/photo-1514119412350-e174d90d280e?w=1200&q=80&auto=format&fit=crop", // outback sunset
+  custom: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=80&auto=format&fit=crop", // open road
+  // Experience section
+  vehicle: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=80&auto=format&fit=crop", // luxury SUV
+  accommodation: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=80&auto=format&fit=crop", // boutique lodge
+  route: "https://images.unsplash.com/photo-1601035593569-a6f41fe37a6e?w=1200&q=80&auto=format&fit=crop", // winding road
+};
+
+
 const SECTIONS = [
   { id: "home", label: "Home" },
   { id: "experience", label: "The Experience" },
@@ -387,7 +431,7 @@ export default function SouthernHorizonSite() {
             </div>
             <div style={{width:40,height:1,background:gold,margin:"16px auto 20px"}}/>
             <p style={{fontFamily:sans,fontSize:13,color:neutral.light,marginBottom:32,fontWeight:300}}>
-              Preview — launching June 2027
+              Preview — Coming Soon
             </p>
             <input type="password" placeholder="Enter password" value={pw}
               onChange={e=>{setPw(e.target.value);setPwError(false)}}
@@ -498,7 +542,9 @@ export default function SouthernHorizonSite() {
         transition:"all .4s",padding:isHome?"18px 28px":"10px 28px",
       }}>
         <div style={{maxWidth:1200,margin:"0 auto",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-          <div style={{cursor:"pointer",display:"flex",alignItems:"baseline",gap:6}} onClick={()=>goTo("home")}>
+          <div style={{cursor:"pointer",display:"flex",alignItems:"center",gap:10}} onClick={()=>goTo("home")}>
+            <SHCoLogo size={isHome?38:32} light={isHome}/>
+            <div style={{display:"flex",alignItems:"baseline",gap:6}}>
             <span style={{
               fontFamily:serif,fontSize:18,fontWeight:700,letterSpacing:.5,
               color:isHome?"#fff":neutral.dark,transition:"color .4s",
@@ -509,6 +555,7 @@ export default function SouthernHorizonSite() {
               background:isHome?"linear-gradient(90deg,rgba(255,255,255,0.7),rgba(255,255,255,0.5))":`linear-gradient(90deg,${coast.primary},${outback.primary})`,
               WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",transition:"all .4s",
             }}>Co.</span>
+            </div>
           </div>
           <div className="desk-nav" style={{display:"flex",gap:22,alignItems:"center"}}>
             {SECTIONS.map(s=>(
@@ -542,14 +589,15 @@ export default function SouthernHorizonSite() {
       )}
 
       {activeSection === "home" && (<>
-      {/* ═══ HERO — DUAL GRADIENT ═══ */}
+      {/* ═══ HERO — BACKGROUND IMAGE + DUAL GRADIENT OVERLAY ═══ */}
       <div id="home">
         <div style={{
           minHeight:"100vh",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",
           background:`linear-gradient(135deg, 
-            #0B3D4E 0%, ${coast.primary} 18%, #1098A8 30%, 
-            #4BA89A 42%, #8B9B6E 50%, 
-            #B8864A 58%, ${outback.primary} 70%, #A04E0C 82%, #6B2E08 100%)`,
+            rgba(11,61,78,0.88) 0%, rgba(10,107,122,0.82) 18%, rgba(16,152,168,0.72) 30%, 
+            rgba(75,168,154,0.65) 42%, rgba(139,155,110,0.70) 50%, 
+            rgba(184,134,74,0.78) 58%, rgba(194,65,12,0.85) 70%, rgba(160,78,12,0.90) 82%, rgba(107,46,8,0.92) 100%), 
+            url(${IMAGES.hero}) center/cover no-repeat`,
           position:"relative",overflow:"hidden",padding:"140px 28px 110px",
         }}>
           {/* Texture: sand grain overlay */}
@@ -572,7 +620,7 @@ export default function SouthernHorizonSite() {
               color:"rgba(255,255,255,0.85)",marginBottom:28,padding:"8px 22px",borderRadius:2,
               background:"rgba(255,255,255,0.08)",border:`1px solid ${gold}40`,
               backdropFilter:"blur(8px)",
-            }}>Coming June '27</div>
+            }}>Coming Soon</div>
             <div style={{
               fontFamily:sans,fontSize:10,fontWeight:500,letterSpacing:7,textTransform:"uppercase",
               color:"rgba(255,255,255,0.4)",marginBottom:36,
@@ -702,12 +750,27 @@ export default function SouthernHorizonSite() {
                     background:"#fff",borderRadius:8,overflow:"hidden",display:"flex",flexDirection:"column",
                     borderTop:"none",borderRight:`1px solid ${neutral.border}`,borderBottom:`1px solid ${neutral.border}`,
                   }}>
+                    {/* Package image */}
+                    {IMAGES[pkg.id] && (
+                      <div style={{
+                        width:"100%",height:200,
+                        background:`linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 100%), url(${IMAGES[pkg.id]}) center/cover no-repeat`,
+                        position:"relative",
+                      }}>
+                        <div style={{position:"absolute",bottom:12,left:20,right:20,color:"#fff"}}>
+                          <span style={{
+                            fontFamily:sans,fontSize:9,fontWeight:700,letterSpacing:2,textTransform:"uppercase",
+                            background:"rgba(0,0,0,0.35)",padding:"4px 10px",borderRadius:4,backdropFilter:"blur(4px)",
+                          }}>{labelText}</span>
+                        </div>
+                      </div>
+                    )}
                     <div style={{padding:"24px 24px 18px",borderBottom:`1px solid ${neutral.border}`,position:"relative"}}>
                       <div style={{display:"flex",gap:8,marginBottom:10,alignItems:"center"}}>
-                        <span style={{
+                        {!IMAGES[pkg.id] && <span style={{
                           fontFamily:sans,fontSize:9,fontWeight:700,letterSpacing:2,textTransform:"uppercase",
                           color:accentSolid,background:bgTint,padding:"4px 10px",borderRadius:4,
-                        }}>{labelText}</span>
+                        }}>{labelText}</span>}
                         <span style={{
                           fontFamily:sans,fontSize:9,fontWeight:700,letterSpacing:2,textTransform:"uppercase",
                           color:neutral.light,
@@ -826,7 +889,7 @@ export default function SouthernHorizonSite() {
             </div>
             <div className="g4" style={{display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:14}}>
               {[
-                {n:"01",t:"Register",d:"Tell us your dates, group, and what you're after — coast, tropics, outback, or the full mix. We're taking registrations now ahead of our June 2027 launch.",accent:coast.primary},
+                {n:"01",t:"Register",d:"Tell us your dates, group, and what you're after — coast, tropics, outback, or the full mix. We're taking registrations now ahead of our upcoming launch.",accent:coast.primary},
                 {n:"02",t:"We Design",d:"We build your itinerary — daily waypoints, curated accommodation, tide charts, hidden gems. We'll talk through driving conditions on your route and match the trip to your experience level.",accent:"#3A8A6C"},
                 {n:"03",t:"Refine",d:"We send the route. Add days, swap stops, change pace. It's not finalised until you're happy.",accent:"#8B7A3E"},
                 {n:"04",t:"Drive",d:"We deliver your Lexus LX to your airport gate, hotel entrance, or wherever suits — Brisbane, Gold Coast, Sunshine Coast, Cairns, or Sydney. Quick briefing, keys in your hand, and you're on the road.",accent:outback.primary},
@@ -1292,12 +1355,15 @@ export default function SouthernHorizonSite() {
         <div style={{maxWidth:1100,margin:"0 auto"}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",flexWrap:"wrap",gap:32,paddingBottom:28,borderBottom:"1px solid rgba(255,255,255,0.06)"}}>
             <div>
-              <div style={{display:"flex",alignItems:"baseline",gap:6,marginBottom:10}}>
+              <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:10}}>
+                <SHCoLogo size={38} light/>
+                <div style={{display:"flex",alignItems:"baseline",gap:6}}>
                 <span style={{fontFamily:serif,fontSize:20,fontWeight:400,color:"#fff",letterSpacing:0.5}}>Southern Horizon</span>
                 <span style={{fontFamily:sans,fontSize:9,fontWeight:700,letterSpacing:3,textTransform:"uppercase",
                   background:`linear-gradient(90deg,${coast.accent},${outback.accent})`,
                   WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",
                 }}>Co.</span>
+                </div>
               </div>
               <p style={{fontFamily:sans,fontSize:12,color:"rgba(255,255,255,0.25)",maxWidth:240,lineHeight:1.65,fontWeight:300}}>
                 Self-drive luxury touring across<br/>Queensland's coast, tropics & outback — and beyond.
@@ -1326,7 +1392,7 @@ export default function SouthernHorizonSite() {
           </div>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",paddingTop:18,flexWrap:"wrap",gap:10}}>
             <span style={{fontFamily:sans,fontSize:10.5,color:"rgba(255,255,255,0.12)",fontWeight:300}}>© 2026 Southern Horizon Co. All rights reserved.</span>
-            <span style={{fontFamily:sans,fontSize:10.5,color:"rgba(255,255,255,0.25)",fontWeight:300}}>Launching June 2027</span>
+            <span style={{fontFamily:sans,fontSize:10.5,color:"rgba(255,255,255,0.25)",fontWeight:300}}>Coming Soon</span>
           </div>
         </div>
       </footer>
