@@ -5,24 +5,15 @@ import { doc, setDoc } from "firebase/firestore";
 
 // ═══ LOGO (SVG — scales infinitely, premium feel) ═══
 const SHCoLogo = ({ size = 44, light = false }) => (
-  <svg width={size} height={size} viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style={{flexShrink:0}}>
-    <defs>
-      <linearGradient id="shco-sky" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor={light ? "#CCFBF1" : "#0A6B7A"}/>
-        <stop offset="100%" stopColor={light ? "#FDE68A" : "#C2410C"}/>
-      </linearGradient>
-    </defs>
-    {/* Outer circle - thin gold ring */}
-    <circle cx="50" cy="50" r="47" fill="none" stroke={light ? "rgba(255,255,255,0.7)" : "#C4A265"} strokeWidth="1.5"/>
-    {/* Horizon line */}
-    <line x1="18" y1="50" x2="82" y2="50" stroke={light ? "rgba(255,255,255,0.9)" : "#C4A265"} strokeWidth="1"/>
-    {/* Sun/horizon arc (top half) */}
-    <path d="M 28 50 A 22 22 0 0 1 72 50" fill="url(#shco-sky)" opacity="0.85"/>
-    {/* Subtle mountain/landscape silhouette (bottom) */}
-    <path d="M 18 50 L 32 58 L 42 52 L 52 60 L 62 54 L 74 61 L 82 50" fill="none" stroke={light ? "rgba(255,255,255,0.5)" : "#78716C"} strokeWidth="0.8"/>
-    {/* Compass N point at top */}
-    <circle cx="50" cy="14" r="1.8" fill={light ? "#fff" : "#C4A265"}/>
-  </svg>
+  <img 
+    src="/shco-logo.png" 
+    alt="Southern Horizon Co." 
+    style={{
+      width: size, height: size, borderRadius: "50%", 
+      flexShrink: 0, objectFit: "cover",
+      filter: light ? "brightness(0) invert(1)" : "none"
+    }}
+  />
 );
 
 // ═══ DESTINATION IMAGES (Unsplash — royalty-free, source-cited on hover via alt) ═══
@@ -394,9 +385,9 @@ export default function SouthernHorizonSite() {
   const sans = `'Figtree', 'Helvetica Neue', sans-serif`;
 
   // Dual palette — refined luxury
-  const coast = { primary: "#0A6B7A", light: "#E6FAFB", mid: "#0E8A9B", accent: "#22D3EE", soft: "#F0FDFA" };
-  const outback = { primary: "#A04209", light: "#FEF7ED", mid: "#C4570E", accent: "#D4820B", soft: "#FFFBF0" };
-  const neutral = { sand: "#F5F0E8", white: "#FFFDF8", dark: "#1A1714", mid: "#57534E", light: "#A8A29E", border: "#E7E5E4" };
+  const coast = { primary: "#1C1917", light: "#FFFFFF", mid: "#44403C", accent: "#C4A265", soft: "#FAFAF9" };
+  const outback = { primary: "#1C1917", light: "#FFFFFF", mid: "#44403C", accent: "#C4A265", soft: "#FAFAF9" };
+  const neutral = { sand: "#FAFAF9", white: "#FFFFFF", dark: "#1C1917", mid: "#57534E", light: "#A8A29E", border: "#E7E5E4" };
   const gold = "#C4A265";
 
   // ═══ PASSWORD GATE ═══
@@ -414,7 +405,7 @@ export default function SouthernHorizonSite() {
         `}</style>
         <div style={{
           minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",
-          background:`linear-gradient(135deg, #0B3D4E 0%, ${coast.primary} 25%, #4BA89A 50%, #B8864A 75%, ${outback.primary} 100%)`,
+          background:neutral.dark,
           padding:28,
         }}>
           <div style={{
@@ -425,7 +416,7 @@ export default function SouthernHorizonSite() {
             <div style={{marginBottom:8}}>
               <span style={{fontFamily:serif,fontSize:32,fontWeight:400,color:neutral.dark}}>Southern Horizon</span>
               <span style={{fontFamily:sans,fontSize:9,fontWeight:700,letterSpacing:3,textTransform:"uppercase",
-                background:`linear-gradient(90deg,${coast.primary},${outback.primary})`,
+                color:gold,
                 WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",marginLeft:6,
               }}>Co.</span>
             </div>
@@ -445,7 +436,7 @@ export default function SouthernHorizonSite() {
             {pwError && <p style={{fontFamily:sans,fontSize:12,color:outback.primary,marginBottom:12}}>Incorrect password</p>}
             <button onClick={tryLogin} style={{
               width:"100%",padding:"15px",border:"none",borderRadius:6,cursor:"pointer",
-              background:`linear-gradient(135deg,${coast.primary} 0%,#3A6B5E 50%,${outback.primary} 100%)`,
+              background:gold,
               color:"#fff",fontFamily:sans,fontSize:11,fontWeight:600,letterSpacing:2.5,textTransform:"uppercase",
               transition:"all .3s",boxShadow:"0 4px 20px rgba(0,0,0,0.1)",
             }}>Enter</button>
@@ -465,7 +456,7 @@ export default function SouthernHorizonSite() {
         *{margin:0;padding:0;box-sizing:border-box}
         html{scroll-behavior:smooth}
         body{background:${neutral.white}}
-        ::selection{background:${coast.primary};color:#fff}
+        ::selection{background:${gold};color:#fff}
 
         @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
         @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -483,7 +474,7 @@ export default function SouthernHorizonSite() {
         .card-up:hover{transform:translateY(-4px);box-shadow:0 24px 56px rgba(28,25,23,0.06)}
 
         .btn-dual{
-          background:linear-gradient(135deg,${coast.primary} 0%,#3A6B5E 50%,${outback.primary} 100%);color:#fff;border:none;
+          background:${neutral.dark};color:#fff;border:none;
           padding:16px 40px;font-family:${sans};font-size:11px;font-weight:600;
           letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;
           border-radius:4px;transition:all .35s;box-shadow:0 4px 20px rgba(28,25,23,0.10);
@@ -498,7 +489,7 @@ export default function SouthernHorizonSite() {
         }
         .btn-ghost:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.5)}
 
-        .btn-coast{background:${coast.primary};color:#fff;border:none;padding:15px 36px;font-family:${sans};font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all .35s}
+        .btn-coast{background:${neutral.dark};color:#fff;border:none;padding:15px 36px;font-family:${sans};font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all .35s}
         .btn-coast:hover{background:#08535F;transform:translateY(-2px)}
 
         input,textarea,select{
@@ -512,11 +503,11 @@ export default function SouthernHorizonSite() {
 
         .faq-item{border-bottom:1px solid ${neutral.border}}
         .faq-q{padding:22px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color .25s}
-        .faq-q:hover{color:${coast.primary}}
+        .faq-q:hover{color:${gold}}
 
-        .vibe-coast{border-left:3px solid ${coast.primary}}
-        .vibe-outback{border-left:3px solid ${outback.primary}}
-        .vibe-both{border-left:3px solid transparent;border-image:linear-gradient(to bottom,${coast.primary},${outback.primary}) 1}
+        .vibe-coast{border-left:3px solid ${gold}}
+        .vibe-outback{border-left:3px solid ${gold}}
+        .vibe-both{border-left:3px solid ${gold}}
 
         .luxury-divider{width:60px;height:1px;background:${gold};margin:0 auto 14px}
 
@@ -536,23 +527,23 @@ export default function SouthernHorizonSite() {
       {/* ═══ NAV ═══ */}
       <nav style={{
         position:"fixed",top:0,left:0,right:0,zIndex:100,
-        background:isHome?"transparent":"rgba(255,253,248,0.94)",
-        backdropFilter:isHome?"none":"blur(16px) saturate(180%)",
-        borderBottom:isHome?"none":`1px solid ${neutral.border}`,
-        transition:"all .4s",padding:isHome?"18px 28px":"10px 28px",
+        background:"rgba(255,255,255,0.95)",
+        backdropFilter:"blur(16px) saturate(180%)",
+        borderBottom:`1px solid ${neutral.border}`,
+        transition:"all .4s",padding:"12px 28px",
       }}>
         <div style={{maxWidth:1200,margin:"0 auto",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
           <div style={{cursor:"pointer",display:"flex",alignItems:"center",gap:10}} onClick={()=>goTo("home")}>
-            <SHCoLogo size={isHome?38:32} light={isHome}/>
+            <SHCoLogo size={38}/>
             <div style={{display:"flex",alignItems:"baseline",gap:6}}>
             <span style={{
               fontFamily:serif,fontSize:18,fontWeight:700,letterSpacing:.5,
-              color:isHome?"#fff":neutral.dark,transition:"color .4s",
-              textShadow:isHome?"0 1px 10px rgba(0,0,0,0.25)":"none",
+              color:neutral.dark,transition:"color .4s",
+              textShadow:"none",
             }}>Southern Horizon</span>
             <span style={{
               fontFamily:sans,fontSize:9,fontWeight:700,letterSpacing:3,textTransform:"uppercase",
-              background:isHome?"linear-gradient(90deg,rgba(255,255,255,0.7),rgba(255,255,255,0.5))":`linear-gradient(90deg,${coast.primary},${outback.primary})`,
+              color:gold,
               WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",transition:"all .4s",
             }}>Co.</span>
             </div>
@@ -562,15 +553,15 @@ export default function SouthernHorizonSite() {
               <span key={s.id} className={`nav-link ${activeSection===s.id?"active":""}`}
                 onClick={()=>goTo(s.id)} style={{
                   fontFamily:sans,fontSize:10.5,fontWeight:400,letterSpacing:1,
-                  color:isHome?"rgba(255,255,255,0.8)":neutral.mid,transition:"color .35s",
-                  textShadow:isHome?"0 1px 3px rgba(0,0,0,0.1)":"none",
+                  color:neutral.mid,transition:"color .35s",
+                  textShadow:"none",
                 }}>{s.label}</span>
             ))}
           </div>
           <div className="mob-btn" onClick={()=>setMobileMenuOpen(!mobileMenuOpen)}
             style={{display:"none",cursor:"pointer",zIndex:1001,alignItems:"center",justifyContent:"center",
               width:36,height:36,fontSize:24,
-              color:mobileMenuOpen?neutral.dark:(isHome?"#fff":neutral.dark),transition:"color .3s"}}>
+              color:neutral.dark,transition:"color .3s"}}>
             {mobileMenuOpen?"✕":"☰"}
           </div>
         </div>
@@ -589,15 +580,11 @@ export default function SouthernHorizonSite() {
       )}
 
       {activeSection === "home" && (<>
-      {/* ═══ HERO — BACKGROUND IMAGE + DUAL GRADIENT OVERLAY ═══ */}
+      {/* ═══ HERO — WHITE BACKGROUND + PHOTO ═══ */}
       <div id="home">
         <div style={{
           minHeight:"100vh",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",
-          background:`linear-gradient(135deg, 
-            rgba(11,61,78,0.88) 0%, rgba(10,107,122,0.82) 18%, rgba(16,152,168,0.72) 30%, 
-            rgba(75,168,154,0.65) 42%, rgba(139,155,110,0.70) 50%, 
-            rgba(184,134,74,0.78) 58%, rgba(194,65,12,0.85) 70%, rgba(160,78,12,0.90) 82%, rgba(107,46,8,0.92) 100%), 
-            url(${IMAGES.hero}) center/cover no-repeat`,
+          background:`linear-gradient(180deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.85) 60%, rgba(255,255,255,0.98) 100%), url(${IMAGES.hero}) center/cover no-repeat`,
           position:"relative",overflow:"hidden",padding:"140px 28px 110px",
         }}>
           {/* Texture: sand grain overlay */}
@@ -607,7 +594,7 @@ export default function SouthernHorizonSite() {
           }}/>
           {/* Horizon line */}
           <div style={{position:"absolute",top:"52%",left:0,right:0,height:1,
-            background:`linear-gradient(90deg, transparent, ${gold}20 20%, ${gold}35 50%, ${gold}20 80%, transparent)`
+            background:`linear-gradient(90deg, transparent, ${gold}30 30%, ${gold}50 50%, ${gold}30 70%, transparent)`
           }}/>
           {/* Transition wave at bottom */}
           <svg style={{position:"absolute",bottom:-1,left:0,width:"100%",height:90}} viewBox="0 0 1440 90" preserveAspectRatio="none">
@@ -617,24 +604,23 @@ export default function SouthernHorizonSite() {
           <div style={{textAlign:"center",maxWidth:820,position:"relative",zIndex:2,animation:"fadeUp .9s ease"}}>
             <div style={{
               display:"inline-block",fontFamily:sans,fontSize:10,fontWeight:600,letterSpacing:3.5,textTransform:"uppercase",
-              color:"rgba(255,255,255,0.85)",marginBottom:28,padding:"8px 22px",borderRadius:2,
-              background:"rgba(255,255,255,0.08)",border:`1px solid ${gold}40`,
+              color:gold,marginBottom:28,padding:"8px 22px",borderRadius:2,
+              background:"rgba(255,255,255,0.9)",border:`1px solid ${gold}`,
               backdropFilter:"blur(8px)",
             }}>Coming Soon</div>
             <div style={{
               fontFamily:sans,fontSize:10,fontWeight:500,letterSpacing:7,textTransform:"uppercase",
-              color:"rgba(255,255,255,0.4)",marginBottom:36,
+              color:neutral.mid,marginBottom:36,
             }}>Self-Drive Luxury Touring — Queensland & Beyond</div>
             <h1 className="hero-h" style={{
               fontFamily:serif,fontSize:"clamp(36px, 6.5vw, 72px)",fontWeight:400,
-              color:"#fff",lineHeight:1.12,marginBottom:28,
-              textShadow:"0 2px 30px rgba(0,0,0,0.15)",
+              color:neutral.dark,lineHeight:1.12,marginBottom:28,
             }}>
               Turquoise water today,<br/>
               <em style={{fontStyle:"italic",fontWeight:300}}>red dirt tomorrow</em>
             </h1>
-            <div style={{width:60,height:1,background:gold,margin:"0 auto 28px",opacity:0.6}}/>
-            <p style={{fontFamily:sans,fontSize:15,color:"rgba(255,255,255,0.55)",lineHeight:1.85,
+            <div style={{width:60,height:1,background:gold,margin:"0 auto 28px"}}/>
+            <p style={{fontFamily:sans,fontSize:15,color:neutral.mid,lineHeight:1.85,
               maxWidth:520,margin:"0 auto 48px",fontWeight:300,letterSpacing:0.2}}>
               A fully-equipped Lexus LX500d Overtrail — delivered to your airport, 
               your hotel, or wherever you need it. 
@@ -684,12 +670,12 @@ export default function SouthernHorizonSite() {
           </div>
           <div className="g3" style={{display:"grid",gridTemplateColumns:"repeat(3, 1fr)",gap:20}}>
             {[
-              {icon:"01",title:"Delivered to You",text:"Your Lexus LX comes to you — airport terminal, hotel lobby, or wherever your trip begins. Brisbane, Gold Coast, Sunshine Coast, or Cairns. Starlink powered up, Mark Levinson ready. You don't come to us — we come to you.",bg:coast.soft,border:"#CCFBF1"},
+              {icon:"01",title:"Delivered to You",text:"Your Lexus LX comes to you — airport terminal, hotel lobby, or wherever your trip begins. Brisbane, Gold Coast, Sunshine Coast, or Cairns. Starlink powered up, Mark Levinson ready. You don't come to us — we come to you.",bg:coast.soft,border:neutral.border},
               {icon:"02",title:"Self-Drive Freedom",text:"No guide, no tour bus, no schedule. Follow the coast, detour through rainforest, chase sunset in the desert. Stop where you want, stay as long as you like.",bg:neutral.sand,border:"#E7E5E4"},
-              {icon:"03",title:"Connected Everywhere",text:"Starlink satellite internet keeps you connected everywhere. Backup emergency phone with Telstra SIM in the glovebox. Navigate, stream, and share from the Daintree to the outback.",bg:outback.soft,border:"#FDE68A"},
-              {icon:"04",title:"Luxury Accommodation",text:"Handpicked boutique lodges, eco-retreats, coastal resorts, and outback stations at every stop. You pick what appeals from our curated options, we book everything. Included in your daily rate.",bg:outback.soft,border:"#FDE68A"},
+              {icon:"03",title:"Connected Everywhere",text:"Starlink satellite internet keeps you connected everywhere. Backup emergency phone with Telstra SIM in the glovebox. Navigate, stream, and share from the Daintree to the outback.",bg:outback.soft,border:neutral.border},
+              {icon:"04",title:"Luxury Accommodation",text:"Handpicked boutique lodges, eco-retreats, coastal resorts, and outback stations at every stop. You pick what appeals from our curated options, we book everything. Included in your daily rate.",bg:outback.soft,border:neutral.border},
               {icon:"05",title:"Curated Routes",text:"We've driven every road. Handpicked accommodation, tide charts, swimming holes, sunset lookouts, and the local tips that make the difference.",bg:neutral.sand,border:"#E7E5E4"},
-              {icon:"06",title:"24/7 Support",text:"Day or night — roadside assistance, route adjustments, restaurant recommendations, or anything else you need. Personal concierge service, a call or Starlink message away.",bg:coast.soft,border:"#CCFBF1"},
+              {icon:"06",title:"24/7 Support",text:"Day or night — roadside assistance, route adjustments, restaurant recommendations, or anything else you need. Personal concierge service, a call or Starlink message away.",bg:coast.soft,border:neutral.border},
             ].map((item,i)=>(
               <div key={i} style={{padding:"30px 26px",background:item.bg,border:`1px solid ${item.border}`,borderRadius:8}}>
                 <div style={{fontFamily:serif,fontSize:28,fontWeight:300,color:gold,marginBottom:14,letterSpacing:1}}>{item.icon}</div>
@@ -702,7 +688,7 @@ export default function SouthernHorizonSite() {
           {/* CTA banner */}
           <div style={{
             marginTop:44,padding:"34px 38px",borderRadius:8,overflow:"hidden",position:"relative",
-            background:`linear-gradient(135deg, ${coast.primary} 0%, #3A8A6C 50%, ${outback.primary} 100%)`,
+            background:neutral.dark,
             display:"flex",alignItems:"center",justifyContent:"space-between",gap:28,flexWrap:"wrap",
           }}>
             <div>
@@ -742,7 +728,7 @@ export default function SouthernHorizonSite() {
             <div className="pkg-grid" style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(320px, 1fr))",gap:22}}>
               {PACKAGES.map(pkg=>{
                 const vibeColor = pkg.vibe==="coast"?coast.primary:pkg.vibe==="outback"?outback.primary:`linear-gradient(to bottom,${coast.primary},${outback.primary})`;
-                const accentSolid = pkg.vibe==="coast"?coast.primary:pkg.vibe==="outback"?outback.primary:"#6B7B4E";
+                const accentSolid = neutral.dark;
                 const bgTint = pkg.vibe==="coast"?coast.soft:pkg.vibe==="outback"?outback.soft:"#F8F6F0";
                 const labelText = pkg.vibe==="coast"?"Coastal":pkg.vibe==="outback"?"Outback":"Coast + Outback";
                 return(
@@ -1000,11 +986,11 @@ export default function SouthernHorizonSite() {
 
           <div className="g2" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:22}}>
             {/* Troy */}
-            <div style={{padding:"32px 28px",background:outback.soft,borderRadius:8,border:`1px solid #FDE68A`}}>
+            <div style={{padding:"32px 28px",background:outback.soft,borderRadius:8,border:`1px solid ${neutral.border}`}}>
               <div style={{display:"flex",alignItems:"center",gap:14,marginBottom:20}}>
                 <div style={{
                   width:56,height:56,borderRadius:28,flexShrink:0,
-                  background:`linear-gradient(135deg, ${outback.primary}, ${outback.mid})`,
+                  background:neutral.dark,
                   display:"flex",alignItems:"center",justifyContent:"center",
                   fontFamily:serif,fontSize:22,fontWeight:700,color:"#fff",
                 }}>T</div>
@@ -1025,18 +1011,18 @@ export default function SouthernHorizonSite() {
               <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
                 {["Qualified Mechanic","Luxury Touring","Route Curation","Concierge Support","Queensland Expert"].map((t,i)=>(
                   <span key={i} style={{fontFamily:sans,fontSize:10,fontWeight:600,letterSpacing:1,textTransform:"uppercase",
-                    color:outback.primary,background:"#fff",padding:"5px 10px",borderRadius:6,border:`1px solid #FDE68A`,
+                    color:outback.primary,background:"#fff",padding:"5px 10px",borderRadius:6,border:`1px solid ${neutral.border}`,
                   }}>{t}</span>
                 ))}
               </div>
             </div>
 
             {/* Jess */}
-            <div style={{padding:"32px 28px",background:coast.soft,borderRadius:8,border:`1px solid #CCFBF1`}}>
+            <div style={{padding:"32px 28px",background:coast.soft,borderRadius:8,border:`1px solid ${neutral.border}`}}>
               <div style={{display:"flex",alignItems:"center",gap:14,marginBottom:20}}>
                 <div style={{
                   width:56,height:56,borderRadius:28,flexShrink:0,
-                  background:`linear-gradient(135deg, ${coast.primary}, ${coast.mid})`,
+                  background:neutral.dark,
                   display:"flex",alignItems:"center",justifyContent:"center",
                   fontFamily:serif,fontSize:22,fontWeight:700,color:"#fff",
                 }}>J</div>
@@ -1057,7 +1043,7 @@ export default function SouthernHorizonSite() {
               <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
                 {["15 Years Travel Industry","Guest Experience","Accommodation Curation","Dining Guides","Concierge"].map((t,i)=>(
                   <span key={i} style={{fontFamily:sans,fontSize:10,fontWeight:600,letterSpacing:1,textTransform:"uppercase",
-                    color:coast.primary,background:"#fff",padding:"5px 10px",borderRadius:6,border:`1px solid #CCFBF1`,
+                    color:coast.primary,background:"#fff",padding:"5px 10px",borderRadius:6,border:`1px solid ${neutral.border}`,
                   }}>{t}</span>
                 ))}
               </div>
@@ -1067,7 +1053,7 @@ export default function SouthernHorizonSite() {
           {/* Shared passion callout */}
           <div style={{
             marginTop:24,padding:"28px 28px",borderRadius:8,
-            background:`linear-gradient(135deg, ${coast.primary} 0%, #3A8A6C 50%, ${outback.primary} 100%)`,
+            background:neutral.dark,
             position:"relative",overflow:"hidden",
           }}>
             <div style={{position:"relative",zIndex:1,maxWidth:720}}>
