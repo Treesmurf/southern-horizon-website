@@ -31,7 +31,7 @@ const WIKI_ARTICLES = {
   "coastal-explorer": "Bruce_Highway",
   "outback-taster": "Longreach,_Queensland",
   "carnarvon-gorge": "Carnarvon_National_Park",
-  outback: "Lark_Quarry",
+  outback: "Lark_Quarry_Dinosaur_Trackways",
   custom: "Queensland",
 };
 
