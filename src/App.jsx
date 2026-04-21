@@ -18,22 +18,21 @@ const SHCoLogo = ({ size = 44, light = false }) => (
 
 // ═══ DESTINATION IMAGES (Unsplash — royalty-free, source-cited on hover via alt) ═══
 const IMAGES = {
-  hero: "https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=1800&q=85&auto=format&fit=crop", // K'gari beach aerial
-  kgari: "https://images.unsplash.com/photo-1598890777032-bde835ba27c2?w=1200&q=80&auto=format&fit=crop", // sand dunes
-  "tropical-north": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=1200&q=80&auto=format&fit=crop", // rainforest waterfall
-  whitsundays: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=1200&q=80&auto=format&fit=crop", // whitehaven beach
-  "capricorn-coast": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&q=80&auto=format&fit=crop", // tropical coast
-  "byron-bay": "https://images.unsplash.com/photo-1493558103817-58b2924bce98?w=1200&q=80&auto=format&fit=crop", // byron lighthouse
-  "stockton-beach": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80&auto=format&fit=crop", // beach dunes
-  "coastal-explorer": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80&auto=format&fit=crop", // coastal cliffs
-  "outback-taster": "https://images.unsplash.com/photo-1566477735570-e3e9d26b74fe?w=1200&q=80&auto=format&fit=crop", // red outback
-  "carnarvon-gorge": "https://images.unsplash.com/photo-1604608672516-f1b9b1d1f1f8?w=1200&q=80&auto=format&fit=crop", // gorge rocks
-  outback: "https://images.unsplash.com/photo-1514119412350-e174d90d280e?w=1200&q=80&auto=format&fit=crop", // outback sunset
-  custom: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=80&auto=format&fit=crop", // open road
-  // Experience section
-  vehicle: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=80&auto=format&fit=crop", // luxury SUV
-  accommodation: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=80&auto=format&fit=crop", // boutique lodge
-  route: "https://images.unsplash.com/photo-1601035593569-a6f41fe37a6e?w=1200&q=80&auto=format&fit=crop", // winding road
+  hero: "https://images.unsplash.com/photo-1589802829985-817e51171b92?w=1800&q=85&auto=format&fit=crop", // Whitehaven Beach Hill Inlet aerial
+  kgari: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1200&q=80&auto=format&fit=crop", // Lake McKenzie turquoise
+  "tropical-north": "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=1200&q=80&auto=format&fit=crop", // Port Douglas Four Mile Beach
+  whitsundays: "https://images.unsplash.com/photo-1589802829985-817e51171b92?w=1200&q=80&auto=format&fit=crop", // Hill Inlet swirling sands
+  "capricorn-coast": "https://images.unsplash.com/photo-1566024287286-457247b70310?w=1200&q=80&auto=format&fit=crop", // 1770 Agnes Water headland
+  "byron-bay": "https://images.unsplash.com/photo-1493558103817-58b2924bce98?w=1200&q=80&auto=format&fit=crop", // Cape Byron lighthouse
+  "stockton-beach": "https://images.unsplash.com/photo-1516638261969-1c2fc6709f92?w=1200&q=80&auto=format&fit=crop", // Stockton Beach massive dunes
+  "coastal-explorer": "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1200&q=80&auto=format&fit=crop", // tropical palm-lined highway
+  "outback-taster": "https://images.unsplash.com/photo-1516815231560-8f41ec531527?w=1200&q=80&auto=format&fit=crop", // Thomson River / outback sunset water
+  "carnarvon-gorge": "https://images.unsplash.com/photo-1628605239057-a0b7b3e7e6ce?w=1200&q=80&auto=format&fit=crop", // Aboriginal rock art / gorge
+  outback: "https://images.unsplash.com/photo-1514119412350-e174d90d280e?w=1200&q=80&auto=format&fit=crop", // Outback sunset plains
+  custom: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=80&auto=format&fit=crop", // Coast-to-outback horizon road
+  vehicle: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=80&auto=format&fit=crop",
+  accommodation: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=80&auto=format&fit=crop",
+  route: "https://images.unsplash.com/photo-1601035593569-a6f41fe37a6e?w=1200&q=80&auto=format&fit=crop",
 };
 
 
