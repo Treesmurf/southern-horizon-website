@@ -3,13 +3,12 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth, setPersistence, browserLocalPersistence } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC-0fBjLqpqVqtY0UcWdansPaYXM5PECAo",
-  authDomain: "southern-horizon-booking.firebaseapp.com",
-  projectId: "southern-horizon-booking",
-  storageBucket: "southern-horizon-booking.firebasestorage.app",
-  messagingSenderId: "100361443130",
-  appId: "1:100361443130:web:27d6ebb69658b523daa203",
-  measurementId: "G-BTQN1R5V8H"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
