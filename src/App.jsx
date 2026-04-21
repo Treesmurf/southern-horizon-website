@@ -23,15 +23,15 @@ const SHCoLogo = ({ size = 44, light = false }) => (
 const WIKI_ARTICLES = {
   hero: "Whitehaven_Beach",
   kgari: "Lake_McKenzie",
-  "tropical-north": "Port_Douglas,_Queensland",
-  whitsundays: "Hill_Inlet",
+  "tropical-north": "Daintree_National_Park",
+  whitsundays: "Whitsunday_Island",
   "capricorn-coast": "Town_of_1770",
-  "byron-bay": "Cape_Byron_Light",
+  "byron-bay": "Cape_Byron",
   "stockton-beach": "Stockton_Beach",
   "coastal-explorer": "Bruce_Highway",
   "outback-taster": "Longreach,_Queensland",
-  "carnarvon-gorge": "Carnarvon_Gorge",
-  outback: "Outback",
+  "carnarvon-gorge": "Carnarvon_National_Park",
+  outback: "Winton,_Queensland",
   custom: "Queensland",
 };
 
@@ -249,7 +249,7 @@ const PACKAGES = [
     guests: "2–4 Guests",
     route: "Longreach · Winton",
     tagline: "Dinosaurs, stargazing, and the Qantas story — without the 21-day commitment",
-    description: "Fly into Longreach and dive straight into outback Queensland's highlights. Qantas Founders Museum, Australian Age of Dinosaurs on the mesa at Winton, Thomson River sunset cruise. All the best of the Red Centre route in one focused week. All sealed roads, every leg under four hours.",
+    description: "Fly into Longreach and dive straight into outback Queensland's highlights. Qantas Founders Museum, Australian Age of Dinosaurs on the mesa at Winton, Thomson River sunset cruise. All the best of the outback route in one focused week. All sealed roads, every leg under four hours.",
     includes: ["Lexus LX500d Overtrail", "$1,500/day — all inclusive", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Luxury curated accommodation", "MAXTRAX + recovery kit", "Remote route mapping", "24/7 satellite support"],
     vibe: "outback",
     stops: [
@@ -277,7 +277,7 @@ const PACKAGES = [
   },
   {
     id: "outback",
-    name: "Red Centre & Outback",
+    name: "Outback Queensland",
     config: "Touring",
     duration: "21 Days",
     guests: "2–4 Guests",
@@ -366,7 +366,7 @@ export default function SouthernHorizonSite() {
     setFormSubmitting(true);
     const id = "SH-" + Date.now().toString(36).toUpperCase();
     const pkgMap = {"K'gari Experience":"kgari","Tropical North":"tropical-north","Coastal Explorer":"coastal-explorer",
-      "Red Centre & Outback":"outback","Whitsundays":"whitsundays","Outback Taster":"outback-taster",
+      "Outback Queensland":"outback","Whitsundays":"whitsundays","Outback Taster":"outback-taster",
       "Capricorn Coast":"capricorn-coast","Carnarvon Gorge":"carnarvon-gorge","Byron Bay":"byron-bay",
       "Stockton Beach":"stockton-beach","Custom Journey":"custom","Not sure yet":"custom"};
     const pkgId = pkgMap[formData.package] || "custom";
@@ -1174,7 +1174,7 @@ export default function SouthernHorizonSite() {
                   <div><label style={{fontFamily:sans,fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",color:"rgba(255,255,255,0.35)",marginBottom:5,display:"block"}}>Package</label>
                     <select value={formData.package} onChange={e=>setFormData(p=>({...p,package:e.target.value,duration:""}))}
                       style={{background:"rgba(255,255,255,0.07)",borderColor:"rgba(255,255,255,0.12)",color:formData.package?"#fff":"rgba(255,255,255,0.3)",borderRadius:8}}>
-                      {["","K'gari Experience","Tropical North","Coastal Explorer","Red Centre & Outback","Whitsundays","Outback Taster","Capricorn Coast","Carnarvon Gorge","Byron Bay","Stockton Beach","Custom Journey","Not sure yet"].map(o=><option key={o} value={o} style={{background:"#1C1917",color:o?"#fff":"#A8A29E"}}>{o||"Select..."}</option>)}
+                      {["","K'gari Experience","Tropical North","Coastal Explorer","Outback Queensland","Whitsundays","Outback Taster","Capricorn Coast","Carnarvon Gorge","Byron Bay","Stockton Beach","Custom Journey","Not sure yet"].map(o=><option key={o} value={o} style={{background:"#1C1917",color:o?"#fff":"#A8A29E"}}>{o||"Select..."}</option>)}
                     </select></div>
                   <div><label style={{fontFamily:sans,fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",color:"rgba(255,255,255,0.35)",marginBottom:5,display:"block"}}>Duration</label>
                     {(()=>{
@@ -1182,7 +1182,7 @@ export default function SouthernHorizonSite() {
                         "Tropical North":["","7 days","8 days","9 days","10 days"],
                         "Byron Bay":["","5 days","6 days","7 days"],
                         "Coastal Explorer":["","21 days"],
-                        "Red Centre & Outback":["","21 days"],
+                        "Outback Queensland":["","21 days"],
                         "Whitsundays":["","7 days"],
                         "Outback Taster":["","7 days"],
                         "Capricorn Coast":["","7 days"],
