@@ -35,23 +35,23 @@ const WIKI_ARTICLES = {
   custom: "Queensland",
 };
 
-// Fallback URLs — used only if Wikipedia fetch fails
+// Fallback URLs — empty so we show nothing (not wrong images) while Wikipedia API loads
 const IMAGES_FALLBACK = {
-  hero: "https://images.unsplash.com/photo-1589802829985-817e51171b92?w=1800&q=85&auto=format&fit=crop",
-  kgari: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1200&q=80&auto=format&fit=crop",
-  "tropical-north": "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=1200&q=80&auto=format&fit=crop",
-  whitsundays: "https://images.unsplash.com/photo-1589802829985-817e51171b92?w=1200&q=80&auto=format&fit=crop",
-  "capricorn-coast": "https://images.unsplash.com/photo-1566024287286-457247b70310?w=1200&q=80&auto=format&fit=crop",
-  "byron-bay": "https://images.unsplash.com/photo-1493558103817-58b2924bce98?w=1200&q=80&auto=format&fit=crop",
-  "stockton-beach": "https://images.unsplash.com/photo-1516638261969-1c2fc6709f92?w=1200&q=80&auto=format&fit=crop",
-  "coastal-explorer": "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1200&q=80&auto=format&fit=crop",
-  "outback-taster": "https://images.unsplash.com/photo-1516815231560-8f41ec531527?w=1200&q=80&auto=format&fit=crop",
-  "carnarvon-gorge": "https://images.unsplash.com/photo-1628605239057-a0b7b3e7e6ce?w=1200&q=80&auto=format&fit=crop",
-  outback: "https://images.unsplash.com/photo-1514119412350-e174d90d280e?w=1200&q=80&auto=format&fit=crop",
-  custom: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=80&auto=format&fit=crop",
-  vehicle: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=80&auto=format&fit=crop",
-  accommodation: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=80&auto=format&fit=crop",
-  route: "https://images.unsplash.com/photo-1601035593569-a6f41fe37a6e?w=1200&q=80&auto=format&fit=crop",
+  hero: "",
+  kgari: "",
+  "tropical-north": "",
+  whitsundays: "",
+  "capricorn-coast": "",
+  "byron-bay": "",
+  "stockton-beach": "",
+  "coastal-explorer": "",
+  "outback-taster": "",
+  "carnarvon-gorge": "",
+  outback: "",
+  custom: "",
+  vehicle: "",
+  accommodation: "",
+  route: "",
 };
 
 
