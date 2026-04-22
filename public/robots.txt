@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://southernhorizonco.com.au/sitemap.xml
