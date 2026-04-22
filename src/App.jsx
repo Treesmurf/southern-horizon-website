@@ -316,7 +316,7 @@ const PACKAGES = [
 ];
 
 export default function SouthernHorizonSite() {
-  const [authenticated, setAuthenticated] = useState(false);
+  const [authenticated, setAuthenticated] = useState(true);  // Password gate disabled — site is public
   const [pw, setPw] = useState("");
   const [pwError, setPwError] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
