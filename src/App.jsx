@@ -6,12 +6,11 @@ import { doc, setDoc } from "firebase/firestore";
 // ═══ LOGO (SVG — scales infinitely, premium feel) ═══
 const SHCoLogo = ({ size = 44, light = false }) => (
   <img 
-    src="/shco-logo.png" 
+    src={light ? "/shco-logo-white.png" : "/shco-logo.png"} 
     alt="Southern Horizon Co." 
     style={{
       width: size, height: size, borderRadius: "50%", 
       flexShrink: 0, objectFit: "cover",
-      filter: light ? "brightness(0) invert(1)" : "none"
     }}
   />
 );
@@ -25,7 +24,7 @@ const WIKI_ARTICLES = {
   kgari: "Lake_McKenzie",
   "tropical-north": "Daintree_National_Park",
   whitsundays: "Whitsunday_Island",
-  "capricorn-coast": "Town_of_1770",
+  "capricorn-coast": "Great_Keppel_Island",
   "byron-bay": "Cape_Byron",
   "stockton-beach": "Stockton_Beach",
   "coastal-explorer": "Bruce_Highway",
@@ -419,6 +418,7 @@ export default function SouthernHorizonSite() {
             booking_id: id,
             package: formData.package + (formData.duration ? " (" + formData.duration + ")" : ""),
             dates: formData.dates,
+            website_link: "https://southernhorizonco.com.au",
           },
         }),
       });
