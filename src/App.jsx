@@ -321,6 +321,9 @@ export default function SouthernHorizonSite() {
   const [activeSection, setActiveSection] = useState("home");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openFaqs, setOpenFaqs] = useState({});
+  const [viewingPrivacy, setViewingPrivacy] = useState(
+    typeof window !== "undefined" && window.location.pathname === "/privacy"
+  );
   const [formData, setFormData] = useState({ name:"",email:"",phone:"",guests:"",dates:"",package:"",duration:"",specialNeeds:"",message:"",childSeats:false });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formSubmitting, setFormSubmitting] = useState(false);
@@ -351,6 +354,28 @@ export default function SouthernHorizonSite() {
     };
     fetchWikiImages();
   }, []);
+
+  // Handle browser back/forward buttons for /privacy route
+  useEffect(() => {
+    const onPopState = () => {
+      setViewingPrivacy(window.location.pathname === "/privacy");
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+
+  const openPrivacy = () => {
+    window.history.pushState({}, "", "/privacy");
+    setViewingPrivacy(true);
+    window.scrollTo(0, 0);
+  };
+
+  const closePrivacy = () => {
+    window.history.pushState({}, "", "/");
+    setViewingPrivacy(false);
+    window.scrollTo(0, 0);
+  };
 
   // Helper: returns Wikipedia image if fetched, else fallback Unsplash URL
   const IMAGES = new Proxy({}, {
@@ -495,6 +520,321 @@ export default function SouthernHorizonSite() {
       </>
     );
   }
+
+  // ═══ PRIVACY POLICY PAGE ═══
+  if (viewingPrivacy) {
+    const h1Style = {fontFamily:serif,fontSize:40,fontWeight:500,color:neutral.dark,marginBottom:8,letterSpacing:-0.5};
+    const h2Style = {fontFamily:serif,fontSize:22,fontWeight:500,color:neutral.dark,marginTop:40,marginBottom:14,letterSpacing:-0.2};
+    const h3Style = {fontFamily:sans,fontSize:13,fontWeight:600,color:neutral.dark,marginTop:20,marginBottom:8,letterSpacing:0.2};
+    const pStyle = {fontFamily:sans,fontSize:14,fontWeight:300,color:neutral.mid,lineHeight:1.75,marginBottom:12};
+    const liStyle = {fontFamily:sans,fontSize:14,fontWeight:300,color:neutral.mid,lineHeight:1.75,marginBottom:6,marginLeft:18};
+    const tableStyle = {width:"100%",borderCollapse:"collapse",marginTop:14,marginBottom:20,fontFamily:sans,fontSize:12.5};
+    const thStyle = {textAlign:"left",padding:"10px 12px",borderBottom:`1.5px solid ${neutral.dark}`,fontWeight:600,fontSize:11,letterSpacing:0.8,textTransform:"uppercase",color:neutral.dark};
+    const tdStyle = {padding:"10px 12px",borderBottom:`1px solid ${neutral.border}`,color:neutral.mid,fontWeight:300,verticalAlign:"top",lineHeight:1.55};
+
+    return (
+      <>
+        <style>{`
+          @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700&family=Figtree:wght@300;400;500;600;700&display=swap');
+          *{margin:0;padding:0;box-sizing:border-box}
+          body{background:${neutral.white}}
+          ::selection{background:${gold};color:#fff}
+        `}</style>
+
+        {/* Simple nav bar */}
+        <nav style={{position:"sticky",top:0,zIndex:50,background:"#fff",borderBottom:`1px solid ${neutral.border}`,padding:"16px 24px"}}>
+          <div style={{maxWidth:1100,margin:"0 auto",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+            <div onClick={closePrivacy} style={{display:"flex",alignItems:"center",gap:10,cursor:"pointer"}}>
+              <SHCoLogo size={36}/>
+              <div style={{display:"flex",alignItems:"baseline",gap:6}}>
+                <span style={{fontFamily:serif,fontSize:20,fontWeight:400,color:neutral.dark,letterSpacing:0.5}}>Southern Horizon</span>
+                <span style={{fontFamily:sans,fontSize:9,fontWeight:700,letterSpacing:3,textTransform:"uppercase",color:gold}}>Co.</span>
+              </div>
+            </div>
+            <button onClick={closePrivacy} style={{
+              fontFamily:sans,fontSize:12,fontWeight:500,color:neutral.dark,
+              background:"transparent",border:`1px solid ${neutral.border}`,
+              padding:"8px 18px",borderRadius:999,cursor:"pointer",letterSpacing:0.5,
+            }}>← Back to site</button>
+          </div>
+        </nav>
+
+        {/* Privacy policy content */}
+        <div style={{maxWidth:780,margin:"0 auto",padding:"56px 28px 80px"}}>
+          <div style={{fontFamily:sans,fontSize:11,fontWeight:600,color:gold,letterSpacing:2.5,textTransform:"uppercase",marginBottom:16}}>Legal</div>
+          <h1 style={h1Style}>Privacy Policy</h1>
+          <p style={{fontFamily:sans,fontSize:13,color:neutral.light,marginBottom:40,fontWeight:300,fontStyle:"italic"}}>Last updated: April 2026</p>
+
+          <h2 style={h2Style}>1. About this policy</h2>
+          <p style={pStyle}>1.1 Southern Horizon Co. Pty Ltd (ABN to be registered) ("SHCo", "we", "us", "our") respects your privacy and takes the protection of your personal information seriously.</p>
+          <p style={pStyle}>1.2 This Privacy Policy describes how we collect, use, disclose, store, and protect your personal information. It applies to all personal information we collect from you — whether through our website, during a booking enquiry or consultation, during your hire period, or through any other interaction with our business.</p>
+          <p style={pStyle}>1.3 We are bound by the Australian Privacy Principles (APPs) under the Privacy Act 1988 (Cth) as a matter of good practice. We also recognise the rights of guests from the United Kingdom, European Union, and other jurisdictions under their respective data protection laws, including UK GDPR, EU GDPR, and the California Consumer Privacy Act where applicable.</p>
+          <p style={pStyle}>1.4 By providing your personal information to us or using our services, you consent to the collection, use, and disclosure of your personal information in accordance with this Policy.</p>
+          <p style={pStyle}>1.5 If you do not agree with this Policy, please do not provide us with your personal information or use our services.</p>
+
+          <h2 style={h2Style}>2. What personal information we collect</h2>
+          <p style={pStyle}>We collect the following categories of personal information:</p>
+
+          <h3 style={h3Style}>2.1 Identification and contact information</h3>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}>full name, date of birth, nationality;</li>
+            <li style={liStyle}>postal address, email address, phone number;</li>
+            <li style={liStyle}>passport or other government-issued identification where required for booking verification.</li>
+          </ul>
+
+          <h3 style={h3Style}>2.2 Driver information (for all Authorised Drivers)</h3>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}>driver licence details including licence number, issuing authority, class, and expiry;</li>
+            <li style={liStyle}>International Driving Permit details where applicable;</li>
+            <li style={liStyle}>driving history including licence suspensions in the preceding three years;</li>
+            <li style={liStyle}>date of birth and years of full licence held.</li>
+          </ul>
+
+          <h3 style={h3Style}>2.3 Emergency and guest information</h3>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}>emergency contact names, phone numbers, and relationships for all guests;</li>
+            <li style={liStyle}>names and dates of birth of all persons travelling in the vehicle;</li>
+            <li style={liStyle}>child passenger details and child seat requirements.</li>
+          </ul>
+
+          <h3 style={h3Style}>2.4 Health and dietary information (sensitive information under the Privacy Act)</h3>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}>food allergies including anaphylactic and non-anaphylactic allergies;</li>
+            <li style={liStyle}>medical conditions relevant to dietary management (including coeliac disease, diabetes, and similar);</li>
+            <li style={liStyle}>dietary restrictions arising from medical, religious, or cultural practice;</li>
+            <li style={liStyle}>any other health information you disclose that is relevant to your safe participation in the hire period.</li>
+          </ul>
+
+          <h3 style={h3Style}>2.5 Payment information</h3>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}>credit card or debit card details;</li>
+            <li style={liStyle}>billing address;</li>
+            <li style={liStyle}>transaction history.</li>
+          </ul>
+          <p style={pStyle}>Full card numbers are processed by our payment processor and are not stored in our systems. We retain transaction references and last four digits only.</p>
+
+          <h3 style={h3Style}>2.6 Vehicle and trip data</h3>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}>real-time GPS location of the vehicle during the Hire Period;</li>
+            <li style={liStyle}>dashcam footage captured by the vehicle;</li>
+            <li style={liStyle}>OBD-II vehicle performance data;</li>
+            <li style={liStyle}>accident or incident reports completed during the Hire Period.</li>
+          </ul>
+
+          <h3 style={h3Style}>2.7 Website and enquiry data</h3>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}>enquiry form submissions including trip interests, travel dates, group composition;</li>
+            <li style={liStyle}>correspondence with us including emails, phone call notes, and consultation records;</li>
+            <li style={liStyle}>IP address, browser type, device information, and basic usage data collected passively by our hosting and analytics infrastructure.</li>
+          </ul>
+
+          <h3 style={h3Style}>2.8 Marketing preferences</h3>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}>your consent to receive marketing communications;</li>
+            <li style={liStyle}>engagement with marketing content we send.</li>
+          </ul>
+
+          <h2 style={h2Style}>3. How we collect your personal information</h2>
+          <p style={pStyle}><strong>3.1 Directly from you:</strong> we collect most of our information directly from you — through our enquiry form, during booking consultations, in the Self-Drive Hire Agreement and its schedules, and during the vehicle handover briefing.</p>
+          <p style={pStyle}><strong>3.2 From your travel agent or operator:</strong> if you book with us through a travel operator such as Audley Travel, Swain Destinations, Down Under Endeavours, Kuoni, Lightfoot Travel, or Scott Dunn, we will receive your booking information from them.</p>
+          <p style={pStyle}><strong>3.3 Passively through our website:</strong> our website, hosted by Vercel, automatically collects basic technical information about your visit including IP address, browser type, pages visited, and referring source. Google services including Google Search Console may also collect information about how our website appears in search results. We do not currently operate any direct marketing analytics or advertising pixels on the website. If we add such tools in future — for example when we launch Google Ads — we will update this Policy accordingly.</p>
+          <p style={pStyle}><strong>3.4 Automatically from the vehicle during the Hire Period:</strong> once the Hire Period commences and you take possession of the Vehicle, we automatically collect GPS location data and OBD-II vehicle data in real time for the duration of the Hire Period. Your consent to this collection is obtained in the Self-Drive Hire Agreement.</p>
+          <p style={pStyle}><strong>3.5 From third parties:</strong> in the ordinary course of our business we may receive personal information about you from accommodation providers, emergency services, insurance providers, or law enforcement where relevant to the administration of your booking or any incident.</p>
+
+          <h2 style={h2Style}>4. Why we collect your personal information</h2>
+          <p style={pStyle}>We collect personal information for specific, disclosed purposes only. We do not collect information we do not need.</p>
+
+          <h3 style={h3Style}>4.1 To manage your booking and hire</h3>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}>processing enquiries, providing quotes, and conducting booking consultations;</li>
+            <li style={liStyle}>arranging accommodation, vehicle access permits, and route logistics on your behalf;</li>
+            <li style={liStyle}>verifying driver eligibility and preparing the Self-Drive Hire Agreement;</li>
+            <li style={liStyle}>processing payment and managing the security bond.</li>
+          </ul>
+
+          <h3 style={h3Style}>4.2 To deliver the SHCo touring experience</h3>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}>communicating dietary requirements to accommodation providers for breakfast provisioning;</li>
+            <li style={liStyle}>providing 24/7 route support, safety monitoring, and emergency response via GPS location data during the Hire Period;</li>
+            <li style={liStyle}>managing vehicle handover, return, and condition reporting.</li>
+          </ul>
+
+          <h3 style={h3Style}>4.3 To meet legal and safety obligations</h3>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}>verifying driver licensing and insurance requirements;</li>
+            <li style={liStyle}>responding to requests from law enforcement, emergency services, or regulatory bodies;</li>
+            <li style={liStyle}>meeting our obligations as a registered inbound tour operator under the Tourism Services Act 2003 (Qld);</li>
+            <li style={liStyle}>meeting record-keeping requirements under Australian tax and corporate law.</li>
+          </ul>
+
+          <h3 style={h3Style}>4.4 To manage incidents and insurance</h3>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}>responding to vehicle accidents, breakdowns, or emergencies during the Hire Period;</li>
+            <li style={liStyle}>processing insurance claims on your behalf or on our own behalf;</li>
+            <li style={liStyle}>investigating damage, loss, or disputes arising from the Hire Period.</li>
+          </ul>
+
+          <h3 style={h3Style}>4.5 To communicate with you</h3>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}>responding to enquiries, providing booking confirmations and pre-departure information;</li>
+            <li style={liStyle}>sending service-related communications including route updates and safety notifications;</li>
+            <li style={liStyle}>sending marketing communications where you have consented to receive them.</li>
+          </ul>
+
+          <h3 style={h3Style}>4.6 To improve our services</h3>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}>analysing booking patterns and route performance (using aggregated and de-identified data where possible);</li>
+            <li style={liStyle}>training and quality assurance of our consultation and operational processes;</li>
+            <li style={liStyle}>responding to feedback and resolving complaints.</li>
+          </ul>
+
+          <h2 style={h2Style}>5. Health and dietary information — sensitive information</h2>
+          <p style={pStyle}>5.1 Information about your health, dietary requirements, and allergies is "sensitive information" under the Privacy Act 1988 (Cth) and receives additional protection under this Policy.</p>
+          <p style={pStyle}>5.2 We collect sensitive information only with your consent and only for the purposes disclosed in this Policy — specifically, to ensure your safety and wellbeing during the Hire Period and to communicate your requirements to accommodation providers responsible for your breakfast meals.</p>
+          <p style={pStyle}>5.3 We do not share sensitive information with anyone other than:</p>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}>accommodation providers who need it to prepare breakfast accommodating your disclosed requirements;</li>
+            <li style={liStyle}>emergency services and medical professionals in the event of a medical emergency during the Hire Period;</li>
+            <li style={liStyle}>our insurers and their representatives in the event of an incident or claim where the information is relevant.</li>
+          </ul>
+          <p style={pStyle}>5.4 We do not use sensitive information for marketing, analytics, or any commercial purpose unrelated to your safe participation in the trip.</p>
+
+          <h2 style={h2Style}>6. How we share your personal information</h2>
+          <p style={pStyle}>6.1 We share personal information only as necessary to deliver your booking, manage our business operations, or meet legal obligations.</p>
+          <p style={pStyle}><strong>6.2 Third parties we share information with:</strong></p>
+          <div style={{overflowX:"auto",marginTop:8}}>
+            <table style={tableStyle}>
+              <thead>
+                <tr>
+                  <th style={thStyle}>Category</th>
+                  <th style={thStyle}>Examples</th>
+                  <th style={thStyle}>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style={tdStyle}>Accommodation providers</td><td style={tdStyle}>Hotels, lodges, resorts along your route</td><td style={tdStyle}>Booking accommodation, communicating dietary requirements</td></tr>
+                <tr><td style={tdStyle}>Payment processors</td><td style={tdStyle}>Stripe, card networks</td><td style={tdStyle}>Processing your payment and bond</td></tr>
+                <tr><td style={tdStyle}>Vehicle repositioning carriers</td><td style={tdStyle}>Truck carriers for interstate routes</td><td style={tdStyle}>Arranging vehicle delivery to your handover location</td></tr>
+                <tr><td style={tdStyle}>Trade distribution partners</td><td style={tdStyle}>Audley Travel, Swain Destinations, Down Under Endeavours, Kuoni, Lightfoot Travel, Scott Dunn</td><td style={tdStyle}>Managing bookings made through those operators</td></tr>
+                <tr><td style={tdStyle}>Insurance providers</td><td style={tdStyle}>Commercial hire fleet insurer, public liability insurer</td><td style={tdStyle}>Managing insurance and claims</td></tr>
+                <tr><td style={tdStyle}>Professional advisors</td><td style={tdStyle}>Lawyers, accountants, auditors</td><td style={tdStyle}>Obtaining legal and financial advice</td></tr>
+                <tr><td style={tdStyle}>Technology service providers</td><td style={tdStyle}>Google Workspace, HubSpot, EmailJS, Firebase, Vercel</td><td style={tdStyle}>Email, CRM, booking confirmations, data storage, website hosting</td></tr>
+                <tr><td style={tdStyle}>Government and regulatory bodies</td><td style={tdStyle}>Queensland Parks and Wildlife Service, Queensland Police, Australian Taxation Office</td><td style={tdStyle}>Meeting legal and regulatory obligations</td></tr>
+                <tr><td style={tdStyle}>Emergency services</td><td style={tdStyle}>Ambulance, police, search and rescue</td><td style={tdStyle}>Responding to emergencies during the Hire Period</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style={pStyle}>6.3 We do not sell or rent your personal information to any third party for marketing or advertising purposes.</p>
+          <p style={pStyle}>6.4 Where we share your personal information with a third party, we take reasonable steps to ensure that third party is bound by obligations of confidentiality and uses your information only for the purpose for which we shared it.</p>
+
+          <h2 style={h2Style}>7. Overseas disclosure</h2>
+          <p style={pStyle}>7.1 SHCo is based in Australia and our operations are located in Queensland. However, some of our service providers and trade distribution partners are located overseas. By providing us with your personal information, you consent to us transferring your personal information to the following countries:</p>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}><strong>United Kingdom</strong> — Audley Travel (trade distribution) and potentially other UK-based operators;</li>
+            <li style={liStyle}><strong>United States</strong> — Swain Destinations and Down Under Endeavours (trade distribution), as well as technology service providers including Google, HubSpot, and Firebase (which may store data in US data centres);</li>
+            <li style={liStyle}><strong>Switzerland and Germany</strong> — Kuoni and DERTOUR (trade distribution in Europe);</li>
+            <li style={liStyle}><strong>Singapore and Hong Kong</strong> — Lightfoot Travel (trade distribution);</li>
+            <li style={liStyle}><strong>Other jurisdictions</strong> — where a guest's booking involves an accommodation provider or service based outside Australia, or where our technology service providers process data in other regions.</li>
+          </ul>
+          <p style={pStyle}>7.2 When we transfer your personal information overseas, we take reasonable steps to ensure the recipient complies with obligations substantially similar to the Australian Privacy Principles, or that we obtain your consent to the transfer.</p>
+
+          <h2 style={h2Style}>8. How long we keep your personal information</h2>
+          <p style={pStyle}>8.1 We retain personal information only for as long as necessary to fulfil the purposes for which it was collected, meet our legal and regulatory obligations, and protect our legal rights.</p>
+          <p style={pStyle}><strong>8.2 Retention periods by data category:</strong></p>
+          <div style={{overflowX:"auto",marginTop:8}}>
+            <table style={tableStyle}>
+              <thead>
+                <tr>
+                  <th style={thStyle}>Data category</th>
+                  <th style={thStyle}>Retention period</th>
+                  <th style={thStyle}>Reason</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style={tdStyle}>Booking records, contracts, financial records</td><td style={tdStyle}>7 years after end of relevant financial year</td><td style={tdStyle}>Australian tax and corporate record-keeping</td></tr>
+                <tr><td style={tdStyle}>Incident reports, insurance claims</td><td style={tdStyle}>7 years after claim closure or longer if required</td><td style={tdStyle}>Insurance and personal injury statute of limitations</td></tr>
+                <tr><td style={tdStyle}>Driver licence and identification details</td><td style={tdStyle}>7 years after end of relevant financial year</td><td style={tdStyle}>Aligned with booking record retention</td></tr>
+                <tr><td style={tdStyle}>Health and dietary information</td><td style={tdStyle}>Duration of relevant booking plus 12 months</td><td style={tdStyle}>Managing post-trip dietary incident claims</td></tr>
+                <tr><td style={tdStyle}>GPS location data during Hire Period</td><td style={tdStyle}>1 year after end of Hire Period</td><td style={tdStyle}>Incident investigation and claim defence</td></tr>
+                <tr><td style={tdStyle}>GPS location data for active claims</td><td style={tdStyle}>Until matter finalised plus 7 years</td><td style={tdStyle}>Defence of legal claims</td></tr>
+                <tr><td style={tdStyle}>Dashcam footage</td><td style={tdStyle}>30 days routine; longer if relevant to a claim</td><td style={tdStyle}>Operational storage; extended for claims</td></tr>
+                <tr><td style={tdStyle}>Marketing contact data</td><td style={tdStyle}>3 years from last interaction or until you withdraw consent</td><td style={tdStyle}>Refreshing marketing permissions</td></tr>
+                <tr><td style={tdStyle}>Enquiry form submissions (unconverted)</td><td style={tdStyle}>2 years</td><td style={tdStyle}>Allowing time for deferred enquiries to proceed</td></tr>
+                <tr><td style={tdStyle}>Website analytics and technical logs</td><td style={tdStyle}>12 months</td><td style={tdStyle}>Ordinary operational purposes</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style={pStyle}>8.3 After the applicable retention period expires, we securely destroy or de-identify the personal information.</p>
+          <p style={pStyle}>8.4 We may retain personal information for longer than the periods above where required for the defence of a legal claim, compliance with a legal obligation, or where you have consented to extended retention.</p>
+
+          <h2 style={h2Style}>9. How we protect your personal information</h2>
+          <p style={pStyle}>9.1 We take the security of your personal information seriously and implement a range of measures to protect it from unauthorised access, use, modification, loss, or disclosure:</p>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}>all booking data is stored in Firebase Firestore with access restricted to authenticated SHCo personnel;</li>
+            <li style={liStyle}>website hosting is provided by Vercel with industry-standard transport layer encryption (HTTPS);</li>
+            <li style={liStyle}>credit card details are processed by our payment processor and are not stored in our systems — we retain only transaction references;</li>
+            <li style={liStyle}>physical documents are stored securely at our Banyo premises with access restricted to authorised personnel;</li>
+            <li style={liStyle}>GPS location data is stored in secure cloud infrastructure with encrypted transmission and restricted access;</li>
+            <li style={liStyle}>staff and contractors are bound by confidentiality obligations.</li>
+          </ul>
+          <p style={pStyle}>9.2 No system can be guaranteed to be 100% secure. If we become aware of a data breach that involves your personal information and is likely to result in serious harm, we will notify you and the Office of the Australian Information Commissioner (OAIC) in accordance with the Notifiable Data Breaches scheme under the Privacy Act.</p>
+
+          <h2 style={h2Style}>10. Your rights and how to exercise them</h2>
+          <p style={pStyle}>10.1 You have the following rights in relation to your personal information:</p>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}><strong>Access</strong> — you may request access to the personal information we hold about you. We will provide access unless an exception under the Privacy Act applies.</li>
+            <li style={liStyle}><strong>Correction</strong> — you may request that we correct any personal information that is inaccurate, incomplete, or out of date.</li>
+            <li style={liStyle}><strong>Withdrawal of consent</strong> — you may withdraw your consent to our collection and use of your personal information at any time. Where you withdraw consent, we may not be able to continue providing our services to you.</li>
+            <li style={liStyle}><strong>Marketing opt-out</strong> — you may opt out of receiving marketing communications at any time by clicking the unsubscribe link in any marketing email or by contacting us directly.</li>
+            <li style={liStyle}><strong>Complaint</strong> — you may complain about how we have handled your personal information by contacting us using the details below. We will acknowledge your complaint within 5 business days and respond substantively within 30 days.</li>
+          </ul>
+          <p style={pStyle}>10.2 <strong>Additional rights for UK and EU residents</strong> — if you are a resident of the United Kingdom or European Union, you may have additional rights under UK GDPR or EU GDPR including the right to data portability, the right to object to processing, the right to restriction of processing, and the right to erasure in certain circumstances. You may exercise these rights by contacting us using the details below.</p>
+          <p style={pStyle}>10.3 <strong>Additional rights for California residents</strong> — if you are a resident of California, you may have additional rights under the California Consumer Privacy Act including the right to know what personal information we collect, the right to request deletion of your personal information, and the right to non-discrimination for exercising your privacy rights. SHCo does not sell personal information as defined under the CCPA.</p>
+          <p style={pStyle}>10.4 If you are not satisfied with our response to a privacy complaint, you may lodge a complaint with:</p>
+          <ul style={{listStyle:"disc"}}>
+            <li style={liStyle}><strong>Australia</strong> — Office of the Australian Information Commissioner (OAIC) — www.oaic.gov.au — 1300 363 992;</li>
+            <li style={liStyle}><strong>United Kingdom</strong> — Information Commissioner's Office (ICO) — www.ico.org.uk;</li>
+            <li style={liStyle}><strong>European Union</strong> — your local data protection authority.</li>
+          </ul>
+
+          <h2 style={h2Style}>11. Cookies and website tracking</h2>
+          <p style={pStyle}>11.1 Our website uses only essential technical cookies required for the website to function. We do not currently operate any direct marketing or advertising cookies, analytics trackers, or third-party advertising pixels.</p>
+          <p style={pStyle}>11.2 Our hosting provider (Vercel) and search engine services (Google) collect basic technical information about website visits as part of their ordinary operation. This is standard for any website on the public internet.</p>
+          <p style={pStyle}>11.3 If we introduce marketing analytics, advertising pixels, or other tracking technologies in future, we will update this Policy and provide a clear cookie consent mechanism at that time.</p>
+          <p style={pStyle}>11.4 You can control cookies through your browser settings. Disabling cookies may affect the functionality of our website.</p>
+
+          <h2 style={h2Style}>12. Children's privacy</h2>
+          <p style={pStyle}>12.1 Our services are not directed at children under the age of 18. We do not knowingly collect personal information directly from children.</p>
+          <p style={pStyle}>12.2 Where a booking involves children travelling with adult guests — including as passengers in the vehicle — we collect the child's name and date of birth for safety and emergency purposes only. This information is provided by the booking adult (parent or legal guardian) and is collected with their consent.</p>
+          <p style={pStyle}>12.3 If we become aware that we have collected personal information directly from a child under 18 without appropriate consent, we will delete that information promptly.</p>
+
+          <h2 style={h2Style}>13. Changes to this Policy</h2>
+          <p style={pStyle}>13.1 We may update this Policy from time to time to reflect changes in our practices, our services, or applicable law.</p>
+          <p style={pStyle}>13.2 When we make material changes, we will update the "Last updated" date at the top of this Policy and, where appropriate, notify you by email or through a notice on our website.</p>
+          <p style={pStyle}>13.3 We encourage you to review this Policy periodically to stay informed about how we are handling your personal information.</p>
+
+          <h2 style={h2Style}>14. Contact us</h2>
+          <p style={pStyle}>If you have any questions about this Policy, wish to exercise any of your rights, or want to make a complaint, please contact us:</p>
+          <div style={{background:neutral.soft,padding:"22px 24px",borderRadius:4,marginTop:14,marginBottom:20,borderLeft:`3px solid ${gold}`}}>
+            <p style={{fontFamily:serif,fontSize:17,fontWeight:500,color:neutral.dark,marginBottom:10}}>Southern Horizon Co. Pty Ltd</p>
+            <p style={{...pStyle,marginBottom:4}}>Banyo, Brisbane QLD 4014, Australia</p>
+            <p style={{...pStyle,marginBottom:4}}>Email: <a href="mailto:privacy@southernhorizonco.com.au" style={{color:gold,textDecoration:"none"}}>privacy@southernhorizonco.com.au</a></p>
+          </div>
+          <p style={pStyle}>We will respond to your enquiry within 30 days.</p>
+
+          <div style={{marginTop:56,paddingTop:28,borderTop:`1px solid ${neutral.border}`,textAlign:"center"}}>
+            <button onClick={closePrivacy} style={{
+              fontFamily:sans,fontSize:12,fontWeight:500,color:neutral.dark,
+              background:"transparent",border:`1px solid ${neutral.dark}`,
+              padding:"12px 28px",borderRadius:999,cursor:"pointer",letterSpacing:1,textTransform:"uppercase",
+            }}>← Back to site</button>
+          </div>
+        </div>
+      </>
+    );
+  }
+
+
 
   return (
     <>
@@ -1237,6 +1577,10 @@ export default function SouthernHorizonSite() {
                 <button className="btn-dual" onClick={handleSubmit} disabled={formSubmitting} style={{width:"100%",marginTop:4,opacity:formSubmitting?0.7:1}}>
                   {formSubmitting ? "Sending..." : "Send Enquiry"}
                 </button>
+                <p style={{fontFamily:sans,fontSize:10.5,color:"rgba(255,255,255,0.35)",textAlign:"center",fontWeight:300,lineHeight:1.65,marginTop:-2}}>
+                  By submitting, you agree to our{" "}
+                  <span onClick={openPrivacy} style={{color:gold,cursor:"pointer",textDecoration:"underline",textUnderlineOffset:2}}>Privacy Policy</span>.
+                </p>
                 <p style={{fontFamily:sans,fontSize:10.5,color:"rgba(255,255,255,0.2)",textAlign:"center",fontWeight:300}}>We respond to every enquiry personally within 24 hours.</p>
               </div>
             )}
@@ -1422,7 +1766,11 @@ export default function SouthernHorizonSite() {
           </div>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",paddingTop:18,flexWrap:"wrap",gap:10}}>
             <span style={{fontFamily:sans,fontSize:10.5,color:"rgba(255,255,255,0.12)",fontWeight:300}}>© 2026 Southern Horizon Co. All rights reserved.</span>
-            <span style={{fontFamily:sans,fontSize:10.5,color:"rgba(255,255,255,0.25)",fontWeight:300}}>Coming Soon</span>
+            <div style={{display:"flex",alignItems:"center",gap:20}}>
+              <span onClick={openPrivacy} style={{fontFamily:sans,fontSize:10.5,color:"rgba(255,255,255,0.4)",fontWeight:300,cursor:"pointer",letterSpacing:0.3}}
+                onMouseEnter={e=>e.target.style.color="#fff"} onMouseLeave={e=>e.target.style.color="rgba(255,255,255,0.4)"}>Privacy Policy</span>
+              <span style={{fontFamily:sans,fontSize:10.5,color:"rgba(255,255,255,0.25)",fontWeight:300}}>Coming Soon</span>
+            </div>
           </div>
         </div>
       </footer>
