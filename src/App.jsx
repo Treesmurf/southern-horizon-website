@@ -78,18 +78,18 @@ const FAQ_DATA = [
   {
     category: "The Vehicle",
     items: [
-      { q: "What vehicle will I be driving?", a: "A Lexus LX500d Overtrail — twin-turbo V6 diesel, full-time 4WD, Mark Levinson premium audio, and every luxury feature Lexus makes. It's equally at home cruising the coast to Cairns, crossing K'gari's beaches, or winding through outback Queensland." },
-      { q: "Do I need 4WD experience?", a: "Not at all. The LX500d makes off-road touring accessible with advanced traction control and terrain management. We provide a comprehensive vehicle briefing covering beach driving, sand, and unsealed roads before you depart." },
+      { q: "What vehicle will I be driving?", a: "A luxury SUV — full-time 4WD with premium audio and every luxury feature you'd expect. It's equally at home cruising the coast to Cairns, crossing K'gari's beaches, or winding through outback Queensland." },
+      { q: "Do I need 4WD experience?", a: "Not at all. The vehicle makes off-road touring accessible with advanced traction control and terrain management. We provide a comprehensive vehicle briefing covering beach driving, sand, and unsealed roads before you depart." },
       { q: "Is there phone coverage and internet?", a: "We provide Starlink satellite internet and a backup smartphone with Telstra SIM in the glovebox for emergencies. You'll stay connected from the Daintree Rainforest to the Simpson Desert — and everywhere in between." },
     ],
   },
   {
     category: "What's Included",
     items: [
-      { q: "What's included in the daily rate?", a: "Everything. Your daily rate covers the Lexus LX500d Overtrail, insurance, curated luxury accommodation at every stop with breakfast included where available, a fleet fuel card (plus backup Visa for remote locations), Starlink satellite internet, backup phone with Telstra SIM for emergencies, your fully curated route with a dining guide of our favourite restaurants, vehicle briefing, and personal concierge support. One rate, everything included. Pricing provided on enquiry." },
+      { q: "What's included in the daily rate?", a: "Everything. Your daily rate covers the luxury SUV, insurance, curated luxury accommodation at every stop with breakfast included where available, a fleet fuel card (plus backup Visa for remote locations), Starlink satellite internet, backup phone with Telstra SIM for emergencies, your fully curated route with a dining guide of our favourite restaurants, vehicle briefing, and personal concierge support. One rate, everything included. Pricing provided on enquiry." },
       { q: "How does accommodation work?", a: "Luxury accommodation is included in your daily rate. We curate handpicked options at every stop — outback stations, boutique lodges, coastal retreats, eco-lodges. You pick what appeals, we book everything. No research, no chasing availability, no extra charges." },
       { q: "Can I upgrade to ultra-luxury accommodation?", a: "Absolutely. Your daily rate covers quality curated accommodation at every stop. If you'd like to upgrade to ultra-luxury properties — places like Silky Oaks Lodge in the Daintree, Elements of Byron, or Spicers Peak Lodge — we can arrange that as a supplement. Just mention it during your consultation and we'll present upgrade options alongside the standard inclusions at the relevant stops. You only pay the difference for the nights you choose to upgrade." },
-      { q: "How does fuel and dining work?", a: "Your Lexus LX comes with a fleet fuel card that works at BP, Shell, and Ampol stations — roughly 95% of fuel stops across Australia. For remote locations like K'gari (Fraser Island) where fleet cards aren't accepted, we provide a backup pre-paid Visa. Breakfast is included where available at your accommodation. For dinner, we provide a curated dining guide with our handpicked restaurant recommendations at every stop — dinner is at your own expense so you can choose exactly where and what you feel like each evening." },
+      { q: "How does fuel and dining work?", a: "Your luxury SUV comes with a fleet fuel card that works at BP, Shell, and Ampol stations — roughly 95% of fuel stops across Australia. For remote locations like K'gari (Fraser Island) where fleet cards aren't accepted, we provide a backup pre-paid Visa. Breakfast is included where available at your accommodation. For dinner, we provide a curated dining guide with our handpicked restaurant recommendations at every stop — dinner is at your own expense so you can choose exactly where and what you feel like each evening." },
       { q: "Is there a security bond?", a: "Yes — a tiered bond system varies by package and configuration. Full details come with your booking enquiry. The bond is fully refundable subject to standard return conditions." },
     ],
   },
@@ -98,7 +98,7 @@ const FAQ_DATA = [
     items: [
       { q: "How long can I hire for?", a: "Our signature touring packages are curated at 21 days — long enough to genuinely experience every stop, not just drive through. K'gari and Tropical North run 5–10 days for a more focused experience. We also offer 7-day regional packages — Whitsundays, Outback Taster, Capricorn Coast, Carnarvon Gorge, Byron Bay, and Stockton Beach. Want something shorter, longer, or completely custom? That's what the Custom Journey is for — minimum 3 days, no maximum." },
       { q: "Why is there a passenger limit?", a: "For comfort and safety. We cap at 4 adults or 2 adults and 3 children per trip. Outback and remote coastal touring involves long distances, variable road conditions, and limited access to services. Fewer passengers means more space in the cabin, better weight distribution for the vehicle, and a safer, more comfortable experience for everyone — especially on sand, corrugations, and unsealed roads." },
-      { q: "Where do I pick up?", a: "You don't — we deliver to you. Your Lexus LX is brought directly to your arrival airport, hotel, or accommodation — Brisbane, Gold Coast, Sunshine Coast (Maroochydore), Cairns, or Sydney depending on your package. Flying into Maroochydore? You could be at Rainbow Beach by lunchtime. Landing at Gold Coast? Head straight for Byron Bay or north to K'gari. Flying into Cairns for the Tropical North? Your Lexus LX is waiting when you land. Already in Brisbane? We can deliver to your hotel, or you're welcome to collect from our yard in Banyo." },
+      { q: "Where do I pick up?", a: "You don't — we deliver to you. Your luxury SUV is brought directly to your arrival airport, hotel, or accommodation — Brisbane, Gold Coast, Sunshine Coast (Maroochydore), Cairns, or Sydney depending on your package. Flying into Maroochydore? You could be at Rainbow Beach by lunchtime. Landing at Gold Coast? Head straight for Byron Bay or north to K'gari. Flying into Cairns for the Tropical North? Your luxury SUV is waiting when you land. Already in Brisbane? We can deliver to your hotel, or you're welcome to collect from our yard in Banyo." },
       { q: "Can I drive on the beach?", a: "Absolutely — beach driving is part of the experience on K'gari and other coastal routes. Sand driving, tyre pressures, tide awareness, and recovery are all covered in your briefing. Required permits are arranged as part of your package." },
       { q: "How much driving is involved?", a: "We design every day with a maximum of four hours behind the wheel. Stops are chosen because they're worth seeing — not just places to sleep. Our 21-day signature packages give you genuine dwell time at every stop so you can explore, relax, and actually experience each destination. No rushed itineraries, no bus-tour pace." },
       { q: "What if something goes wrong?", a: "24/7 phone support, Starlink satellite internet, backup emergency phone with Telstra SIM, and UHF radio. Emergency procedures and contacts are provided in your pre-departure briefing." },
@@ -114,9 +114,9 @@ const PACKAGES = [
     duration: "5–7 Days",
     guests: "2–4 Guests",
     route: "Brisbane → K'gari (Fraser Island)",
-    tagline: "The world's largest sand island by Lexus LX",
+    tagline: "The world's largest sand island by luxury SUV",
     description: "Focused adventure on an iconic destination. Drive 75 Mile Beach, swim crystal-clear perched lakes, explore rainforest growing in sand. Stay at island resorts and coastal retreats. Add Hervey Bay for whale watching or extend to a full week at island pace.",
-    includes: ["Lexus LX500d Overtrail", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "K'gari permits + barge", "Beach driving briefing", "Luxury curated accommodation", "24/7 support"],
+    includes: ["Luxury SUV", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "K'gari permits + barge", "Beach driving briefing", "Luxury curated accommodation", "24/7 support"],
     vibe: "coast",
     stops: [
       { name: "Rainbow Beach & Inskip Point", day: "Day 1", type: "transit", desc: "Drive north from Brisbane (3–4hrs). Air down tyres at Inskip Point and catch the barge across to K'gari's southern tip.", stay: "Rainbow Beach accommodation", eat: "Rainbow Beach Surf Club before crossing", source: "QPWS — book via qld.gov.au/camping" },
@@ -134,11 +134,11 @@ const PACKAGES = [
     guests: "2–4 Guests",
     route: "Cairns · Daintree · Cape Tribulation",
     tagline: "Where the rainforest meets the reef",
-    description: "Start right in the tropics — we deliver your Lexus LX to Cairns Airport so you skip the drive north entirely. Explore Mossman Gorge, the Daintree, Cape Tribulation, Atherton Tablelands, and the reef. Select from our curated eco-lodges and retreats at each stop.",
-    includes: ["Lexus LX500d Overtrail", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Cairns airport delivery included", "Luxury curated accommodation", "MAXTRAX + recovery kit", "Tropical route guide", "24/7 support"],
+    description: "Start right in the tropics — we deliver your luxury SUV to Cairns Airport so you skip the drive north entirely. Explore Mossman Gorge, the Daintree, Cape Tribulation, Atherton Tablelands, and the reef. Select from our curated eco-lodges and retreats at each stop.",
+    includes: ["Luxury SUV", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Cairns airport delivery included", "Luxury curated accommodation", "MAXTRAX + recovery kit", "Tropical route guide", "24/7 support"],
     vibe: "coast",
     stops: [
-      { name: "Cairns", day: "Day 1", type: "transit", desc: "Your starting point. We deliver your Lexus LX to Cairns Airport and fly in to do your handover personally — full vehicle briefing, keys in your hand.", stay: "Cairns or Palm Cove accommodation", eat: "Prawn Star, Salt House, Cairns Night Markets", source: "ellisbeach.com.au" },
+      { name: "Cairns", day: "Day 1", type: "transit", desc: "Your starting point. We deliver your luxury SUV to Cairns Airport and fly in to do your handover personally — full vehicle briefing, keys in your hand.", stay: "Cairns or Palm Cove accommodation", eat: "Prawn Star, Salt House, Cairns Night Markets", source: "ellisbeach.com.au" },
       { name: "Port Douglas & Mossman Gorge", day: "Days 2–3", type: "highlight", desc: "Four Mile Beach, the Sunday markets, gateway to the Low Isles and outer reef. Mossman Gorge — Indigenous-guided Dreamtime walks, crystal-clear swimming hole among granite boulders.", stay: "Port Douglas boutique accommodation", eat: "Zinc, Salsa Bar & Grill, Sunday markets for tropical fruit", source: "QPWS — book via qld.gov.au/camping" },
       { name: "Daintree River & Rainforest", day: "Days 4–5", type: "highlight", desc: "Cable ferry across the Daintree River into the world's oldest rainforest. Croc-spotting river cruises, Daintree Discovery Centre canopy walk, hidden swimming holes.", stay: "Daintree Eco Lodge or Silky Oaks Lodge", eat: "Daintree Ice Cream Company, Daintree Tea Company", source: "daintreeriverview.com.au" },
       { name: "Cape Tribulation", day: "Days 5–6", type: "highlight", desc: "Where the rainforest meets the reef — literally. Swim off the beach with the canopy at your back. Night walks for wildlife. Dubuji Boardwalk through the mangroves.", stay: "Cape Trib Beach House or Ferntree Rainforest Lodge", eat: "Whet Café Cape Tribulation, local dining", source: "QPWS — book via qld.gov.au/camping (closed wet season Dec–Apr)" },
@@ -156,7 +156,7 @@ const PACKAGES = [
     route: "Proserpine / Mackay · Airlie Beach · Cape Hillsborough",
     tagline: "Islands, reef, and kangaroos on the beach",
     description: "Fly into Proserpine or Mackay and head straight for the Whitsundays. Three nights based at Airlie Beach — day trip to Whitehaven Beach, sailing, snorkelling the reef. Then south to Cape Hillsborough for sunrise kangaroos on the beach, and finish in Mackay. Short, focused, and unforgettable.",
-    includes: ["Lexus LX500d Overtrail", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Luxury curated accommodation", "MAXTRAX + recovery kit", "24/7 support"],
+    includes: ["Luxury SUV", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Luxury curated accommodation", "MAXTRAX + recovery kit", "24/7 support"],
     vibe: "coast",
     stops: [
       { name: "Airlie Beach", day: "Days 1–3", type: "highlight", desc: "Gateway to the Whitsunday Islands. Day trip to Whitehaven Beach — consistently rated one of the world's best beaches. Sailing, kayaking, snorkelling the outer reef. Whitsunday Great Walk. Three nights to do it justice.", stay: "Airlie Beach accommodation", eat: "Fish D'vine, Mr Bones, Northerlies Beach Bar", source: "big4.com.au" },
@@ -173,7 +173,7 @@ const PACKAGES = [
     route: "Rockhampton · Yeppoon · 1770 & Agnes Water",
     tagline: "Reef islands, headland walks, and Queensland's most northerly surf",
     description: "Fly into Rockhampton and head for the coast. Yeppoon Lagoon, Great Keppel Island day trip, Capricorn Caves. Then south to the Town of 1770 and Agnes Water — Queensland's most northerly surf beach, Lady Musgrave Island on the southern Great Barrier Reef. A week of coast without the crowds.",
-    includes: ["Lexus LX500d Overtrail", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Luxury curated accommodation", "MAXTRAX + recovery kit", "24/7 support"],
+    includes: ["Luxury SUV", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Luxury curated accommodation", "MAXTRAX + recovery kit", "24/7 support"],
     vibe: "coast",
     stops: [
       { name: "Yeppoon & Capricorn Coast", day: "Days 1–3", type: "highlight", desc: "Yeppoon Lagoon, Bluff Point walk. Day trip to Great Keppel Island by ferry — pristine beaches, snorkelling, bushwalks. Capricorn Caves — natural limestone cathedral.", stay: "Yeppoon waterfront accommodation", eat: "Waterline Restaurant Yeppoon, The Strand Hotel", source: "farnboroughbeach.com.au" },
@@ -190,7 +190,7 @@ const PACKAGES = [
     route: "Gold Coast / Ballina · Byron Bay · Yamba",
     tagline: "Lighthouse walks, beach driving, and Australia's most laid-back coast",
     description: "Pick up from Gold Coast or Ballina airport and head straight for Byron Bay. Cape Byron lighthouse, The Pass, The Farm. South to Air Force Beach for a taste of sand driving — no permit needed. Then Yamba, consistently rated one of Australia's best small towns. Short, coastal, and completely relaxed.",
-    includes: ["Lexus LX500d Overtrail", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Luxury curated accommodation", "Beach driving briefing", "24/7 support"],
+    includes: ["Luxury SUV", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Luxury curated accommodation", "Beach driving briefing", "24/7 support"],
     vibe: "coast",
     stops: [
       { name: "Byron Bay", day: "Days 1–2", type: "highlight", desc: "Cape Byron lighthouse — most easterly point of mainland Australia. Sunrise walk, The Pass for surfing, Main Beach for swimming. The Farm for produce-driven dining. Two nights to soak it in.", stay: "Byron Bay accommodation", eat: "The Balcony Bar & Oyster Co, Three Blue Ducks at The Farm", source: "firstsunbyronbay.com.au" },
@@ -208,7 +208,7 @@ const PACKAGES = [
     route: "Sydney / Newcastle · Port Stephens · Hunter Valley",
     tagline: "Australia's largest coastal dunes, dolphins, and wine country",
     description: "The NSW 4WD highlight. Fly into Sydney or Newcastle and head for Worimi Conservation Lands — 19km of beach driving through massive sand dunes, Tin City, and WWII relics. Nelson Bay for dolphins. Then inland to the Hunter Valley for cellar doors and vineyard stays. Beach, sand, and wine in one week.",
-    includes: ["Lexus LX500d Overtrail", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Stockton Beach 4WD permit", "Luxury curated accommodation", "Beach driving briefing", "24/7 support"],
+    includes: ["Luxury SUV", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Stockton Beach 4WD permit", "Luxury curated accommodation", "Beach driving briefing", "24/7 support"],
     vibe: "coast",
     stops: [
       { name: "Newcastle", day: "Day 1", type: "transit", desc: "Fly into Sydney or Newcastle. Bathers Way walk — Nobbys Beach, Bogey Hole (convict-cut ocean bath), Merewether Ocean Baths. Street art, craft beer scene.", stay: "Newcastle accommodation (Merewether or inner city)", eat: "Merewether Surfhouse, The Edwards", source: "visitnewcastle.com.au" },
@@ -226,7 +226,7 @@ const PACKAGES = [
     route: "Brisbane → K'gari → Cairns",
     tagline: "The full Queensland coastline — beaches, rainforest, and reef",
     description: "Our signature coastal journey. Head north from Brisbane, cross to K'gari for world-class beach driving, then wind up through the Whitsundays and into Tropical North Queensland. Stay in coastal resorts and boutique lodges — every stop gets genuine dwell time. Finish in Cairns and fly home.",
-    includes: ["Lexus LX500d Overtrail", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "K'gari permits + barge", "MAXTRAX + recovery kit", "Luxury curated accommodation", "Coastal route guide", "24/7 support"],
+    includes: ["Luxury SUV", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "K'gari permits + barge", "MAXTRAX + recovery kit", "Luxury curated accommodation", "Coastal route guide", "24/7 support"],
     vibe: "coast",
     stops: [
       { name: "Rainbow Beach & Inskip", day: "Day 1", type: "transit", desc: "Barge departure point for K'gari. Air down tyres at Inskip Point and get your first taste of coastal sand driving.", stay: "Rainbow Beach accommodation", eat: "Rainbow Beach Surf Club, Waterview Bistro", source: "QPWS — book via qld.gov.au/camping" },
@@ -249,7 +249,7 @@ const PACKAGES = [
     route: "Longreach · Winton",
     tagline: "Dinosaurs, stargazing, and the Qantas story — without the 21-day commitment",
     description: "Fly into Longreach and dive straight into outback Queensland's highlights. Qantas Founders Museum, Australian Age of Dinosaurs on the mesa at Winton, Thomson River sunset cruise. All the best of the outback route in one focused week. All sealed roads, every leg under four hours.",
-    includes: ["Lexus LX500d Overtrail", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Luxury curated accommodation", "MAXTRAX + recovery kit", "Remote route mapping", "24/7 satellite support"],
+    includes: ["Luxury SUV", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Luxury curated accommodation", "MAXTRAX + recovery kit", "Remote route mapping", "24/7 satellite support"],
     vibe: "outback",
     stops: [
       { name: "Longreach", day: "Days 1–3", type: "highlight", desc: "Heart of outback Queensland. Qantas Founders Museum — walk through a 747 and 707 on the tarmac. Australian Stockman's Hall of Fame. Thomson River sunset cruise with camp oven dinner. Three nights to soak it in.", stay: "Longreach accommodation or station stays", eat: "Harry's at the Australian Hotel, Merino Bakery", source: "longreachtouristpark.com.au" },
@@ -266,7 +266,7 @@ const PACKAGES = [
     route: "Emerald · Carnarvon Gorge · Blackall",
     tagline: "Ancient rock art, sandstone cathedrals, and outback silence",
     description: "Fly into Emerald and head for the gorge. Four nights at Carnarvon Gorge — 30km sandstone gorge with Aboriginal rock art, moss gardens, the Amphitheatre, Ward's Canyon. Multiple day-walks. Bookended by sapphire fossicking at Rubyvale and outback hospitality at Blackall. A short, deep outback immersion.",
-    includes: ["Lexus LX500d Overtrail", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Luxury curated accommodation", "MAXTRAX + recovery kit", "Remote route mapping", "24/7 satellite support"],
+    includes: ["Luxury SUV", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Luxury curated accommodation", "MAXTRAX + recovery kit", "Remote route mapping", "24/7 satellite support"],
     vibe: "outback",
     stops: [
       { name: "Rubyvale & Gemfields", day: "Day 1", type: "stop", desc: "Fly into Emerald, drive to Rubyvale. Sapphire fossicking — try your luck hands-on. A different kind of treasure hunt before the gorge.", stay: "Rubyvale or Emerald accommodation", eat: "Rubyvale Gem Gallery café", source: "rubyvalegem.com.au" },
@@ -283,7 +283,7 @@ const PACKAGES = [
     route: "Brisbane → Longreach · Winton · Carnarvon Gorge",
     tagline: "Stargazing, dinosaurs, and silence you can't find on the coast",
     description: "Head west into outback Queensland's heartland. Artesian spas under the stars, the Qantas birthplace, dinosaur fossils on a mesa, and a 30km sandstone gorge with ancient rock art. Stay in outback pubs, stations, and lodges. All on sealed roads with every leg under four hours. All on sealed and unsealed roads with every leg under four hours.",
-    includes: ["Lexus LX500d Overtrail", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "MAXTRAX + recovery kit", "Luxury curated accommodation", "Remote route & water mapping", "24/7 satellite support"],
+    includes: ["Luxury SUV", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "MAXTRAX + recovery kit", "Luxury curated accommodation", "Remote route & water mapping", "24/7 satellite support"],
     vibe: "outback",
     stops: [
       { name: "Toowoomba", day: "Day 1", type: "transit", desc: "Up and over the Great Dividing Range. Picnic Point lookout over the Lockyer Valley. Queensland's Garden City — a deliberately gentle start before the landscape strips back.", stay: "Toowoomba accommodation", eat: "The Spotted Cow, Picnic Point café", source: "toowoombaregion.com.au" },
@@ -1009,7 +1009,7 @@ export default function SouthernHorizonSite() {
             <div style={{width:60,height:1,background:gold,margin:"0 auto 28px"}}/>
             <p style={{fontFamily:sans,fontSize:15,color:neutral.mid,lineHeight:1.85,
               maxWidth:520,margin:"0 auto 48px",fontWeight:300,letterSpacing:0.2}}>
-              A fully-equipped Lexus LX500d Overtrail — delivered to your airport, 
+              A fully-equipped luxury SUV — delivered to your airport,
               your hotel, or wherever you need it. 
               Drive K'gari's white sand, the Daintree's ancient rainforest, Queensland's red outback — 
               or all of them in one trip. Vehicle, accommodation, breakfast (where available), fuel, and concierge support included.
@@ -1029,7 +1029,7 @@ export default function SouthernHorizonSite() {
         }}>
           {[
             {val:"All Inclusive",sub:"one daily rate covers all"},{val:"Concierge",sub:"personal trip support"},
-            {val:"LX500d",sub:"Lexus Overtrail"},
+            {val:"Luxury",sub:"Touring SUV"},
             {val:"5–21 Days",sub:"curated packages"},
             {val:"Starlink",sub:"connected anywhere"},
           ].map((s,i)=>(
@@ -1056,7 +1056,7 @@ export default function SouthernHorizonSite() {
           </div>
           <div className="g3" style={{display:"grid",gridTemplateColumns:"repeat(3, 1fr)",gap:20}}>
             {[
-              {icon:"01",title:"Delivered to You",text:"Your Lexus LX comes to you — we meet you in arrivals at the airport, or at your hotel lobby, or wherever your trip begins. Brisbane, Gold Coast, Sunshine Coast, or Cairns. Starlink powered up, Mark Levinson ready. You don't come to us — we come to you.",bg:coast.soft,border:neutral.border},
+              {icon:"01",title:"Delivered to You",text:"Your luxury SUV comes to you — we meet you in arrivals at the airport, or at your hotel lobby, or wherever your trip begins. Brisbane, Gold Coast, Sunshine Coast, or Cairns. Starlink powered up, premium audio ready. You don't come to us — we come to you.",bg:coast.soft,border:neutral.border},
               {icon:"02",title:"Self-Drive Freedom",text:"No guide, no tour bus, no schedule. Follow the coast, detour through rainforest, chase sunset in the desert. Stop where you want, stay as long as you like.",bg:neutral.sand,border:"#E7E5E4"},
               {icon:"03",title:"Connected Everywhere",text:"Starlink satellite internet keeps you connected everywhere. Backup emergency phone with Telstra SIM in the glovebox. Navigate, stream, and share from the Daintree to the outback.",bg:outback.soft,border:neutral.border},
               {icon:"04",title:"Luxury Accommodation",text:"Handpicked boutique lodges, eco-retreats, coastal resorts, and outback stations at every stop. You pick what appeals from our curated options, we book everything. Included in your daily rate.",bg:outback.soft,border:neutral.border},
@@ -1082,7 +1082,7 @@ export default function SouthernHorizonSite() {
                 Your vehicle, fully loaded
               </div>
               <p style={{fontFamily:sans,fontSize:13,color:"rgba(255,255,255,0.55)",fontWeight:300,marginTop:4}}>
-                Lexus LX, luxury accommodation, breakfast, fuel card, curated routes, Starlink, concierge support — everything included.
+                Luxury SUV, accommodation, breakfast, fuel card, curated routes, Starlink, concierge support — everything included.
               </p>
             </div>
             <button className="btn-dual" onClick={()=>goTo("enquiry")}
@@ -1203,7 +1203,7 @@ export default function SouthernHorizonSite() {
               color:gold,marginBottom:14,
             }}>The Vehicle</p>
             <h2 style={{fontFamily:serif,fontSize:"clamp(30px,4.5vw,48px)",fontWeight:300,color:neutral.dark,lineHeight:1.2,letterSpacing:-0.5}}>
-              Lexus LX500d <em style={{fontStyle:"italic"}}>Overtrail</em>
+              Luxury <em style={{fontStyle:"italic"}}>Touring SUV</em>
             </h2>
             <p style={{fontFamily:sans,fontSize:14,color:neutral.light,fontWeight:300,letterSpacing:0.15,maxWidth:440,margin:"12px auto 0",lineHeight:1.7}}>
               As comfortable on the highway as it is on K'gari's sand or outback unsealed roads.
@@ -1213,7 +1213,7 @@ export default function SouthernHorizonSite() {
             {[
               {l:"Engine",v:"3.3L Twin-Turbo V6 Diesel"},{l:"Drive",v:"Full-Time 4WD"},
               {l:"Accommodation",v:"Luxury Curated at Every Stop"},{l:"Breakfast",v:"Included at Your Hotel"},
-              {l:"Audio",v:"Mark Levinson Premium"},{l:"Connectivity",v:"Starlink + Emergency Phone"},
+              {l:"Audio",v:"Premium Audio"},{l:"Connectivity",v:"Starlink + Emergency Phone"},
               {l:"Safety",v:"MAXTRAX + Recovery Kit"},{l:"Internet",v:"Starlink Satellite"},
               {l:"Mobile",v:"Emergency Phone"},{l:"Fuel",v:"Fleet Card + Backup Visa"},
             ].map((f,i)=>(
@@ -1264,7 +1264,7 @@ export default function SouthernHorizonSite() {
                 {n:"01",t:"Register",d:"Tell us your dates, group, and what you're after — coast, tropics, outback, or the full mix. We're taking registrations now ahead of our upcoming launch.",accent:coast.primary},
                 {n:"02",t:"We Design",d:"We build your itinerary — daily waypoints, curated accommodation, tide charts, hidden gems. We'll talk through driving conditions on your route and match the trip to your experience level.",accent:"#3A8A6C"},
                 {n:"03",t:"Refine",d:"We send the route. Add days, swap stops, change pace. It's not finalised until you're happy.",accent:"#8B7A3E"},
-                {n:"04",t:"Drive",d:"We meet you at the arrivals area and deliver your Lexus LX to the airport — or to your hotel entrance, or wherever suits. Brisbane, Gold Coast, Sunshine Coast, Cairns, or Sydney. Quick briefing, keys in your hand, and you're on the road.",accent:outback.primary},
+                {n:"04",t:"Drive",d:"We meet you at the arrivals area and deliver your luxury SUV to the airport — or to your hotel entrance, or wherever suits. Brisbane, Gold Coast, Sunshine Coast, Cairns, or Sydney. Quick briefing, keys in your hand, and you're on the road.",accent:outback.primary},
               ].map((s,i)=>(
                 <div key={i} style={{padding:"28px 22px",background:"#fff",borderRadius:8,borderTop:`3px solid ${s.accent}`}}>
                   <div style={{fontFamily:serif,fontSize:32,fontWeight:400,color:neutral.border,marginBottom:10}}>{s.n}</div>
@@ -1293,7 +1293,7 @@ export default function SouthernHorizonSite() {
             </div>
             <div className="g3" style={{display:"grid",gridTemplateColumns:"repeat(3, 1fr)",gap:18}}>
               {[
-                {t:"Mobility & Access",d:"The LX500d has a high step-up. Let us know about mobility needs — we'll discuss seating, routes, and accessibility.",bg:coast.soft},
+                {t:"Mobility & Access",d:"The vehicle has a high step-up. Let us know about mobility needs — we'll discuss seating, routes, and accessibility.",bg:coast.soft},
                 {t:"Medical Conditions",d:"Remote touring means distance from hospitals. Disclose any conditions and we factor proximity to medical facilities into your route.",bg:outback.soft},
                 {t:"Children & Families",d:"Families welcome — we carry up to 2 adults and 3 children. Child seats and boosters arranged, just tell us ages. We tailor your itinerary with family-friendly stops and shorter driving days.",bg:"#F0FDF4"},
                 
@@ -1391,7 +1391,7 @@ export default function SouthernHorizonSite() {
                 Every route, every accommodation recommendation, and every restaurant in our dining guide comes from personal experience.
               </p>
               <p style={{fontFamily:sans,fontSize:13.5,color:neutral.mid,lineHeight:1.8,fontWeight:300,marginBottom:18}}>
-                His mechanical background means the Lexus LX500d is specified to the highest standard — and when you call at 9pm with 
+                His mechanical background means every vehicle is specified to the highest standard — and when you call at 9pm with
                 a question, the person on the other end knows the vehicle and the road you're on. That's the concierge difference.
               </p>
               <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
@@ -1777,3 +1777,4 @@ export default function SouthernHorizonSite() {
     </>
   );
 }
+                                                                                                                                                                                                    
