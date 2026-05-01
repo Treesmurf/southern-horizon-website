@@ -22,7 +22,7 @@ const SHCoLogo = ({ size = 44, light = false }) => (
 const WIKI_ARTICLES = {
   hero: "Whitehaven_Beach",
   kgari: "Lake_McKenzie",
-  moreton: "Tangalooma_Wrecks",
+  moreton: "Moreton_Island",
   "tropical-north": "Daintree_National_Park",
   whitsundays: "Whitsunday_Island",
   "byron-bay": "Cape_Byron",
@@ -64,22 +64,22 @@ const FAQ_DATA = [
     items: [
       { q: "How much luggage can I bring?", a: "The full boot is free — each passenger gets one soft bag, plus day packs at your feet. Plenty of room for everything you need." },
       { q: "What size bags?", a: "Soft duffel bags only — no hard-shell suitcases. Max 65cm × 40cm × 25cm (roughly 60–65L), one per passenger. A 65L duffel handles two weeks easily — swimwear and sunscreen on Monday, boots and layers by Friday." },
-      { q: "What should I pack?", a: "Pack for variety — that's the beauty of Australia. Swimwear, reef-safe sunscreen, a light rain jacket for the tropics, plus layers and closed shoes for cooler outback evenings. Hat, sunnies, insect repellent, and a camera are essentials everywhere. Leave formal wear and heavy luggage at home." },
+      { q: "What should I pack?", a: "Pack for variety — that's the beauty of Australia. Swimwear, reef-safe sunscreen, a light rain jacket for the tropics, plus layers and closed shoes for cooler hinterland evenings. Hat, sunnies, insect repellent, and a camera are essentials everywhere. Leave formal wear and heavy luggage at home." },
     ],
   },
   {
     category: "The Vehicle",
     items: [
-      { q: "What vehicle will I be driving?", a: "A luxury SUV — full-time 4WD with premium audio and every luxury feature you'd expect. It's equally at home cruising the coast to Cairns, crossing K'gari's beaches, or winding through outback Queensland." },
+      { q: "What vehicle will I be driving?", a: "A luxury SUV — full-time 4WD with premium audio and every luxury feature you'd expect. It's equally at home cruising the coast to Cairns, crossing K'gari's beaches, or winding through Queensland's hinterland." },
       { q: "Do I need 4WD experience?", a: "Not at all. The vehicle makes off-road touring accessible with advanced traction control and terrain management. We provide a comprehensive vehicle briefing covering beach driving, sand, and unsealed roads before you depart." },
-      { q: "Is there phone coverage and internet?", a: "We provide Starlink satellite internet and a backup smartphone with Telstra SIM in the glovebox for emergencies. You'll stay connected from the Daintree Rainforest to the Simpson Desert — and everywhere in between." },
+      { q: "Is there phone coverage and internet?", a: "We provide Starlink satellite internet and a backup smartphone with Telstra SIM in the glovebox for emergencies. You'll stay connected from the Daintree Rainforest to the Granite Belt — and everywhere in between." },
     ],
   },
   {
     category: "What's Included",
     items: [
       { q: "What's included in the daily rate?", a: "Everything. Your daily rate covers the luxury SUV, insurance, curated luxury accommodation at every stop with breakfast included where available, a fleet fuel card (plus backup Visa for remote locations), Starlink satellite internet, backup phone with Telstra SIM for emergencies, your fully curated route with a dining guide of our favourite restaurants, vehicle briefing, and personal concierge support. One rate, everything included. Pricing provided on enquiry." },
-      { q: "How does accommodation work?", a: "Luxury accommodation is included in your daily rate. We curate handpicked options at every stop — outback stations, boutique lodges, coastal retreats, eco-lodges. You pick what appeals, we book everything. No research, no chasing availability, no extra charges." },
+      { q: "How does accommodation work?", a: "Luxury accommodation is included in your daily rate. We curate handpicked options at every stop — boutique lodges, coastal retreats, eco-lodges, country estates. You pick what appeals, we book everything. No research, no chasing availability, no extra charges." },
       { q: "Can I upgrade to ultra-luxury accommodation?", a: "Absolutely. Your daily rate covers quality curated accommodation at every stop. If you'd like to upgrade to ultra-luxury properties — places like Silky Oaks Lodge in the Daintree, Elements of Byron, or Spicers Peak Lodge — we can arrange that as a supplement. Just mention it during your consultation and we'll present upgrade options alongside the standard inclusions at the relevant stops. You only pay the difference for the nights you choose to upgrade." },
       { q: "How does fuel and dining work?", a: "Your luxury SUV comes with a fleet fuel card that works at BP, Shell, and Ampol stations — roughly 95% of fuel stops across Australia. For remote locations like K'gari (Fraser Island) where fleet cards aren't accepted, we provide a backup pre-paid Visa. Breakfast is included where available at your accommodation. For dinner, we provide a curated dining guide with our handpicked restaurant recommendations at every stop — dinner is at your own expense so you can choose exactly where and what you feel like each evening." },
       { q: "Is there a security bond?", a: "Yes — a tiered bond system varies by package and configuration. Full details come with your booking enquiry. The bond is fully refundable subject to standard return conditions." },
@@ -89,7 +89,7 @@ const FAQ_DATA = [
     category: "Booking & Logistics",
     items: [
       { q: "How long can I hire for?", a: "Our regional packages run from 4 to 10 days — long enough to genuinely experience every stop, not just drive through. Moreton Island runs 4–5 days; K'gari runs 5–7 days; Byron Bay and Southern Downs Golf & Wine each run 5–7 days; Whitsundays runs a focused 7 days; Tropical North runs 7–10 days. Want something shorter, longer, or completely custom? That's what the Custom Journey is for — minimum 3 days, no maximum." },
-      { q: "Why is there a passenger limit?", a: "For comfort and safety. We cap at 4 adults or 2 adults and 3 children per trip. Outback and remote coastal touring involves long distances, variable road conditions, and limited access to services. Fewer passengers means more space in the cabin, better weight distribution for the vehicle, and a safer, more comfortable experience for everyone — especially on sand, corrugations, and unsealed roads." },
+      { q: "Why is there a passenger limit?", a: "For comfort and safety. We cap at 4 adults or 2 adults and 3 children per trip. Coastal, tropical, and country touring involves long distances, variable road conditions, and limited access to services. Fewer passengers means more space in the cabin, better weight distribution for the vehicle, and a safer, more comfortable experience for everyone — especially on sand, corrugations, and unsealed roads." },
       { q: "Where do I pick up?", a: "You don't — we deliver to you. Your luxury SUV is brought directly to your arrival airport, hotel, or accommodation — Brisbane, Gold Coast, Sunshine Coast (Maroochydore), Proserpine/Mackay, or Cairns depending on your package. Flying into Maroochydore? You could be at Rainbow Beach by lunchtime. Landing at Gold Coast or Ballina? Head straight for Byron Bay. Flying into Cairns for the Tropical North? Your luxury SUV is waiting when you land. Already in Brisbane? We can deliver to your hotel, or you're welcome to collect from our yard in Banyo." },
       { q: "Can I drive on the beach?", a: "Absolutely — beach driving is part of the experience on K'gari and other coastal routes. Sand driving, tyre pressures, tide awareness, and recovery are all covered in your briefing. Required permits are arranged as part of your package." },
       { q: "How much driving is involved?", a: "We design every day with a maximum of four hours behind the wheel. Stops are chosen because they're worth seeing — not just places to sleep. Every package gives you genuine dwell time at each destination so you can explore, relax, and actually experience the place. No rushed itineraries, no bus-tour pace." },
@@ -202,7 +202,7 @@ const PACKAGES = [
     tagline: "Queensland's coolest-climate wine region, on the green",
     description: "Up and over the Great Dividing Range to Queensland's premier cool-climate wine country. Tee off at City Golf Club in Toowoomba, work the Granite Belt's cellar doors at Stanthorpe — Sirromet, Ballandean Estate, Heritage Estate, Symphony Hill — then on to Warwick for one more round before the run back to Brisbane. Granite boulders the size of houses at Girraween, long lunches among the vines, and a luxury SUV that handles the back roads as well as the highway.",
     includes: ["Luxury SUV", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining & cellar door guide", "Personal concierge", "Starlink satellite internet", "Green fees & tee time bookings", "Luxury curated accommodation", "Granite Belt wine trail map", "24/7 support"],
-    vibe: "coast",
+    vibe: "outback",
     stops: [
       { name: "Toowoomba", day: "Day 1", type: "stop", desc: "Up the range from Brisbane (1.5hrs). Round of 18 at City Golf Club — championship parkland course in the Garden City. Picnic Point lookout over the Lockyer Valley at sunset. Toowoomba's craft beer and laneway dining scene.", stay: "Toowoomba boutique accommodation", eat: "The Spotted Cow, Park House, Picnic Point café", source: "citygolfclub.com.au" },
       { name: "Stanthorpe & the Granite Belt", day: "Days 2–4", type: "highlight", desc: "Queensland's only cool-climate wine region — and the highest. Cellar door tour through Ballandean Estate, Sirromet, Heritage Estate, Symphony Hill, Ridgemill. Strange Bird trail for alternative varieties. Round at Stanthorpe Golf Club among the granite outcrops. Day trip to Girraween National Park — house-sized granite boulders, the Pyramid, Castle Rock. Three nights to do it properly.", stay: "Granite Belt vineyard cottages or Stanthorpe boutique accommodation", eat: "Varias at Queensland College of Wine Tourism, The Barrelroom & Larder, Heritage Estate Restaurant", source: "granitebeltwinecountry.com.au" },
@@ -218,7 +218,7 @@ const PACKAGES = [
     guests: "2–4 Guests",
     route: "You decide",
     tagline: "Your trip, your way — we build it together",
-    description: "Combine coast and outback. Explore one region in depth. Design something completely unique. We present curated accommodation options at each stop and handle all the bookings. Want a shorter version of any signature tour, or something we haven't thought of? Minimum 3 days, no maximum.",
+    description: "Combine coast, tropics, and wine country. Explore one region in depth. Design something completely unique. We present curated accommodation options at each stop and handle all the bookings. Want a shorter version of any signature tour, or something we haven't thought of? Minimum 3 days, no maximum.",
     includes: ["All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Personalised route consultation", "Luxury curated accommodation", "All standard inclusions", "Flexible duration", "24/7 support"],
     vibe: "both",
     stops: null,
@@ -910,19 +910,18 @@ export default function SouthernHorizonSite() {
               color:neutral.dark,lineHeight:1.12,marginBottom:28,
             }}>
               Turquoise water today,<br/>
-              <em style={{fontStyle:"italic",fontWeight:300}}>red dirt tomorrow</em>
+              <em style={{fontStyle:"italic",fontWeight:300}}>ancient rainforest tomorrow</em>
             </h1>
             <div style={{width:60,height:1,background:gold,margin:"0 auto 28px"}}/>
             <p style={{fontFamily:sans,fontSize:15,color:neutral.mid,lineHeight:1.85,
               maxWidth:520,margin:"0 auto 48px",fontWeight:300,letterSpacing:0.2}}>
               A fully-equipped luxury SUV — delivered to your airport,
               your hotel, or wherever you need it. 
-              Drive K'gari's white sand, the Daintree's ancient rainforest, Queensland's red outback — 
+              Drive K'gari's white sand, the Daintree's ancient rainforest, the Granite Belt's vineyards —
               or all of them in one trip. Vehicle, accommodation, breakfast (where available), fuel, and concierge support included.
             </p>
-            <div style={{display:"flex",gap:16,justifyContent:"center",flexWrap:"wrap"}}>
+            <div style={{display:"flex",justifyContent:"center"}}>
               <button className="btn-dual" onClick={()=>goTo("packages")}>Explore Packages</button>
-              <button className="btn-ghost" onClick={()=>goTo("enquiry")}>Enquire Now</button>
             </div>
           </div>
         </div>
@@ -963,9 +962,9 @@ export default function SouthernHorizonSite() {
           <div className="g3" style={{display:"grid",gridTemplateColumns:"repeat(3, 1fr)",gap:20}}>
             {[
               {icon:"01",title:"Delivered to You",text:"Your luxury SUV comes to you — we meet you in arrivals at the airport, or at your hotel lobby, or wherever your trip begins. Brisbane, Gold Coast, Sunshine Coast, or Cairns. Starlink powered up, premium audio ready. You don't come to us — we come to you.",bg:coast.soft,border:neutral.border},
-              {icon:"02",title:"Self-Drive Freedom",text:"No guide, no tour bus, no schedule. Follow the coast, detour through rainforest, chase sunset in the desert. Stop where you want, stay as long as you like.",bg:neutral.sand,border:"#E7E5E4"},
-              {icon:"03",title:"Connected Everywhere",text:"Starlink satellite internet keeps you connected everywhere. Backup emergency phone with Telstra SIM in the glovebox. Navigate, stream, and share from the Daintree to the outback.",bg:outback.soft,border:neutral.border},
-              {icon:"04",title:"Luxury Accommodation",text:"Handpicked boutique lodges, eco-retreats, coastal resorts, and outback stations at every stop. You pick what appeals from our curated options, we book everything. Included in your daily rate.",bg:outback.soft,border:neutral.border},
+              {icon:"02",title:"Self-Drive Freedom",text:"No guide, no tour bus, no schedule. Follow the coast, detour through rainforest, chase sunset on the headland. Stop where you want, stay as long as you like.",bg:neutral.sand,border:"#E7E5E4"},
+              {icon:"03",title:"Connected Everywhere",text:"Starlink satellite internet keeps you connected everywhere. Backup emergency phone with Telstra SIM in the glovebox. Navigate, stream, and share from the Daintree to the Granite Belt.",bg:outback.soft,border:neutral.border},
+              {icon:"04",title:"Luxury Accommodation",text:"Handpicked boutique lodges, eco-retreats, coastal resorts, and country estates at every stop. You pick what appeals from our curated options, we book everything. Included in your daily rate.",bg:outback.soft,border:neutral.border},
               {icon:"05",title:"Curated Routes",text:"We've driven every road. Handpicked accommodation, tide charts, swimming holes, sunset lookouts, and the local tips that make the difference.",bg:neutral.sand,border:"#E7E5E4"},
               {icon:"06",title:"24/7 Support",text:"Day or night — roadside assistance, route adjustments, restaurant recommendations, or anything else you need. Personal concierge service, a call or Starlink message away.",bg:coast.soft,border:neutral.border},
             ].map((item,i)=>(
@@ -1014,7 +1013,7 @@ export default function SouthernHorizonSite() {
                 Pick a direction — <em style={{fontStyle:"italic"}}>or pick them all</em>
               </h2>
               <p style={{fontFamily:sans,fontSize:14,color:neutral.light,fontWeight:300,letterSpacing:0.15,maxWidth:480,margin:"14px auto 0",lineHeight:1.7}}>
-                From weekend beach escapes to three-week coastal expeditions and outback crossings — Queensland, NSW, and everywhere in between.
+                From four-day beach escapes to ten-day tropical immersions, plus Granite Belt wine trails — Queensland, NSW, and everywhere in between.
               </p>
             </div>
             <div className="pkg-grid" style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(320px, 1fr))",gap:22}}>
@@ -1022,7 +1021,7 @@ export default function SouthernHorizonSite() {
                 const vibeColor = pkg.vibe==="coast"?coast.primary:pkg.vibe==="outback"?outback.primary:`linear-gradient(to bottom,${coast.primary},${outback.primary})`;
                 const accentSolid = neutral.dark;
                 const bgTint = pkg.vibe==="coast"?coast.soft:pkg.vibe==="outback"?outback.soft:"#F8F6F0";
-                const labelText = pkg.vibe==="coast"?"Coastal":pkg.vibe==="outback"?"Outback":"Coast + Outback";
+                const labelText = pkg.vibe==="coast"?"Coastal":pkg.vibe==="outback"?"Country":"Coast + Country";
                 return(
                   <div key={pkg.id} className={`card-up vibe-${pkg.vibe}`} style={{
                     background:"#fff",borderRadius:8,overflow:"hidden",display:"flex",flexDirection:"column",
@@ -1112,12 +1111,12 @@ export default function SouthernHorizonSite() {
               Luxury <em style={{fontStyle:"italic"}}>Touring SUV</em>
             </h2>
             <p style={{fontFamily:sans,fontSize:14,color:neutral.light,fontWeight:300,letterSpacing:0.15,maxWidth:440,margin:"12px auto 0",lineHeight:1.7}}>
-              As comfortable on the highway as it is on K'gari's sand or outback unsealed roads.
+              As comfortable on the highway as it is on K'gari's sand or coastal unsealed roads.
             </p>
           </div>
           <div className="g4" style={{display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:10,marginBottom:44}}>
             {[
-              {l:"Engine",v:"3.3L Twin-Turbo V6 Diesel"},{l:"Drive",v:"Full-Time 4WD"},
+              {l:"Engine",v:"Premium Diesel"},{l:"Drive",v:"Full-Time 4WD"},
               {l:"Accommodation",v:"Luxury Curated at Every Stop"},{l:"Breakfast",v:"Included at Your Hotel"},
               {l:"Audio",v:"Premium Audio"},{l:"Connectivity",v:"Starlink + Emergency Phone"},
               {l:"Safety",v:"MAXTRAX + Recovery Kit"},{l:"Internet",v:"Starlink Satellite"},
@@ -1134,7 +1133,7 @@ export default function SouthernHorizonSite() {
               <div style={{fontFamily:sans,fontSize:10,fontWeight:700,letterSpacing:2,textTransform:"uppercase",color:outback.primary,marginBottom:8}}>What's Included</div>
               <h3 style={{fontFamily:serif,fontSize:20,fontWeight:700,color:neutral.dark,marginBottom:8}}>Luxury Touring — All Inclusive</h3>
               <p style={{fontFamily:sans,fontSize:13.5,color:neutral.mid,lineHeight:1.75,fontWeight:300,marginBottom:12}}>
-                Luxury curated accommodation at every stop — boutique lodges, eco-retreats, coastal resorts, outback stations. 
+                Luxury curated accommodation at every stop — boutique lodges, eco-retreats, coastal resorts, country estates.
                 Fleet fuel card (BP, Shell, Ampol) included for your entire trip, plus a backup Visa for remote fuel stops. Breakfast included where available at your accommodation. We provide a curated dining guide with our favourite restaurants at every stop — dinner is your choice.
                 You pick your accommodation from our curated options at each stop, we book everything. One bag per passenger, full open boot.
               </p>
@@ -1167,10 +1166,10 @@ export default function SouthernHorizonSite() {
             </div>
             <div className="g4" style={{display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:14}}>
               {[
-                {n:"01",t:"Register",d:"Tell us your dates, group, and what you're after — coast, tropics, outback, or the full mix. We're taking registrations now ahead of our upcoming launch.",accent:coast.primary},
+                {n:"01",t:"Register",d:"Tell us your dates, group, and what you're after — coast, tropics, hinterland, or the full mix. We're taking registrations now ahead of our upcoming launch.",accent:coast.primary},
                 {n:"02",t:"We Design",d:"We build your itinerary — daily waypoints, curated accommodation, tide charts, hidden gems. We'll talk through driving conditions on your route and match the trip to your experience level.",accent:"#3A8A6C"},
                 {n:"03",t:"Refine",d:"We send the route. Add days, swap stops, change pace. It's not finalised until you're happy.",accent:"#8B7A3E"},
-                {n:"04",t:"Drive",d:"We meet you at the arrivals area and deliver your luxury SUV to the airport — or to your hotel entrance, or wherever suits. Brisbane, Gold Coast, Sunshine Coast, Cairns, or Sydney. Quick briefing, keys in your hand, and you're on the road.",accent:outback.primary},
+                {n:"04",t:"Drive",d:"We meet you at the arrivals area and deliver your luxury SUV to the airport — or to your hotel entrance, or wherever suits. Brisbane, Gold Coast, Sunshine Coast, Proserpine/Mackay, or Cairns. Quick briefing, keys in your hand, and you're on the road.",accent:outback.primary},
               ].map((s,i)=>(
                 <div key={i} style={{padding:"28px 22px",background:"#fff",borderRadius:8,borderTop:`3px solid ${s.accent}`}}>
                   <div style={{fontFamily:serif,fontSize:32,fontWeight:400,color:neutral.border,marginBottom:10}}>{s.n}</div>
@@ -1292,8 +1291,8 @@ export default function SouthernHorizonSite() {
                 </div>
               </div>
               <p style={{fontFamily:sans,fontSize:13.5,color:neutral.mid,lineHeight:1.8,fontWeight:300,marginBottom:16}}>
-                Qualified mechanic turned luxury touring operator. Troy has spent years exploring Queensland's coast, tropics, and outback 
-                by 4WD — and built Southern Horizon Co. to share those experiences at a level that doesn't exist in the self-drive market. 
+                Qualified mechanic turned luxury touring operator. Troy has spent years exploring Queensland's coast, tropics, and wine country
+                by 4WD — and built Southern Horizon Co. to share those experiences at a level that doesn't exist in the self-drive market.
                 Every route, every accommodation recommendation, and every restaurant in our dining guide comes from personal experience.
               </p>
               <p style={{fontFamily:sans,fontSize:13.5,color:neutral.mid,lineHeight:1.8,fontWeight:300,marginBottom:18}}>
@@ -1474,7 +1473,7 @@ export default function SouthernHorizonSite() {
                   <label style={{fontFamily:sans,fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",color:"rgba(255,255,255,0.35)",marginBottom:5,display:"block"}}>Tell Us More</label>
                   <textarea value={formData.message} onChange={e=>setFormData(p=>({...p,message:e.target.value}))}
                     style={{background:"rgba(255,255,255,0.07)",borderColor:"rgba(255,255,255,0.12)",color:"#fff",borderRadius:8}}
-                    placeholder="Coast, outback, or both? How long? Any specific destinations? We'd love to hear."/>
+                    placeholder="Coast, tropics, wine country, or a mix? How long? Any specific destinations? We'd love to hear."/>
                 </div>
                 <button className="btn-dual" onClick={handleSubmit} disabled={formSubmitting} style={{width:"100%",marginTop:4,opacity:formSubmitting?0.7:1}}>
                   {formSubmitting ? "Sending..." : "Send Enquiry"}
@@ -1642,7 +1641,7 @@ export default function SouthernHorizonSite() {
                 </div>
               </div>
               <p style={{fontFamily:sans,fontSize:12,color:"rgba(255,255,255,0.25)",maxWidth:240,lineHeight:1.65,fontWeight:300}}>
-                Self-drive luxury touring across<br/>Queensland's coast, tropics & outback — and beyond.
+                Self-drive luxury touring across<br/>Queensland's coast, tropics & wine country — and beyond.
               </p>
             </div>
             <div style={{display:"flex",gap:40,flexWrap:"wrap"}}>
