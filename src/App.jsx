@@ -20,9 +20,9 @@ const SHCoLogo = ({ size = 44, light = false }) => (
 // article on page load via Wikipedia's public API, guaranteeing the image
 // actually matches the destination. Fallback URLs kick in only if the fetch fails.
 const WIKI_ARTICLES = {
-  hero: "Whitehaven_Beach",
-  kgari: "Lake_McKenzie",
-  moreton: "Moreton_Island",
+  hero: "Glass_House_Mountains",
+  "sunshine-coast": "Noosa_National_Park",
+  "gold-coast": "Lamington_National_Park",
   "tropical-north": "Daintree_National_Park",
   whitsundays: "Whitsunday_Island",
   "byron-bay": "Cape_Byron",
@@ -33,8 +33,8 @@ const WIKI_ARTICLES = {
 // Fallback URLs — empty so we show nothing (not wrong images) while Wikipedia API loads
 const IMAGES_FALLBACK = {
   hero: "",
-  kgari: "",
-  moreton: "",
+  "sunshine-coast": "",
+  "gold-coast": "",
   "tropical-north": "",
   whitsundays: "",
   "byron-bay": "",
@@ -70,8 +70,8 @@ const FAQ_DATA = [
   {
     category: "The Vehicle",
     items: [
-      { q: "What vehicle will I be driving?", a: "A luxury SUV — full-time 4WD with premium audio and every luxury feature you'd expect. It's equally at home cruising the coast to Cairns, crossing K'gari's beaches, or winding through Queensland's hinterland." },
-      { q: "Do I need 4WD experience?", a: "Not at all. The vehicle makes off-road touring accessible with advanced traction control and terrain management. We provide a comprehensive vehicle briefing covering beach driving, sand, and unsealed roads before you depart." },
+      { q: "What vehicle will I be driving?", a: "A luxury SUV with premium audio and every luxury feature you'd expect. Equally at home cruising the coast to Cairns, winding through the Sunshine Coast hinterland, or heading inland to the Granite Belt." },
+      { q: "Do I need any special driving experience?", a: "Not at all. Every tour runs on sealed roads — no off-road, beach, or sand driving. The vehicle handles range crossings, hinterland switchbacks, and long-distance coastal touring effortlessly. We provide a comprehensive vehicle briefing before you depart." },
       { q: "Is there phone coverage and internet?", a: "We provide Starlink satellite internet and a backup smartphone with Telstra SIM in the glovebox for emergencies. You'll stay connected from the Daintree Rainforest to the Granite Belt — and everywhere in between." },
     ],
   },
@@ -81,18 +81,17 @@ const FAQ_DATA = [
       { q: "What's included in the daily rate?", a: "Everything. Your daily rate covers the luxury SUV, insurance, curated luxury accommodation at every stop with breakfast included where available, a fleet fuel card (plus backup Visa for remote locations), Starlink satellite internet, backup phone with Telstra SIM for emergencies, your fully curated route with a dining guide of our favourite restaurants, vehicle briefing, and personal concierge support. One rate, everything included. Pricing provided on enquiry." },
       { q: "How does accommodation work?", a: "Luxury accommodation is included in your daily rate. We curate handpicked options at every stop — boutique lodges, coastal retreats, eco-lodges, country estates. You pick what appeals, we book everything. No research, no chasing availability, no extra charges." },
       { q: "Can I upgrade to ultra-luxury accommodation?", a: "Absolutely. Your daily rate covers quality curated accommodation at every stop. If you'd like to upgrade to ultra-luxury properties — places like Silky Oaks Lodge in the Daintree, Elements of Byron, or Spicers Peak Lodge — we can arrange that as a supplement. Just mention it during your consultation and we'll present upgrade options alongside the standard inclusions at the relevant stops. You only pay the difference for the nights you choose to upgrade." },
-      { q: "How does fuel and dining work?", a: "Your luxury SUV comes with a fleet fuel card that works at BP, Shell, and Ampol stations — roughly 95% of fuel stops across Australia. For remote locations like K'gari (Fraser Island) where fleet cards aren't accepted, we provide a backup pre-paid Visa. Breakfast is included where available at your accommodation. For dinner, we provide a curated dining guide with our handpicked restaurant recommendations at every stop — dinner is at your own expense so you can choose exactly where and what you feel like each evening." },
+      { q: "How does fuel and dining work?", a: "Your luxury SUV comes with a fleet fuel card that works at BP, Shell, and Ampol stations — roughly 95% of fuel stops across Australia. A backup pre-paid Visa covers anywhere the fleet card isn't accepted. Breakfast is included where available at your accommodation. For dinner, we provide a curated dining guide with our handpicked restaurant recommendations at every stop — dinner is at your own expense so you can choose exactly where and what you feel like each evening." },
       { q: "Is there a security bond?", a: "Yes — a tiered bond system varies by package and configuration. Full details come with your booking enquiry. The bond is fully refundable subject to standard return conditions." },
     ],
   },
   {
     category: "Booking & Logistics",
     items: [
-      { q: "How long can I hire for?", a: "Our regional packages run from 4 to 10 days — long enough to genuinely experience every stop, not just drive through. Moreton Island runs 4–5 days; K'gari runs 5–7 days; Byron Bay and Southern Downs Golf & Wine each run 5–7 days; Whitsundays runs a focused 7 days; Tropical North runs 7–10 days. Want something shorter, longer, or completely custom? That's what the Custom Journey is for — minimum 3 days, no maximum." },
-      { q: "Why is there a passenger limit?", a: "For comfort and safety. We cap at 4 adults or 2 adults and 3 children per trip. Coastal, tropical, and country touring involves long distances, variable road conditions, and limited access to services. Fewer passengers means more space in the cabin, better weight distribution for the vehicle, and a safer, more comfortable experience for everyone — especially on sand, corrugations, and unsealed roads." },
-      { q: "Where do I pick up?", a: "You don't — we deliver to you. Your luxury SUV is brought directly to your arrival airport, hotel, or accommodation — Brisbane, Gold Coast, Sunshine Coast (Maroochydore), Proserpine/Mackay, or Cairns depending on your package. Flying into Maroochydore? You could be at Rainbow Beach by lunchtime. Landing at Gold Coast or Ballina? Head straight for Byron Bay. Flying into Cairns for the Tropical North? Your luxury SUV is waiting when you land. Already in Brisbane? We can deliver to your hotel, or you're welcome to collect from our yard in Banyo." },
-      { q: "Can I drive on the beach?", a: "Absolutely — beach driving is part of the experience on K'gari and other coastal routes. Sand driving, tyre pressures, tide awareness, and recovery are all covered in your briefing. Required permits are arranged as part of your package." },
-      { q: "How much driving is involved?", a: "We design every day with a maximum of four hours behind the wheel. Stops are chosen because they're worth seeing — not just places to sleep. Every package gives you genuine dwell time at each destination so you can explore, relax, and actually experience the place. No rushed itineraries, no bus-tour pace." },
+      { q: "How long can I hire for?", a: "Our regional packages run from 5 to 10 days — long enough to genuinely experience every stop, not just drive through. Sunshine Coast & Hinterland, Gold Coast & Scenic Rim, Byron Bay, and Southern Downs Golf & Wine each run 5–7 days; Whitsundays runs a focused 7 days; Tropical North runs 7–10 days. Want something shorter, longer, or completely custom? That's what the Custom Journey is for — minimum 3 days, no maximum." },
+      { q: "Why is there a passenger limit?", a: "For comfort and safety. We cap at 4 adults or 2 adults and 3 children per trip. Long-distance touring deserves space — fewer passengers means more room in the cabin, better luggage capacity, and a more comfortable experience for everyone." },
+      { q: "Where do I pick up?", a: "You don't — we deliver to you. Your luxury SUV is brought directly to your arrival airport, hotel, or accommodation — Brisbane, Gold Coast (Coolangatta), Sunshine Coast (Maroochydore), Ballina, Proserpine/Mackay, or Cairns depending on your package. Flying into Maroochydore? You could be at Noosa by lunchtime. Landing at Gold Coast or Ballina? Head straight for Byron Bay or up to Tamborine. Flying into Cairns for the Tropical North? Your luxury SUV is waiting when you land. Already in Brisbane? We can deliver to your hotel, or you're welcome to collect from our yard in Banyo." },
+      { q: "How much driving is involved?", a: "We design every day with a maximum of four hours behind the wheel. All sealed roads. Stops are chosen because they're worth seeing — not just places to sleep. Every package gives you genuine dwell time at each destination so you can explore, relax, and actually experience the place. No rushed itineraries, no bus-tour pace." },
       { q: "What if something goes wrong?", a: "24/7 phone support, Starlink satellite internet, backup emergency phone with Telstra SIM, and UHF radio. Emergency procedures and contacts are provided in your pre-departure briefing." },
     ],
   },
@@ -100,40 +99,40 @@ const FAQ_DATA = [
 
 const PACKAGES = [
   {
-    id: "kgari",
-    name: "K'gari Experience",
+    id: "sunshine-coast",
+    name: "Sunshine Coast & Hinterland",
     config: "Touring",
     duration: "5–7 Days",
     guests: "2–4 Guests",
-    route: "Brisbane → K'gari (Fraser Island)",
-    tagline: "The world's largest sand island by luxury SUV",
-    description: "Focused adventure on an iconic destination. Drive 75 Mile Beach, swim crystal-clear perched lakes, explore rainforest growing in sand. Stay at island resorts and coastal retreats. Add Hervey Bay for whale watching or extend to a full week at island pace.",
-    includes: ["Luxury SUV", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "K'gari permits + barge", "Beach driving briefing", "Luxury curated accommodation", "24/7 support"],
+    route: "Sunshine Coast / Brisbane · Noosa · Maleny · Eumundi",
+    tagline: "Coastal villages, hinterland views, and the best market towns in Queensland",
+    description: "Pick up at Brisbane or Sunshine Coast Airport (Maroochydore). Coastal days at Noosa — Hastings Street, the headland walk through Noosa National Park, Sunshine Beach. Inland through the hinterland — Maleny, Montville, Mapleton — for sweeping Glass House Mountains views, cheese makers, cellar doors, and rainforest boardwalks. Markets at Eumundi (Wed & Sat) and a heritage steam train through the Mary Valley. All sealed roads, all under three hours a day.",
+    includes: ["Luxury SUV", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Sunshine Coast or Brisbane airport delivery", "Luxury curated accommodation", "Hinterland & coast route guide", "24/7 support"],
     vibe: "coast",
     stops: [
-      { name: "Rainbow Beach & Inskip Point", day: "Day 1", type: "transit", desc: "Drive north from Brisbane (3–4hrs). Air down tyres at Inskip Point and catch the barge across to K'gari's southern tip.", stay: "Rainbow Beach accommodation", eat: "Rainbow Beach Surf Club before crossing", source: "QPWS — book via qld.gov.au/camping" },
-      { name: "Southern K'gari", day: "Days 2–3", type: "highlight", desc: "Lake McKenzie — arguably Australia's most beautiful freshwater lake. Crystal clear water, white silica sand. Central Station rainforest walk among towering satinay trees. Two nights to soak it in.", stay: "Kingfisher Bay Resort or Eurong Beach Resort", eat: "Resort dining", source: "QPWS — book via qld.gov.au/camping" },
-      { name: "75 Mile Beach & East Coast", day: "Day 4", type: "highlight", desc: "Drive the sand highway up the east coast. Eli Creek (float down the crystal creek), the Maheno Shipwreck, and the Pinnacles coloured sand cliffs.", stay: "Eurong Beach Resort or Sailfish on Fraser", eat: "Resort dining", source: "QPWS — book via qld.gov.au/camping" },
-      { name: "Northern K'gari", day: "Day 5", type: "highlight", desc: "Indian Head — climb the headland for whale and dolphin spotting (seasonal). Champagne Pools — natural rock pools with waves crashing over. Lake Wabby — a perched lake slowly swallowed by a sand blow.", stay: "Orchid Beach retreats", eat: "Local options or resort dining", source: "QPWS — book via qld.gov.au/camping" },
-      { name: "Hervey Bay (optional extension)", day: "Days 6–7", type: "stop", desc: "Barge back to the mainland via River Heads. Hervey Bay — whale watching capital of Australia (Jul–Nov), Urangan Pier, relaxed waterfront town. A slower finish before heading south.", stay: "Hervey Bay waterfront accommodation", eat: "The Black Dog Café, Coast Restaurant", source: "visitherveybay.com.au" },
+      { name: "Noosa", day: "Days 1–3", type: "highlight", desc: "Hastings Street and the river end of town. Noosa National Park headland walk — Tea Tree Bay, Granite Bay, Hell's Gates, Sunshine Beach. The Boathouse for sunset on the river. Three nights to do it properly.", stay: "Noosa boutique accommodation or beachfront resort", eat: "Wasabi, Locale, Bistro C, Sails Restaurant", source: "visitnoosa.com.au" },
+      { name: "Eumundi & Mary Valley", day: "Day 4", type: "stop", desc: "Eumundi Markets (Wed & Sat) — 500+ stalls under the fig trees, one of Australia's best craft markets. Drive the Mary Valley to Pomona for the Mary Valley Rattler heritage steam train. Lunch in Pomona or Cooroy.", stay: "Eumundi or Cooroy accommodation", eat: "Spirit House Yandina, Pomona Hotel", source: "eumundimarkets.com.au" },
+      { name: "Maleny & Montville", day: "Days 5–6", type: "highlight", desc: "Up the range into the hinterland. Maleny Dairies for cheese and milkshakes, Mary Cairncross Reserve treetop walk, Mapleton Falls. Montville's main street — galleries, fudge, antique shops. Sweeping views back over the Glass House Mountains. Two nights at a hinterland lodge.", stay: "Spicers Tamarind Retreat, Montville boutique lodges", eat: "The Long Apron at Spicers, Poets Café Montville", source: "hinterlandtourism.com.au" },
+      { name: "Glass House Mountains & Return", day: "Day 7", type: "transit", desc: "Glass House Mountains National Park — short walk up Mt Ngungun for one of the best lookouts in SEQ. Then back to Brisbane or Sunshine Coast Airport for drop-off.", stay: "Home", eat: "The Pineapple Garden Café Beerwah", source: "parks.des.qld.gov.au" },
     ],
   },
   {
-    id: "moreton",
-    name: "Moreton Island Experience",
+    id: "gold-coast",
+    name: "Gold Coast & Scenic Rim",
     config: "Touring",
-    duration: "4–5 Days",
+    duration: "5–7 Days",
     guests: "2–4 Guests",
-    route: "Brisbane · Moreton Island (Mulgumpin)",
-    tagline: "Wrecks, dolphins, and sand-tobogganing — an hour from Brisbane",
-    description: "The world's third-largest sand island, hiding in plain sight off the Brisbane coastline. MICAT barge from the Port of Brisbane straight to Tangalooma. Snorkel the Tangalooma Wrecks, climb Cape Moreton's heritage lighthouse, sand-toboggan the Desert, swim the Blue Lagoon, and hand-feed wild bottlenose dolphins at dusk. Short, focused, and properly remote despite the Brisbane skyline on the horizon.",
-    includes: ["Luxury SUV", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "MICAT barge + Moreton permits", "Beach driving briefing", "Luxury curated accommodation", "24/7 support"],
+    route: "Gold Coast / Brisbane · Burleigh · Tamborine · Lamington",
+    tagline: "Beaches in the morning, rainforest by lunch",
+    description: "Pick up at Gold Coast Airport (Coolangatta) or Brisbane. Two nights on the coast — Burleigh Heads, Currumbin, the headland walks and beach cafés. Then up into the Scenic Rim hinterland — Tamborine Mountain for galleries, wineries and the Skywalk, then deep into Lamington and Springbrook National Parks. Ancient Gondwana rainforest, glow-worm caves, waterfalls, and treetop walks. All sealed roads, all under three hours a day.",
+    includes: ["Luxury SUV", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Gold Coast or Brisbane airport delivery", "Luxury curated accommodation", "Scenic Rim route guide", "24/7 support"],
     vibe: "coast",
     stops: [
-      { name: "Brisbane → Tangalooma", day: "Day 1", type: "transit", desc: "We deliver to your Brisbane hotel or our Banyo yard. Short drive to the Port of Brisbane, then 75 minutes across the bay on the MICAT vehicle barge to Tangalooma. Air down tyres on arrival, vehicle briefing on the beach.", stay: "Tangalooma Island Resort", eat: "Tursiops Restaurant, Beach Café Tangalooma", source: "moretonislandadventures.com.au" },
-      { name: "Tangalooma & the Wrecks", day: "Days 2–3", type: "highlight", desc: "Snorkel the Tangalooma Wrecks — 15 sunken hulls now thriving as an artificial reef, ten metres off the beach. Sand-toboggan the Desert, swim the Blue Lagoon, walk to Honeyeater Lake. Hand-feed wild bottlenose dolphins at dusk on the Tangalooma jetty. Two nights at the resort.", stay: "Tangalooma Island Resort", eat: "Fire & Stone, Tursiops Restaurant", source: "tangalooma.com" },
-      { name: "Cape Moreton & North", day: "Day 4", type: "highlight", desc: "Drive the sand track north to Cape Moreton — Queensland's oldest lighthouse (1857) on the cliff edge, perfect for whale and dolphin spotting (seasonal). Champagne Pools at North Point, secluded swimming at Honeymoon Bay.", stay: "Tangalooma Island Resort or northern bush camp lodge", eat: "Resort dining", source: "parks.des.qld.gov.au" },
-      { name: "Return to Brisbane", day: "Day 5", type: "transit", desc: "Final swim, MICAT barge back to the mainland. Vehicle drop-off at our Banyo yard or your Brisbane hotel.", stay: "Home", eat: "One last lunch at the Port", source: "" },
+      { name: "Burleigh Heads & the Southern Coast", day: "Days 1–2", type: "highlight", desc: "Burleigh Heads National Park headland walk, the beach, the cafés on James Street. Currumbin Wildlife Sanctuary for hand-feeding rainbow lorikeets at dawn. Sunset at Point Danger looking back along the coast. Two nights on the southern Gold Coast.", stay: "Burleigh Heads or Kirra boutique accommodation", eat: "Rick Shores, Light Years, Justin Lane Pizzeria, Café Dbar", source: "destinationgoldcoast.com" },
+      { name: "Tamborine Mountain", day: "Days 3–4", type: "highlight", desc: "Up the range to Tamborine. The Gallery Walk — local artisans, cheese makers, cellar doors (Witches Falls, Cedar Creek, Albert River Wines). Rainforest Skywalk through the canopy. Cedar Creek Falls. Two nights among the boutique mountain lodges.", stay: "Pethers Rainforest Retreat, Tamborine Mountain boutique accommodation", eat: "Pethers, Mason Wines, Songbirds Rainforest Retreat", source: "tamborinemtncc.org.au" },
+      { name: "Lamington National Park", day: "Day 5", type: "highlight", desc: "Drive deep into the Gondwana rainforest. O'Reilly's — bird-feeding at the verandah, the Treetop Walk through the canopy, the Box Forest Circuit. Night walk for glow-worms and the rainforest after dark.", stay: "O'Reilly's Rainforest Retreat", eat: "O'Reilly's Mountain Café & Restaurant", source: "oreillys.com.au" },
+      { name: "Springbrook National Park", day: "Day 6", type: "highlight", desc: "Natural Bridge — glow-worm cave under a waterfall arch, accessible by a short rainforest walk. Best of All Lookout — straight out over the Tweed Valley. Purling Brook Falls circuit, Twin Falls.", stay: "Springbrook lodge accommodation", eat: "Dancing Waters Café Springbrook, Mouses House Rainforest Retreat", source: "parks.des.qld.gov.au" },
+      { name: "Return", day: "Day 7", type: "transit", desc: "Down the range to Gold Coast Airport or back to Brisbane for drop-off.", stay: "Home", eat: "One last coastal lunch", source: "" },
     ],
   },
   {
@@ -181,13 +180,13 @@ const PACKAGES = [
     duration: "5–7 Days",
     guests: "2–4 Guests",
     route: "Gold Coast / Ballina · Byron Bay · Yamba",
-    tagline: "Lighthouse walks, beach driving, and Australia's most laid-back coast",
-    description: "Pick up from Gold Coast or Ballina airport and head straight for Byron Bay. Cape Byron lighthouse, The Pass, The Farm. South to Air Force Beach for a taste of sand driving — no permit needed. Then Yamba, consistently rated one of Australia's best small towns. Short, coastal, and completely relaxed.",
-    includes: ["Luxury SUV", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Luxury curated accommodation", "Beach driving briefing", "24/7 support"],
+    tagline: "Lighthouse walks, hinterland villages, and Australia's most laid-back coast",
+    description: "Pick up from Gold Coast or Ballina airport and head straight for Byron Bay. Cape Byron lighthouse, The Pass, The Farm. Inland to Bangalow for the heritage village, then south to Lennox Head for headland views and surf-town atmosphere. Finish in Yamba, consistently rated one of Australia's best small towns. Short, coastal, and completely relaxed.",
+    includes: ["Luxury SUV", "All-inclusive daily rate", "Fleet fuel card (BP/Shell/Ampol)", "Breakfast included (where available)", "Curated dining guide", "Personal concierge", "Starlink satellite internet", "Luxury curated accommodation", "Northern Rivers route guide", "24/7 support"],
     vibe: "coast",
     stops: [
       { name: "Byron Bay", day: "Days 1–2", type: "highlight", desc: "Cape Byron lighthouse — most easterly point of mainland Australia. Sunrise walk, The Pass for surfing, Main Beach for swimming. The Farm for produce-driven dining. Two nights to soak it in.", stay: "Byron Bay accommodation", eat: "The Balcony Bar & Oyster Co, Three Blue Ducks at The Farm", source: "firstsunbyronbay.com.au" },
-      { name: "Ballina & Air Force Beach", day: "Day 3", type: "stop", desc: "South to Air Force Beach — 4.6km stretch of beach driving, no permit required, free access. Easy sand driving introduction. Richmond River, Ballina waterfront.", stay: "Ballina accommodation", eat: "Wharf Bar & Restaurant Ballina", source: "flatrocktentpark.com.au" },
+      { name: "Lennox Head & Ballina", day: "Day 3", type: "stop", desc: "South to Lennox Head — Pat Morton Lookout for whales (Jun–Nov), the Seven Mile Beach headland, surf-town main street. Then Ballina for the Richmond River waterfront and lunch on the marina.", stay: "Ballina or Lennox Head accommodation", eat: "Wharf Bar & Restaurant Ballina, Foam Coffee Lennox", source: "discoverballina.com.au" },
       { name: "Yamba", day: "Days 4–5", type: "highlight", desc: "Consistently rated one of Australia's best small towns. Angourie — NSW's first surfing reserve, blue and green freshwater pools in the rock shelves. Fish and chips on the headland. Proper dwell time.", stay: "Yamba accommodation", eat: "Beachwood Café, Pacific Hotel Yamba (sunset on the deck)", source: "bluedolphinholidayresort.com.au" },
       { name: "Return", day: "Days 6–7", type: "transit", desc: "Drive back to Gold Coast or Ballina for drop-off. Optional extra night in Byron or the hinterland if you're not ready to leave.", stay: "Byron Bay or Gold Coast accommodation", eat: "Your choice — one last café stop", source: "" },
     ],
@@ -300,17 +299,17 @@ export default function SouthernHorizonSite() {
   const handleSubmit = async () => {
     setFormSubmitting(true);
     const id = "SH-" + Date.now().toString(36).toUpperCase();
-    const pkgMap = {"K'gari Experience":"kgari","Moreton Island Experience":"moreton",
+    const pkgMap = {"Sunshine Coast & Hinterland":"sunshine-coast","Gold Coast & Scenic Rim":"gold-coast",
       "Tropical North":"tropical-north","Whitsundays":"whitsundays","Byron Bay":"byron-bay",
       "Southern Downs Golf & Wine":"southern-downs","Custom Journey":"custom","Not sure yet":"custom"};
     const pkgId = pkgMap[formData.package] || "custom";
 
     const pkgStops = {
-      kgari: [{n:"Rainbow Beach & Inskip",ni:1},{n:"Southern K'gari",ni:2},{n:"75 Mile Beach",ni:1},{n:"Northern K'gari",ni:1},{n:"Hervey Bay (optional)",ni:1}],
-      moreton: [{n:"Brisbane → Tangalooma",ni:1},{n:"Tangalooma & the Wrecks",ni:2},{n:"Cape Moreton & North",ni:1},{n:"Return to Brisbane",ni:0}],
+      "sunshine-coast": [{n:"Noosa",ni:3},{n:"Eumundi & Mary Valley",ni:1},{n:"Maleny & Montville",ni:2},{n:"Glass House Mountains & Return",ni:0}],
+      "gold-coast": [{n:"Burleigh Heads & the Southern Coast",ni:2},{n:"Tamborine Mountain",ni:2},{n:"Lamington National Park",ni:1},{n:"Springbrook National Park",ni:1},{n:"Return",ni:0}],
       "tropical-north": [{n:"Cairns",ni:1},{n:"Port Douglas & Mossman Gorge",ni:2},{n:"Daintree Rainforest",ni:2},{n:"Cape Tribulation",ni:2},{n:"Atherton Tablelands",ni:2},{n:"Cairns (return)",ni:2}],
       whitsundays: [{n:"Airlie Beach",ni:3},{n:"Cape Hillsborough",ni:2},{n:"Mackay",ni:1}],
-      "byron-bay": [{n:"Byron Bay",ni:2},{n:"Ballina & Air Force Beach",ni:1},{n:"Yamba",ni:2}],
+      "byron-bay": [{n:"Byron Bay",ni:2},{n:"Lennox Head & Ballina",ni:1},{n:"Yamba",ni:2}],
       "southern-downs": [{n:"Toowoomba",ni:1},{n:"Stanthorpe & the Granite Belt",ni:3},{n:"Warwick & Killarney",ni:2},{n:"Brisbane (return)",ni:0}],
       custom: [],
     };
@@ -917,7 +916,7 @@ export default function SouthernHorizonSite() {
               maxWidth:520,margin:"0 auto 48px",fontWeight:300,letterSpacing:0.2}}>
               A fully-equipped luxury SUV — delivered to your airport,
               your hotel, or wherever you need it. 
-              Drive K'gari's white sand, the Daintree's ancient rainforest, the Granite Belt's vineyards —
+              Cruise the Sunshine Coast hinterland, the Daintree's ancient rainforest, the Granite Belt's vineyards —
               or all of them in one trip. Vehicle, accommodation, breakfast (where available), fuel, and concierge support included.
             </p>
             <div style={{display:"flex",justifyContent:"center"}}>
@@ -1111,7 +1110,7 @@ export default function SouthernHorizonSite() {
               Luxury <em style={{fontStyle:"italic"}}>Touring SUV</em>
             </h2>
             <p style={{fontFamily:sans,fontSize:14,color:neutral.light,fontWeight:300,letterSpacing:0.15,maxWidth:440,margin:"12px auto 0",lineHeight:1.7}}>
-              As comfortable on the highway as it is on K'gari's sand or coastal unsealed roads.
+              As comfortable on the highway as it is on hinterland switchbacks or long coastal touring days.
             </p>
           </div>
           <div className="g4" style={{display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:10,marginBottom:44}}>
@@ -1418,12 +1417,12 @@ export default function SouthernHorizonSite() {
                   <div><label style={{fontFamily:sans,fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",color:"rgba(255,255,255,0.35)",marginBottom:5,display:"block"}}>Package</label>
                     <select value={formData.package} onChange={e=>setFormData(p=>({...p,package:e.target.value,duration:""}))}
                       style={{background:"rgba(255,255,255,0.07)",borderColor:"rgba(255,255,255,0.12)",color:formData.package?"#fff":"rgba(255,255,255,0.3)",borderRadius:8}}>
-                      {["","K'gari Experience","Moreton Island Experience","Tropical North","Whitsundays","Byron Bay","Southern Downs Golf & Wine","Custom Journey","Not sure yet"].map(o=><option key={o} value={o} style={{background:"#1C1917",color:o?"#fff":"#A8A29E"}}>{o||"Select..."}</option>)}
+                      {["","Sunshine Coast & Hinterland","Gold Coast & Scenic Rim","Tropical North","Whitsundays","Byron Bay","Southern Downs Golf & Wine","Custom Journey","Not sure yet"].map(o=><option key={o} value={o} style={{background:"#1C1917",color:o?"#fff":"#A8A29E"}}>{o||"Select..."}</option>)}
                     </select></div>
                   <div><label style={{fontFamily:sans,fontSize:10,fontWeight:700,letterSpacing:1.5,textTransform:"uppercase",color:"rgba(255,255,255,0.35)",marginBottom:5,display:"block"}}>Duration</label>
                     {(()=>{
-                      const durOpts = {"K'gari Experience":["","5 days","6 days","7 days"],
-                        "Moreton Island Experience":["","4 days","5 days"],
+                      const durOpts = {"Sunshine Coast & Hinterland":["","5 days","6 days","7 days"],
+                        "Gold Coast & Scenic Rim":["","5 days","6 days","7 days"],
                         "Tropical North":["","7 days","8 days","9 days","10 days"],
                         "Whitsundays":["","7 days"],
                         "Byron Bay":["","5 days","6 days","7 days"],
