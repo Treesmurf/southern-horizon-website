@@ -20,7 +20,7 @@ const SHCoLogo = ({ size = 44, light = false }) => (
 // article on page load via Wikipedia's public API, guaranteeing the image
 // actually matches the destination. Fallback URLs kick in only if the fetch fails.
 const WIKI_ARTICLES = {
-  hero: "Glass_House_Mountains",
+  hero: "Whitehaven_Beach",
   "sunshine-coast": "Noosa_National_Park",
   "gold-coast": "Lamington_National_Park",
   "tropical-north": "Daintree_National_Park",
